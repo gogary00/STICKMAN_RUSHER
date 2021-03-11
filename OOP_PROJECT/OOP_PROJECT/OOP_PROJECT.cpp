@@ -27,5 +27,5 @@ int main(array<System::String ^> ^args) {
 	do {
 		std::cin >> guess;
 	} while (!Guess(guess));
-	return 0;
+	return 1;
 }
