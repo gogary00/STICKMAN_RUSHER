@@ -1,24 +1,21 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace System;
 using namespace std;
 
 bool Guess(int number) {
 	static int target = -1;
+	srand(time(NULL));
 	if (target==-1) {
-		Random r;
-		target = r.Next() % 100 + 1;
+		target = rand() % 100 + 1;
 	}
 
 	if (number==target) {
-		cout << "Correct !!";
-		target = -1;
 		return true;
-	}
-	else {
-		cout << "Wrong" << endl;
 	}
 	return false;
 }
