@@ -1,15 +1,16 @@
-#include "stdafx.h"
 #include <string>
 #include <iostream>
-using namespace System;
+#include <cstdlib>
+#include <ctime>
 
 bool Guess(int number) {
 	return false;
 }
-int main(array<System::String ^> ^args){
+
+int main(){
 	int guess;
 	do {
-		std::cin >> guess;
+		std::cout << "Choose a number between 1 - 100 :"; std::cin >> guess;
 	} while (!Guess(guess));
 	return 0;
 }
