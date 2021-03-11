@@ -11,10 +11,16 @@ bool Guess(int number) {
 		target = rand() % 100 + 1;
 	}
 
-	if (number == target) {
-		return true;
+	if (number > target) {
+		std::cout << "Smaller" << std::endl;
+		return false;
 	}
-	return false;
+	else if (number < target) {
+		std::cout << "Bigger" << std::endl;
+		return false;
+	}
+	return true;
+
 }
 int main(array<System::String ^> ^args) {
 	int guess;
