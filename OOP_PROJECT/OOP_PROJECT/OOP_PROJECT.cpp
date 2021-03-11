@@ -13,5 +13,5 @@ int main()
 		std::cout << "Choose a number between 1 - 100 :";
 		std::cin >> guess;
 	} while (!Guess(guess));
-	return 1;
+	return 0;
 }
