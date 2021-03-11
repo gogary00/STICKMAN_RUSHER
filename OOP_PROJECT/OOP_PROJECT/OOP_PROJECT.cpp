@@ -12,7 +12,7 @@ bool Guess(int number) {
 	}
 
 	if (number == target) {
-		std::cout << "Correct !!";
+		std::cout << "Correct !!"
 		target = -1;
 		return true;
 	}
