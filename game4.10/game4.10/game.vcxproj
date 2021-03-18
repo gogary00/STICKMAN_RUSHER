@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -22,25 +22,26 @@
     <ProjectGuid>{DDD280D7-4B85-4B03-BBC4-C46CA9BECCCB}</ProjectGuid>
     <RootNamespace>game</RootNamespace>
     <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UnitTest|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -321,6 +322,101 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='UnitTest|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\bmpSrc\angel-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\bk1.bmp" />
+    <Image Include="..\..\bmpSrc\bk2.bmp" />
+    <Image Include="..\..\bmpSrc\bk3.bmp" />
+    <Image Include="..\..\bmpSrc\bk4.bmp" />
+    <Image Include="..\..\bmpSrc\bridge-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\coinsfont.bmp" />
+    <Image Include="..\..\bmpSrc\dummy-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\dummy-sheet1.bmp" />
+    <Image Include="..\..\bmpSrc\dummy2-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\dummy2-sheet1.bmp" />
+    <Image Include="..\..\bmpSrc\espada-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\loading-logo.bmp" />
+    <Image Include="..\..\bmpSrc\lstart-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\menulightflare-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\particles8.bmp" />
+    <Image Include="..\..\bmpSrc\particles9.bmp" />
+    <Image Include="..\..\bmpSrc\player-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\player-sheet1.bmp" />
+    <Image Include="..\..\bmpSrc\player-sheet2.bmp" />
+    <Image Include="..\..\bmpSrc\precio1-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\precio2-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\precio3-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\precio4-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\precio5-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\projectile-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\ring-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\ring2-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\ship-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\shuri-sheet0 (1).bmp" />
+    <Image Include="..\..\bmpSrc\shuri-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite109-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite11-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite116-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite126-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite139-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite144-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite145-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite149-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite15-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite150-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite153-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite154-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite155-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite156-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite157-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite158-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite159-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite160-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite161-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite162-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite163-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite164-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite170-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite171-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite172-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite173-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite176-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite178-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite179-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite180-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite181-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite25-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite28-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite29-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite33-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite33-sheet1.bmp" />
+    <Image Include="..\..\bmpSrc\sprite42-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite44-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite48-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite49-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite50-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite51-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite60-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite61-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite62-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite63-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite67-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite68-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite85-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite9-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite92-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite92-sheet1.bmp" />
+    <Image Include="..\..\bmpSrc\sprite96-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite97-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\sprite98-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\tiledbackground17.bmp" />
+    <Image Include="..\..\bmpSrc\upgrade1-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\upgrade10-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\upgrade2-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\upgrade3-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\upgrade4-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\upgrade9-sheet0.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

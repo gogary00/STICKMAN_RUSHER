@@ -68,7 +68,8 @@ namespace game_framework {
 	protected:
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		CMovingBitmap logo;								// csie的logo
+		CMovingBitmap logo1, logo2;
+		CMovingBitmap green_effect;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
