@@ -69,7 +69,9 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		CMovingBitmap logo1, logo2;
+		CMovingBitmap btnAudio_open,btnAudio_close,btnStartGame;
 		CMovingBitmap green_effect;
+		CMovingBitmap character_body, character_eye;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
