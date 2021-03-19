@@ -55,9 +55,11 @@
 #include "Resource.h"
 #include <mmsystem.h>
 #include <ddraw.h>
+#include <windows.h>
 #include "audio.h"
 #include "gamelib.h"
 #include "mygame.h"
+#include <string>
 
 namespace game_framework {
 /////////////////////////////////////////////////////////////////////////////
@@ -87,6 +89,7 @@ void CGameStateInit::OnInit()
 	btnStartGame.LoadBitmap(IDB_BITMAP43);
 	character_body.LoadBitmap(IDB_BITMAP75, RGB(255, 255, 255));
 	character_eye.LoadBitmap(IDB_BITMAP74, RGB(0, 0, 0));
+	character_sword.LoadBitmap(IDB_BITMAP71, RGB(255, 255, 255));
 	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	//
 	// 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
@@ -108,8 +111,13 @@ void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 }
 
 void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)
-{
-	GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+{	
+	if (point.x > SIZE_X - btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
+		swAudio++;
+	}
+	if (point.x < 207 && point.y>300 && point.y < 300 + btnStartGame.Height()) {
+		GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+	}
 }
 
 void CGameStateInit::OnShow()
@@ -125,18 +133,25 @@ void CGameStateInit::OnShow()
 	btnStartGame.SetTopLeft(0, 300);
 	character_body.SetTopLeft(520, 60);
 	character_eye.SetTopLeft(520, 50);
+	character_sword.SetTopLeft(420, 220);
 
 	logo1.ShowBitmap();
 	green_effect.ShowBitmap();
 	logo2.ShowBitmap();
-	btnAudio_open.ShowBitmap();
 	btnStartGame.ShowBitmap();
 	character_body.ShowBitmap();
 	character_eye.ShowBitmap();
+	character_sword.ShowBitmap();
+	if (swAudio%2 == 0) {
+		btnAudio_open.ShowBitmap();
+	}
+	else {
+		btnAudio_close.ShowBitmap();
+	}
 	//
 	// Demo螢幕字型的使用，不過開發時請盡量避免直接使用字型，改用CMovingBitmap比較好
 	//
-	
+
 	/*CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
 	CFont f,*fp;
 	f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字
