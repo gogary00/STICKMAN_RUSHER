@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (Traditional, Taiwan) resources
+// 中文 (繁體，台灣) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
 LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL
@@ -63,26 +63,233 @@ END
 //
 
 IDB_BALL                BITMAP                  "..\\res\\ball.bmp"
+
 IDB_ERASER1             BITMAP                  "..\\res\\eraser1.bmp"
+
 IDB_BACKGROUND          BITMAP                  "..\\res\\ntutcsie.bmp"
+
 IDB_CORNER              BITMAP                  "..\\res\\corner.bmp"
+
 IDB_0                   BITMAP                  "..\\res\\bmp0.bmp"
+
 IDB_1                   BITMAP                  "..\\res\\bmp1.bmp"
+
 IDB_2                   BITMAP                  "..\\res\\bmp2.bmp"
+
 IDB_3                   BITMAP                  "..\\res\\bmp3.bmp"
+
 IDB_4                   BITMAP                  "..\\res\\bmp4.bmp"
+
 IDB_5                   BITMAP                  "..\\res\\bmp5.bmp"
+
 IDB_6                   BITMAP                  "..\\res\\bmp6.bmp"
+
 IDB_7                   BITMAP                  "..\\res\\bmp7.bmp"
+
 IDB_8                   BITMAP                  "..\\res\\bmp8.bmp"
+
 IDB_9                   BITMAP                  "..\\res\\bmp9.bmp"
+
 IDB_MINUS               BITMAP                  "..\\res\\bmp10.bmp"
+
 IDB_CENTER              BITMAP                  "..\\res\\center.bmp"
+
 IDB_ERASER2             BITMAP                  "..\\res\\eraser2.bmp"
+
 IDB_ERASER3             BITMAP                  "..\\res\\eraser3.bmp"
+
 IDB_CONTINUE            BITMAP                  "..\\res\\continue.bmp"
+
 IDB_HELP                BITMAP                  "..\\res\\help.bmp"
+
 IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
+
+IDB_BITMAP3             BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\angel-sheet0.bmp"
+
+IDB_BITMAP4             BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\bk1.bmp"
+
+IDB_BITMAP5             BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\bk2.bmp"
+
+IDB_BITMAP6             BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\bk3.bmp"
+
+IDB_BITMAP7             BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\bk4.bmp"
+
+IDB_BITMAP8             BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\bridge-sheet0.bmp"
+
+IDB_BITMAP9             BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\coinsfont.bmp"
+
+IDB_BITMAP10            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\dummy2-sheet0.bmp"
+
+IDB_BITMAP11            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\dummy2-sheet1.bmp"
+
+IDB_BITMAP12            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\dummy-sheet0.bmp"
+
+IDB_BITMAP13            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\dummy-sheet1.bmp"
+
+IDB_BITMAP14            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\espada-sheet0.bmp"
+
+IDB_BITMAP15            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\loading-logo.bmp"
+
+IDB_BITMAP16            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\lstart-sheet0.bmp"
+
+IDB_BITMAP17            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\menulightflare-sheet0.bmp"
+
+IDB_BITMAP18            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\particles8.bmp"
+
+IDB_BITMAP19            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\particles9.bmp"
+
+IDB_BITMAP20            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\player-sheet0.bmp"
+
+IDB_BITMAP21            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\player-sheet1.bmp"
+
+IDB_BITMAP22            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\player-sheet2.bmp"
+
+IDB_BITMAP23            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\precio1-sheet0.bmp"
+
+IDB_BITMAP24            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\precio2-sheet0.bmp"
+
+IDB_BITMAP25            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\precio3-sheet0.bmp"
+
+IDB_BITMAP26            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\precio4-sheet0.bmp"
+
+IDB_BITMAP27            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\precio5-sheet0.bmp"
+
+IDB_BITMAP28            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\projectile-sheet0.bmp"
+
+IDB_BITMAP29            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\ring2-sheet0.bmp"
+
+IDB_BITMAP30            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\ring-sheet0.bmp"
+
+IDB_BITMAP31            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\ship-sheet0.bmp"
+
+IDB_BITMAP32            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\shuri-sheet0 (1).bmp"
+
+IDB_BITMAP33            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\shuri-sheet0.bmp"
+
+IDB_BITMAP34            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite9-sheet0.bmp"
+
+IDB_BITMAP35            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite11-sheet0.bmp"
+
+IDB_BITMAP36            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite15-sheet0.bmp"
+
+IDB_BITMAP37            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite25-sheet0.bmp"
+
+IDB_BITMAP38            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite28-sheet0.bmp"
+
+IDB_BITMAP39            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite29-sheet0.bmp"
+
+IDB_BITMAP40            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite33-sheet0.bmp"
+
+IDB_BITMAP41            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite33-sheet1.bmp"
+
+IDB_BITMAP42            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite42-sheet0.bmp"
+
+IDB_BITMAP43            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite44-sheet0.bmp"
+
+IDB_BITMAP44            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite48-sheet0.bmp"
+
+IDB_BITMAP45            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite49-sheet0.bmp"
+
+IDB_BITMAP46            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite50-sheet0.bmp"
+
+IDB_BITMAP47            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite51-sheet0.bmp"
+
+IDB_BITMAP48            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite60-sheet0.bmp"
+
+IDB_BITMAP49            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite61-sheet0.bmp"
+
+IDB_BITMAP50            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite62-sheet0.bmp"
+
+IDB_BITMAP51            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite63-sheet0.bmp"
+
+IDB_BITMAP52            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite67-sheet0.bmp"
+
+IDB_BITMAP53            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite68-sheet0.bmp"
+
+IDB_BITMAP54            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite85-sheet0.bmp"
+
+IDB_BITMAP55            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite92-sheet0.bmp"
+
+IDB_BITMAP56            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite92-sheet1.bmp"
+
+IDB_BITMAP57            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite96-sheet0.bmp"
+
+IDB_BITMAP58            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite97-sheet0.bmp"
+
+IDB_BITMAP59            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite98-sheet0.bmp"
+
+IDB_BITMAP60            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite109-sheet0.bmp"
+
+IDB_BITMAP61            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite116-sheet0.bmp"
+
+IDB_BITMAP62            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite126-sheet0.bmp"
+
+IDB_BITMAP63            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite139-sheet0.bmp"
+
+IDB_BITMAP64            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite144-sheet0.bmp"
+
+IDB_BITMAP65            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite145-sheet0.bmp"
+
+IDB_BITMAP66            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite149-sheet0.bmp"
+
+IDB_BITMAP67            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite150-sheet0.bmp"
+
+IDB_BITMAP68            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite153-sheet0.bmp"
+
+IDB_BITMAP69            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite154-sheet0.bmp"
+
+IDB_BITMAP70            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite155-sheet0.bmp"
+
+IDB_BITMAP71            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite156-sheet0.bmp"
+
+IDB_BITMAP72            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite157-sheet0.bmp"
+
+IDB_BITMAP73            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite158-sheet0.bmp"
+
+IDB_BITMAP74            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite159-sheet0.bmp"
+
+IDB_BITMAP75            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite160-sheet0.bmp"
+
+IDB_BITMAP76            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite161-sheet0.bmp"
+
+IDB_BITMAP77            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite162-sheet0.bmp"
+
+IDB_BITMAP78            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite163-sheet0.bmp"
+
+IDB_BITMAP79            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite164-sheet0.bmp"
+
+IDB_BITMAP80            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite170-sheet0.bmp"
+
+IDB_BITMAP81            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite171-sheet0.bmp"
+
+IDB_BITMAP82            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite172-sheet0.bmp"
+
+IDB_BITMAP83            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite173-sheet0.bmp"
+
+IDB_BITMAP84            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite176-sheet0.bmp"
+
+IDB_BITMAP85            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite178-sheet0.bmp"
+
+IDB_BITMAP86            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite179-sheet0.bmp"
+
+IDB_BITMAP87            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite180-sheet0.bmp"
+
+IDB_BITMAP88            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\sprite181-sheet0.bmp"
+
+IDB_BITMAP89            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\tiledbackground17.bmp"
+
+IDB_BITMAP90            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\upgrade1-sheet0.bmp"
+
+IDB_BITMAP91            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\upgrade2-sheet0.bmp"
+
+IDB_BITMAP92            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\upgrade3-sheet0.bmp"
+
+IDB_BITMAP93            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\upgrade4-sheet0.bmp"
+
+IDB_BITMAP94            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\upgrade9-sheet0.bmp"
+
+IDB_BITMAP95            BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\bmpSrc\\upgrade10-sheet0.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -90,12 +297,13 @@ IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
 //
 
 IDC_GAMECURSOR          CURSOR                  "..\\res\\gamecurs.cur"
-#endif    // Chinese (Traditional, Taiwan) resources
+
+#endif    // 中文 (繁體，台灣) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// 英文 (美國) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -108,6 +316,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 IDR_MAINFRAME           BITMAP                  "..\\res\\Toolbar.bmp"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Icon
@@ -116,7 +325,9 @@ IDR_MAINFRAME           BITMAP                  "..\\res\\Toolbar.bmp"
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "..\\res\\game.ico"
+
 IDR_GAMETYPE            ICON                    "..\\res\\gameDoc.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -390,7 +601,7 @@ BEGIN
     ID_BUTTON_UNITTEST      "Perform Unit Test"
 END
 
-#endif    // English (United States) resources
+#endif    // 英文 (美國) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

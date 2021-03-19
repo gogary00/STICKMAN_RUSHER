@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by game.rc
+// Microsoft Visual C++ 產生的 Include 檔案。
+// 由 game.rc 使用
 //
 #define IDD_ABOUTBOX                    100
 #define IDP_SOCKETS_INIT_FAILED         104
@@ -35,6 +35,99 @@
 #define IDB_HELP                        155
 #define IDB_BITMAP2                     156
 #define IDB_LOADING                     156
+#define IDB_BITMAP3                     157
+#define IDB_BITMAP4                     158
+#define IDB_BITMAP5                     159
+#define IDB_BITMAP6                     160
+#define IDB_BITMAP7                     161
+#define IDB_BITMAP8                     162
+#define IDB_BITMAP9                     163
+#define IDB_BITMAP10                    164
+#define IDB_BITMAP11                    165
+#define IDB_BITMAP12                    166
+#define IDB_BITMAP13                    167
+#define IDB_BITMAP14                    168
+#define IDB_BITMAP15                    169
+#define IDB_BITMAP16                    170
+#define IDB_BITMAP17                    171
+#define IDB_BITMAP18                    172
+#define IDB_BITMAP19                    173
+#define IDB_BITMAP20                    174
+#define IDB_BITMAP21                    175
+#define IDB_BITMAP22                    176
+#define IDB_BITMAP23                    177
+#define IDB_BITMAP24                    178
+#define IDB_BITMAP25                    179
+#define IDB_BITMAP26                    180
+#define IDB_BITMAP27                    181
+#define IDB_BITMAP28                    182
+#define IDB_BITMAP29                    183
+#define IDB_BITMAP30                    184
+#define IDB_BITMAP31                    185
+#define IDB_BITMAP32                    186
+#define IDB_BITMAP33                    187
+#define IDB_BITMAP34                    188
+#define IDB_BITMAP35                    189
+#define IDB_BITMAP36                    190
+#define IDB_BITMAP37                    191
+#define IDB_BITMAP38                    192
+#define IDB_BITMAP39                    193
+#define IDB_BITMAP40                    194
+#define IDB_BITMAP41                    195
+#define IDB_BITMAP42                    196
+#define IDB_BITMAP43                    197
+#define IDB_BITMAP44                    198
+#define IDB_BITMAP45                    199
+#define IDB_BITMAP46                    200
+#define IDB_BITMAP47                    201
+#define IDB_BITMAP48                    202
+#define IDB_BITMAP49                    203
+#define IDB_BITMAP50                    204
+#define IDB_BITMAP51                    205
+#define IDB_BITMAP52                    206
+#define IDB_BITMAP53                    207
+#define IDB_BITMAP54                    208
+#define IDB_BITMAP55                    209
+#define IDB_BITMAP56                    210
+#define IDB_BITMAP57                    211
+#define IDB_BITMAP58                    212
+#define IDB_BITMAP59                    213
+#define IDB_BITMAP60                    214
+#define IDB_BITMAP61                    215
+#define IDB_BITMAP62                    216
+#define IDB_BITMAP63                    217
+#define IDB_BITMAP64                    218
+#define IDB_BITMAP65                    219
+#define IDB_BITMAP66                    220
+#define IDB_BITMAP67                    221
+#define IDB_BITMAP68                    222
+#define IDB_BITMAP69                    223
+#define IDB_BITMAP70                    224
+#define IDB_BITMAP71                    225
+#define IDB_BITMAP72                    226
+#define IDB_BITMAP73                    227
+#define IDB_BITMAP74                    228
+#define IDB_BITMAP75                    229
+#define IDB_BITMAP76                    230
+#define IDB_BITMAP77                    231
+#define IDB_BITMAP78                    232
+#define IDB_BITMAP79                    233
+#define IDB_BITMAP80                    234
+#define IDB_BITMAP81                    235
+#define IDB_BITMAP82                    236
+#define IDB_BITMAP83                    237
+#define IDB_BITMAP84                    238
+#define IDB_BITMAP85                    239
+#define IDB_BITMAP86                    240
+#define IDB_BITMAP87                    241
+#define IDB_BITMAP88                    242
+#define IDB_BITMAP89                    243
+#define IDB_BITMAP90                    244
+#define IDB_BITMAP91                    245
+#define IDB_BITMAP92                    246
+#define IDB_BITMAP93                    247
+#define IDB_BITMAP94                    248
+#define IDB_BITMAP95                    249
 #define IDC_README                      1001
 #define ID_FILE_PAUSE                   32771
 #define ID_TOGGLE_FULLSCREEN            32772
@@ -47,7 +140,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        157
+#define _APS_NEXT_RESOURCE_VALUE        250
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           101

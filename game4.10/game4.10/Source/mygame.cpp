@@ -79,7 +79,14 @@ void CGameStateInit::OnInit()
 	//
 	// 開始載入資料
 	//
-	logo.LoadBitmap(IDB_BACKGROUND);
+	logo1.LoadBitmap(IDB_BITMAP54);
+	logo2.LoadBitmap(IDB_BITMAP42, RGB(255, 255, 255));
+	green_effect.LoadBitmap(IDB_BITMAP68, RGB(0, 0, 0));
+	btnAudio_open.LoadBitmap(IDB_BITMAP55, RGB(0, 0, 0));
+	btnAudio_close.LoadBitmap(IDB_BITMAP56, RGB(0, 0, 0));
+	btnStartGame.LoadBitmap(IDB_BITMAP43);
+	character_body.LoadBitmap(IDB_BITMAP75, RGB(255, 255, 255));
+	character_eye.LoadBitmap(IDB_BITMAP74, RGB(0, 0, 0));
 	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	//
 	// 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
@@ -110,12 +117,27 @@ void CGameStateInit::OnShow()
 	//
 	// 貼上logo
 	//
-	logo.SetTopLeft((SIZE_X - logo.Width())/2, SIZE_Y/8);
-	logo.ShowBitmap();
+	logo1.SetTopLeft(0,0);
+	logo2.SetTopLeft(0, 0);
+	green_effect.SetTopLeft(150,200);
+	btnAudio_open.SetTopLeft(SIZE_X-btnAudio_open.Width(), 0);
+	btnAudio_close.SetTopLeft(SIZE_X - btnAudio_close.Width(), 0);
+	btnStartGame.SetTopLeft(0, 300);
+	character_body.SetTopLeft(520, 60);
+	character_eye.SetTopLeft(520, 50);
+
+	logo1.ShowBitmap();
+	green_effect.ShowBitmap();
+	logo2.ShowBitmap();
+	btnAudio_open.ShowBitmap();
+	btnStartGame.ShowBitmap();
+	character_body.ShowBitmap();
+	character_eye.ShowBitmap();
 	//
 	// Demo螢幕字型的使用，不過開發時請盡量避免直接使用字型，改用CMovingBitmap比較好
 	//
-	CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
+	
+	/*CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
 	CFont f,*fp;
 	f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字
 	fp=pDC->SelectObject(&f);					// 選用 font f
@@ -127,7 +149,7 @@ void CGameStateInit::OnShow()
 		pDC->TextOut(5,425,"Press Ctrl-Q to pause the Game.");
 	pDC->TextOut(5,455,"Press Alt-F4 or ESC to Quit.");
 	pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
-	CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
+	CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC*/
 }								
 
 /////////////////////////////////////////////////////////////////////////////
