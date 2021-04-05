@@ -55,17 +55,18 @@
 #include "Resource.h"
 #include <mmsystem.h>
 #include <ddraw.h>
+#include <windows.h>
 #include "audio.h"
 #include "gamelib.h"
 #include "mygame.h"
+#include <string>
 
 namespace game_framework {
 /////////////////////////////////////////////////////////////////////////////
 // 這個class為遊戲的遊戲開頭畫面物件
 /////////////////////////////////////////////////////////////////////////////
 
-CGameStateInit::CGameStateInit(CGame *g)
-: CGameState(g)
+CGameStateInit::CGameStateInit(CGame *g) : CGameState(g)
 {
 }
 
@@ -87,6 +88,7 @@ void CGameStateInit::OnInit()
 	btnStartGame.LoadBitmap(IDB_BITMAP43);
 	character_body.LoadBitmap(IDB_BITMAP75, RGB(255, 255, 255));
 	character_eye.LoadBitmap(IDB_BITMAP74, RGB(0, 0, 0));
+	character_sword.LoadBitmap(IDB_BITMAP71, RGB(255, 255, 255));
 	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	//
 	// 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
@@ -102,14 +104,19 @@ void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_ESC = 27;
 	const char KEY_SPACE = ' ';
 	if (nChar == KEY_SPACE)
-		GotoGameState(GAME_STATE_RUN);						// 切換至GAME_STATE_RUN
+		GotoGameState(GAME_STATE_PREPARE);						// 切換至GAME_STATE_PREPARE
 	else if (nChar == KEY_ESC)								// Demo 關閉遊戲的方法
 		PostMessage(AfxGetMainWnd()->m_hWnd, WM_CLOSE,0,0);	// 關閉遊戲
 }
 
 void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)
-{
-	GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+{	
+	if (point.x > SIZE_X - btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
+		swAudio++;
+	}
+	if (point.x < 207 && point.y>300 && point.y < 300 + btnStartGame.Height()) {
+		GotoGameState(GAME_STATE_PREPARE);		// 切換至GAME_STATE_PREPARE
+	}
 }
 
 void CGameStateInit::OnShow()
@@ -125,18 +132,25 @@ void CGameStateInit::OnShow()
 	btnStartGame.SetTopLeft(0, 300);
 	character_body.SetTopLeft(520, 60);
 	character_eye.SetTopLeft(520, 50);
+	character_sword.SetTopLeft(420, 220);
 
 	logo1.ShowBitmap();
 	green_effect.ShowBitmap();
 	logo2.ShowBitmap();
-	btnAudio_open.ShowBitmap();
 	btnStartGame.ShowBitmap();
 	character_body.ShowBitmap();
 	character_eye.ShowBitmap();
+	character_sword.ShowBitmap();
+	if (swAudio%2 == 0) {
+		btnAudio_open.ShowBitmap();
+	}
+	else {
+		btnAudio_close.ShowBitmap();
+	}
 	//
 	// Demo螢幕字型的使用，不過開發時請盡量避免直接使用字型，改用CMovingBitmap比較好
 	//
-	
+
 	/*CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
 	CFont f,*fp;
 	f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字
@@ -156,8 +170,101 @@ void CGameStateInit::OnShow()
 // 這個class為遊戲的結束狀態(Game Over)
 /////////////////////////////////////////////////////////////////////////////
 
-CGameStateOver::CGameStateOver(CGame *g)
-: CGameState(g)
+/////////////////////////////////////////////////////////////////////////////
+//Prepare
+CGameStatePrepare::CGameStatePrepare(CGame *g) : CGameState(g) {
+
+}
+
+void CGameStatePrepare::OnInit() {
+	background.LoadBitmap(IDB_BITMAP88);
+	btnStartGame.LoadBitmap(IDB_BITMAP43);
+	btnAudio_open.LoadBitmap(IDB_BITMAP55, RGB(0, 0, 0));
+	btnAudio_close.LoadBitmap(IDB_BITMAP56, RGB(0, 0, 0));
+}
+
+void CGameStatePrepare::OnBeginState() {
+	
+}
+
+void CGameStatePrepare::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
+
+}
+
+void CGameStatePrepare::OnLButtonDown(UINT nFlags, CPoint point) {
+	if (point.x < btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
+		swAudio++;
+	}
+	if (point.x > SIZE_X-btnStartGame.Width() && point.y>241 && point.y < 241 + btnStartGame.Height()) {
+		GotoGameState(GAME_STATE_SELECT);		// 切換至GAME_STATE_SELECT
+	}
+}
+
+void CGameStatePrepare::OnShow() {
+	background.SetTopLeft(0, 0);
+	btnStartGame.SetTopLeft(SIZE_X - btnStartGame.Width(), 241);
+	btnAudio_open.SetTopLeft(10, 10);
+	btnAudio_close.SetTopLeft(10, 10);
+
+	background.ShowBitmap();
+	btnStartGame.ShowBitmap();
+	if (swAudio % 2 == 0) {
+		btnAudio_open.ShowBitmap();
+	}
+	else {
+		btnAudio_close.ShowBitmap();
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+CGameStateSelect::CGameStateSelect(CGame *g) : CGameState(g) {
+	
+}
+
+void CGameStateSelect::OnInit() {
+	background.LoadBitmap(IDB_BITMAP84);
+	btnStartGame.LoadBitmap(IDB_BITMAP43);
+	btnAudio_open.LoadBitmap(IDB_BITMAP55, RGB(0, 0, 0));
+	btnAudio_close.LoadBitmap(IDB_BITMAP56, RGB(0, 0, 0));
+}
+
+void CGameStateSelect::OnBeginState() {
+	
+}
+
+void CGameStateSelect::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
+
+}
+
+void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
+	if (point.x > SIZE_X-btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
+		swAudio++;
+	}
+	if (point.x > SIZE_X - btnStartGame.Width() && point.y > 400 && point.y < 400 + btnStartGame.Height()) {
+		GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+	}
+}
+
+void CGameStateSelect::OnShow() {
+	background.SetTopLeft(0, 0);
+	btnStartGame.SetTopLeft(SIZE_X - btnStartGame.Width(), 400);
+	btnAudio_open.SetTopLeft(SIZE_X-btnAudio_open.Width(), 10);
+	btnAudio_close.SetTopLeft(SIZE_X - btnAudio_open.Width(), 10);
+
+	background.ShowBitmap();
+	btnStartGame.ShowBitmap();
+	if (swAudio % 2 == 0) {
+		btnAudio_open.ShowBitmap();
+	}
+	else {
+		btnAudio_close.ShowBitmap();
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+CGameStateOver::CGameStateOver(CGame *g) : CGameState(g)
 {
 }
 
@@ -209,8 +316,7 @@ void CGameStateOver::OnShow()
 // 這個class為遊戲的遊戲執行物件，主要的遊戲程式都在這裡
 /////////////////////////////////////////////////////////////////////////////
 
-CGameStateRun::CGameStateRun(CGame *g)
-: CGameState(g), NUMBALLS(28)
+CGameStateRun::CGameStateRun(CGame *g) : CGameState(g), NUMBALLS(28)
 {
 	ball = new CBall [NUMBALLS];
 }

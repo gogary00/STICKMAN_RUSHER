@@ -68,11 +68,48 @@ namespace game_framework {
 	protected:
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
+		int swAudio = 0;
 		CMovingBitmap logo1, logo2;
 		CMovingBitmap btnAudio_open,btnAudio_close,btnStartGame;
 		CMovingBitmap green_effect;
-		CMovingBitmap character_body, character_eye;
+		CMovingBitmap character_body, character_eye,character_sword,character_wing;
 	};
+	/////////////////////////////////////////////////////////////////////////////
+
+	class CGameStatePrepare : public CGameState {
+	public:
+		CGameStatePrepare(CGame *g);
+		void OnInit();  								// 遊戲的初值及圖形設定
+		void OnBeginState();							// 設定每次重玩所需的變數
+		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
+		void OnLButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
+	protected:
+		void OnShow();									// 顯示這個狀態的遊戲畫面
+	private:
+		int swAudio = 0;
+		CMovingBitmap background;
+		CMovingBitmap btnStartGame;
+		CMovingBitmap btnAudio_open, btnAudio_close;
+	};
+	/////////////////////////////////////////////////////////////////////////////
+
+	class CGameStateSelect : public CGameState {
+	public:
+		CGameStateSelect(CGame *g);
+		void OnInit();  								// 遊戲的初值及圖形設定
+		void OnBeginState();							// 設定每次重玩所需的變數
+		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
+		void OnLButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
+	protected:
+		void OnShow();									// 顯示這個狀態的遊戲畫面
+	private:
+		int swAudio = 0;
+		CMovingBitmap background;
+		CMovingBitmap btnStartGame;
+		CMovingBitmap btnAudio_open, btnAudio_close;
+	};
+
+	/////////////////////////////////////////////////////////////////////////////
 
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲執行物件，主要的遊戲程式都在這裡
