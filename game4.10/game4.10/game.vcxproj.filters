@@ -261,9 +261,6 @@
     <Image Include="..\..\bmpSrc\ship-sheet0.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\bmpSrc\shuri-sheet0 (1).bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="..\..\bmpSrc\shuri-sheet0.bmp">
       <Filter>Resource Files</Filter>
     </Image>
