@@ -133,6 +133,8 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
+		CAnimation player;
+		CMovingBitmap background,ground,ground2,grass;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

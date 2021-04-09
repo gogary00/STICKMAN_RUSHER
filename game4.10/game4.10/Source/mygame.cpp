@@ -328,7 +328,7 @@ CGameStateRun::~CGameStateRun()
 
 void CGameStateRun::OnBeginState()
 {
-	
+	grass.SetTopLeft(SIZE_X - grass.Width(), SIZE_Y-ground.Height()-grass.Height() + 10);
 	CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
 	CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
 	CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
@@ -343,7 +343,15 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動背景圖的座標
 	//
-	
+	background.SetTopLeft(0, 0);
+	ground.SetTopLeft(0, SIZE_Y-ground.Height());
+	ground2.SetTopLeft(ground.Width(), SIZE_Y - ground2.Height());
+	if (grass.Left() < -grass.Width()) {
+		grass.SetTopLeft(SIZE_X - grass.Width(), SIZE_Y - ground.Height() - grass.Height() + 10);
+	}
+	else {
+		grass.SetTopLeft(grass.Left() - 5, SIZE_Y - ground.Height() - grass.Height() + 10);
+	}
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -356,7 +364,10 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
-			
+	background.LoadBitmap(IDB_BITMAP5);
+	ground.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
+	ground2.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
+	grass.LoadBitmap(IDB_BITMAP58, RGB(0, 255, 0));
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
 	CAudio::Instance()->Load(AUDIO_NTUT,  "sounds\\ntut.mid");	// 載入編號2的聲音ntut.mid
@@ -447,6 +458,9 @@ void CGameStateRun::OnShow()
 	//
 	//  貼上背景圖、撞擊數、球、擦子、彈跳的球
 	//
-	
+	background.ShowBitmap();
+	ground.ShowBitmap();
+	ground2.ShowBitmap();
+	grass.ShowBitmap();
 }
 }
