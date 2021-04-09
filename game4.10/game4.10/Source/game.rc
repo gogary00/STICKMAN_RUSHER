@@ -142,8 +142,6 @@ IDB_BITMAP20            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥
 
 IDB_BITMAP21            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\player-sheet1.bmp"
 
-//IDB_BITMAP22            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\player-sheet2.bmp"
-
 IDB_BITMAP23            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\precio1-sheet0.bmp"
 
 IDB_BITMAP24            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\precio2-sheet0.bmp"
@@ -161,8 +159,6 @@ IDB_BITMAP29            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥
 IDB_BITMAP30            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\ring-sheet0.bmp"
 
 IDB_BITMAP31            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\ship-sheet0.bmp"
-
-//IDB_BITMAP32            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\shuri-sheet0 (1).bmp"
 
 IDB_BITMAP33            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\shuri-sheet0.bmp"
 
@@ -289,6 +285,124 @@ IDB_BITMAP93            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥
 IDB_BITMAP94            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\upgrade9-sheet0.bmp"
 
 IDB_BITMAP95            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\bmpSrc\\upgrade10-sheet0.bmp"
+
+IDB_BITMAP96            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\1.bmp"
+
+IDB_BITMAP97            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\2.bmp"
+
+IDB_BITMAP98            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\3.bmp"
+
+IDB_BITMAP99            BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\4.bmp"
+
+IDB_BITMAP100           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\5.bmp"
+
+IDB_BITMAP101           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\6.bmp"
+
+IDB_BITMAP102           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\7.bmp"
+
+IDB_BITMAP103           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\8.bmp"
+
+IDB_BITMAP104           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\9.bmp"
+
+IDB_BITMAP105           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\10.bmp"
+
+IDB_BITMAP106           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\11.bmp"
+
+IDB_BITMAP107           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\12.bmp"
+
+IDB_BITMAP108           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\13.bmp"
+
+IDB_BITMAP109           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\14.bmp"
+
+IDB_BITMAP110           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\15.bmp"
+
+IDB_BITMAP111           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\16.bmp"
+
+IDB_BITMAP112           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\17.bmp"
+
+IDB_BITMAP113           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\18.bmp"
+
+IDB_BITMAP114           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\19.bmp"
+
+IDB_BITMAP115           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\20.bmp"
+
+IDB_BITMAP116           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\21.bmp"
+
+IDB_BITMAP117           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\22.bmp"
+
+IDB_BITMAP118           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\23.bmp"
+
+IDB_BITMAP119           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\24.bmp"
+
+IDB_BITMAP120           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\25.bmp"
+
+IDB_BITMAP121           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\26.bmp"
+
+IDB_BITMAP122           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\27.bmp"
+
+IDB_BITMAP123           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\28.bmp"
+
+IDB_BITMAP124           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\29.bmp"
+
+IDB_BITMAP125           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\30.bmp"
+
+IDB_BITMAP126           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\31.bmp"
+
+IDB_BITMAP127           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\32.bmp"
+
+IDB_BITMAP128           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\33.bmp"
+
+IDB_BITMAP129           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\34.bmp"
+
+IDB_BITMAP130           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\35.bmp"
+
+IDB_BITMAP131           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\36.bmp"
+
+IDB_BITMAP132           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\37.bmp"
+
+IDB_BITMAP133           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\38.bmp"
+
+IDB_BITMAP134           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\39.bmp"
+
+IDB_BITMAP135           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\40.bmp"
+
+IDB_BITMAP136           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\41.bmp"
+
+IDB_BITMAP137           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\42.bmp"
+
+IDB_BITMAP138           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\43.bmp"
+
+IDB_BITMAP139           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\44.bmp"
+
+IDB_BITMAP140           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\45.bmp"
+
+IDB_BITMAP141           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\46.bmp"
+
+IDB_BITMAP142           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\47.bmp"
+
+IDB_BITMAP143           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\48.bmp"
+
+IDB_BITMAP144           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\49.bmp"
+
+IDB_BITMAP145           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\50.bmp"
+
+IDB_BITMAP146           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\51.bmp"
+
+IDB_BITMAP147           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\52.bmp"
+
+IDB_BITMAP148           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\53.bmp"
+
+IDB_BITMAP149           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\j1.bmp"
+
+IDB_BITMAP150           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\j2.bmp"
+
+IDB_BITMAP151           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\j3.bmp"
+
+IDB_BITMAP152           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\j4.bmp"
+
+IDB_BITMAP153           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\j5.bmp"
+
+IDB_BITMAP154           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\running\\j6.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////

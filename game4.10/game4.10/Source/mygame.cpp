@@ -371,14 +371,21 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_UP    = 0x26; // keyboard上箭頭
 	const char KEY_RIGHT = 0x27; // keyboard右箭頭
 	const char KEY_DOWN  = 0x28; // keyboard下箭頭
-	if (nChar == KEY_LEFT)
+	if (nChar == KEY_LEFT) {
+
+	}
 		
-	if (nChar == KEY_RIGHT)
+	if (nChar == KEY_RIGHT) {
+
+	}
 		
-	if (nChar == KEY_UP)
+	if (nChar == KEY_UP) {
+
+	}
 		
-	if (nChar == KEY_DOWN)
-		
+	if (nChar == KEY_DOWN) {
+
+	}
 }
 
 void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -387,13 +394,21 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_UP    = 0x26; // keyboard上箭頭
 	const char KEY_RIGHT = 0x27; // keyboard右箭頭
 	const char KEY_DOWN  = 0x28; // keyboard下箭頭
-	if (nChar == KEY_LEFT)
+	if (nChar == KEY_LEFT) {
+		GotoGameState(GAME_STATE_OVER);
+	}
 		
-	if (nChar == KEY_RIGHT)
+	if (nChar == KEY_RIGHT) {
+		GotoGameState(GAME_STATE_OVER);
+	}
 		
-	if (nChar == KEY_UP)
+	if (nChar == KEY_UP) {
+		GotoGameState(GAME_STATE_OVER);
+	}
 		
-	if (nChar == KEY_DOWN)
+	if (nChar == KEY_DOWN) {
+		GotoGameState(GAME_STATE_OVER);
+	}
 		
 }
 

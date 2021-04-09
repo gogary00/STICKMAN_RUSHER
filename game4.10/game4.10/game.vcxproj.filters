@@ -450,5 +450,182 @@
     <Image Include="..\..\bmpSrc\upgrade10-sheet0.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\running\1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\8.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\10.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\11.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\12.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\13.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\14.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\15.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\16.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\17.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\18.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\19.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\20.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\21.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\22.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\23.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\24.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\25.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\26.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\27.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\28.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\29.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\30.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\31.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\32.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\33.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\34.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\35.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\36.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\37.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\38.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\39.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\40.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\41.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\42.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\43.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\44.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\45.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\46.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\47.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\48.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\49.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\50.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\51.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\52.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\53.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\j1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\j2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\j3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\j4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\j5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\running\j6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
