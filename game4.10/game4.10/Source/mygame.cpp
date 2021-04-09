@@ -346,7 +346,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	background.SetTopLeft(0, 0);
 	ground.SetTopLeft(0, SIZE_Y-ground.Height());
 	ground2.SetTopLeft(ground.Width(), SIZE_Y - ground2.Height());
-	player.SetTopLeft(50, 50);
+	player.SetTopLeft(50, SIZE_Y - player.Height() - 40);
 	player.OnMove();
 	if (grass.Left() < -grass.Width()) {
 		grass.SetTopLeft(SIZE_X - grass.Width(), SIZE_Y - ground.Height() - grass.Height() + 10);
@@ -369,6 +369,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (int i = 0; i < 5; i++) {
 		player.AddBitmap(268+i, RGB(0, 255, 0));
 	}
+	player.SetDelayCount(3);
 	background.LoadBitmap(IDB_BITMAP5);
 	ground.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
 	ground2.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
@@ -420,6 +421,7 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 		
 	if (nChar == KEY_UP) {
 		GotoGameState(GAME_STATE_OVER);
+
 	}
 		
 	if (nChar == KEY_DOWN) {
