@@ -346,13 +346,24 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	background.SetTopLeft(0, 0);
 	ground.SetTopLeft(0, SIZE_Y-ground.Height());
 	ground2.SetTopLeft(ground.Width(), SIZE_Y - ground2.Height());
-	player.SetTopLeft(50, SIZE_Y - player.Height() - 40);
+	if (JUMP_STATE == true) {
+		if (player.Top() > 200 && UP_STATE==true) {
+			player.SetTopLeft(50, player.Top() - 15);
+		}
+		else if(player.Top()+player.Height()< SIZE_Y - ground.Height() + 15){
+			UP_STATE = false;
+			player.SetTopLeft(50, player.Top() + 15);
+		}
+		else {
+			JUMP_STATE = false;
+		}
+	}
 	player.OnMove();
 	if (grass.Left() < -grass.Width()) {
 		grass.SetTopLeft(SIZE_X - grass.Width(), SIZE_Y - ground.Height() - grass.Height() + 10);
 	}
 	else {
-		grass.SetTopLeft(grass.Left() - 5, SIZE_Y - ground.Height() - grass.Height() + 10);
+		grass.SetTopLeft(grass.Left() - 10, SIZE_Y - ground.Height() - grass.Height() + 10);
 	}
 }
 
@@ -366,6 +377,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
+	JUMP_STATE = false;
+	UP_STATE = false;
 	for (int i = 0; i < 5; i++) {
 		player.AddBitmap(268+i, RGB(0, 255, 0));
 	}
@@ -374,6 +387,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	ground.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
 	ground2.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
 	grass.LoadBitmap(IDB_BITMAP58, RGB(0, 255, 0));
+	player.SetTopLeft(50, SIZE_Y - player.Height() - 40);
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
 	CAudio::Instance()->Load(AUDIO_NTUT,  "sounds\\ntut.mid");	// 載入編號2的聲音ntut.mid
@@ -420,8 +434,9 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 		
 	if (nChar == KEY_UP) {
-		GotoGameState(GAME_STATE_OVER);
-
+		//GotoGameState(GAME_STATE_OVER);
+		JUMP_STATE = true;
+		UP_STATE = true;
 	}
 		
 	if (nChar == KEY_DOWN) {
