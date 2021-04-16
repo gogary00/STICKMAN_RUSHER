@@ -236,6 +236,12 @@ void CGameStateSelect::OnInit() {
 	upgrade[4].LoadBitmap(IDB_BITMAP94, RGB(0, 255, 0));
 	upgrade[5].LoadBitmap(IDB_BITMAP95, RGB(0, 255, 0));
 	frame.LoadBitmap(IDB_BITMAP158);
+	player[0].AddBitmap(IDB_BITMAP122, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP125, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP127, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP128, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP131, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP132, RGB(0, 255, 0));
 }
 
 void CGameStateSelect::OnBeginState() {
@@ -286,7 +292,11 @@ void CGameStateSelect::OnShow() {
 	upgrade[4].SetTopLeft(520, 227);
 	upgrade[5].SetTopLeft(520, 305);
 	background.ShowBitmap();
+	for (int i = 0; i < 1; i++) {
+		player[i].SetTopLeft(330, 260);
+	}
 	frame.SetTopLeft(upgrade[select].Left(), upgrade[select].Top());
+
 	btnStartGame.ShowBitmap();
 	if (swAudio % 2 == 0) {
 		btnAudio_open.ShowBitmap();
@@ -297,6 +307,11 @@ void CGameStateSelect::OnShow() {
 	frame.ShowBitmap();
 	for (int i = 0; i < 6; i++) {
 		upgrade[i].ShowBitmap();
+	}
+	for (int i = 0; i < 1; i++) {
+		player->SetDelayCount(1);
+		player[i].OnMove();
+		player[i].OnShow();
 	}
 }
 

@@ -108,6 +108,7 @@ namespace game_framework {
 		CMovingBitmap btnStartGame;
 		CMovingBitmap btnAudio_open, btnAudio_close;
 		CMovingBitmap upgrade[6],frame;
+		CAnimation player[6];
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
