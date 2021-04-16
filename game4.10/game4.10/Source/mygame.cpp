@@ -380,7 +380,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	JUMP_STATE = false;
 	UP_STATE = false;
 	for (int i = 0; i < 5; i++) {
-		player.AddBitmap(268+i, RGB(0, 255, 0));
+		player.AddBitmap(272-i, RGB(0, 255, 0));
 	}
 	player.SetDelayCount(3);
 	background.LoadBitmap(IDB_BITMAP5);
