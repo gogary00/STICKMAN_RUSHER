@@ -242,6 +242,24 @@ void CGameStateSelect::OnInit() {
 	player[0].AddBitmap(IDB_BITMAP128, RGB(0, 255, 0));
 	player[0].AddBitmap(IDB_BITMAP131, RGB(0, 255, 0));
 	player[0].AddBitmap(IDB_BITMAP132, RGB(0, 255, 0));
+	for (int i = 0; i < 4; i++) {
+		player[1].AddBitmap(293+i, RGB(0, 255, 0));
+	}
+	for (int i = 0; i < 6; i++) {
+		player[2].AddBitmap(297 + i, RGB(0, 255, 0));
+	}
+	for (int i = 0; i < 5; i++) {
+		player[3].AddBitmap(268 + i, RGB(0, 255, 0));
+	}
+	for (int i = 0; i < 4; i++) {
+		player[4].AddBitmap(289 + i, RGB(0, 255, 0));
+	}
+	player[5].AddBitmap(IDB_BITMAP119, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP120, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP121, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP123, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP124, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP126, RGB(0, 255, 0));
 }
 
 void CGameStateSelect::OnBeginState() {
@@ -284,7 +302,6 @@ void CGameStateSelect::OnShow() {
 	btnStartGame.SetTopLeft(SIZE_X - btnStartGame.Width(), 400);
 	btnAudio_open.SetTopLeft(SIZE_X-btnAudio_open.Width(), 10);
 	btnAudio_close.SetTopLeft(SIZE_X - btnAudio_open.Width(), 10);
-	//frame.SetTopLeft(113, 150);
 	upgrade[0].SetTopLeft(113, 150);
 	upgrade[1].SetTopLeft(113, 227);
 	upgrade[2].SetTopLeft(113, 305);
@@ -292,9 +309,7 @@ void CGameStateSelect::OnShow() {
 	upgrade[4].SetTopLeft(520, 227);
 	upgrade[5].SetTopLeft(520, 305);
 	background.ShowBitmap();
-	for (int i = 0; i < 1; i++) {
-		player[i].SetTopLeft(330, 260);
-	}
+	player[select].SetTopLeft(330, 260);
 	frame.SetTopLeft(upgrade[select].Left(), upgrade[select].Top());
 
 	btnStartGame.ShowBitmap();
@@ -308,11 +323,9 @@ void CGameStateSelect::OnShow() {
 	for (int i = 0; i < 6; i++) {
 		upgrade[i].ShowBitmap();
 	}
-	for (int i = 0; i < 1; i++) {
-		player->SetDelayCount(1);
-		player[i].OnMove();
-		player[i].OnShow();
-	}
+	player[select].SetDelayCount(1);
+	player[select].OnMove();
+	player[select].OnShow();
 }
 
 /////////////////////////////////////////////////////////////////////////////
