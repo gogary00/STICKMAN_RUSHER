@@ -627,5 +627,17 @@
     <Image Include="..\..\running\j6.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\bmpsrc\bitmap15.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\bmpSrc\revise2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\bmpsrc\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\bmpSrc\frame.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

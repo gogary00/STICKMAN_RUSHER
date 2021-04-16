@@ -103,10 +103,11 @@ namespace game_framework {
 	protected:
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		int swAudio = 0;
+		int swAudio,select;
 		CMovingBitmap background;
 		CMovingBitmap btnStartGame;
 		CMovingBitmap btnAudio_open, btnAudio_close;
+		CMovingBitmap upgrade[6],frame;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

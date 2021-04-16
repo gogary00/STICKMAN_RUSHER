@@ -223,10 +223,19 @@ CGameStateSelect::CGameStateSelect(CGame *g) : CGameState(g) {
 }
 
 void CGameStateSelect::OnInit() {
+	swAudio = 0;
+	select = 0;
 	background.LoadBitmap(IDB_BITMAP84);
 	btnStartGame.LoadBitmap(IDB_BITMAP43, RGB(0, 255, 0));
 	btnAudio_open.LoadBitmap(IDB_BITMAP55, RGB(0, 255, 0));
 	btnAudio_close.LoadBitmap(IDB_BITMAP56, RGB(0, 255, 0));
+	upgrade[0].LoadBitmap(IDB_BITMAP90, RGB(0, 255, 0));
+	upgrade[1].LoadBitmap(IDB_BITMAP156, RGB(255, 255, 255));
+	upgrade[2].LoadBitmap(IDB_BITMAP92, RGB(0, 255, 0));
+	upgrade[3].LoadBitmap(IDB_BITMAP93, RGB(0, 255, 0));
+	upgrade[4].LoadBitmap(IDB_BITMAP94, RGB(0, 255, 0));
+	upgrade[5].LoadBitmap(IDB_BITMAP95, RGB(0, 255, 0));
+	frame.LoadBitmap(IDB_BITMAP158);
 }
 
 void CGameStateSelect::OnBeginState() {
@@ -244,6 +253,24 @@ void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
 	if (point.x > SIZE_X - btnStartGame.Width() && point.y > 400 && point.y < 400 + btnStartGame.Height()) {
 		GotoGameState(GAME_STATE_RUN);		// ¤Á´«¦ÜGAME_STATE_RUN
 	}
+	if (point.x > 113 && point.x < 113 + upgrade[0].Width() && point.y>150 && point.y < 150 + upgrade[0].Height()) {
+		select = 0;
+	}
+	if (point.x > 113 && point.x < 113 + upgrade[1].Width() && point.y>227 && point.y < 227 + upgrade[1].Height()) {
+		select = 1;
+	}
+	if (point.x > 113 && point.x < 113 + upgrade[2].Width() && point.y>305 && point.y < 305 + upgrade[2].Height()) {
+		select = 2;
+	}
+	if (point.x > 520 && point.x < 520 + upgrade[3].Width() && point.y>150 && point.y < 150 + upgrade[3].Height()) {
+		select = 3;
+	}
+	if (point.x > 520 && point.x < 520 + upgrade[4].Width() && point.y>227 && point.y < 227 + upgrade[4].Height()) {
+		select = 4;
+	}
+	if (point.x > 520 && point.x < 520 + upgrade[5].Width() && point.y>305 && point.y < 305 + upgrade[5].Height()) {
+		select = 5;
+	}
 }
 
 void CGameStateSelect::OnShow() {
@@ -251,14 +278,25 @@ void CGameStateSelect::OnShow() {
 	btnStartGame.SetTopLeft(SIZE_X - btnStartGame.Width(), 400);
 	btnAudio_open.SetTopLeft(SIZE_X-btnAudio_open.Width(), 10);
 	btnAudio_close.SetTopLeft(SIZE_X - btnAudio_open.Width(), 10);
-
+	//frame.SetTopLeft(113, 150);
+	upgrade[0].SetTopLeft(113, 150);
+	upgrade[1].SetTopLeft(113, 227);
+	upgrade[2].SetTopLeft(113, 305);
+	upgrade[3].SetTopLeft(520, 150);
+	upgrade[4].SetTopLeft(520, 227);
+	upgrade[5].SetTopLeft(520, 305);
 	background.ShowBitmap();
+	frame.SetTopLeft(upgrade[select].Left(), upgrade[select].Top());
 	btnStartGame.ShowBitmap();
 	if (swAudio % 2 == 0) {
 		btnAudio_open.ShowBitmap();
 	}
 	else {
 		btnAudio_close.ShowBitmap();
+	}
+	frame.ShowBitmap();
+	for (int i = 0; i < 6; i++) {
+		upgrade[i].ShowBitmap();
 	}
 }
 

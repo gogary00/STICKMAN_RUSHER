@@ -325,10 +325,12 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\bmpSrc\angel-sheet0.bmp" />
+    <Image Include="..\..\bmpsrc\bitmap15.bmp" />
     <Image Include="..\..\bmpSrc\bk1.bmp" />
     <Image Include="..\..\bmpSrc\bk2.bmp" />
     <Image Include="..\..\bmpSrc\bk3.bmp" />
     <Image Include="..\..\bmpSrc\bk4.bmp" />
+    <Image Include="..\..\bmpsrc\bmp00001.bmp" />
     <Image Include="..\..\bmpSrc\bridge-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\coinsfont.bmp" />
     <Image Include="..\..\bmpSrc\dummy-sheet0.bmp" />
@@ -336,6 +338,7 @@
     <Image Include="..\..\bmpSrc\dummy2-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\dummy2-sheet1.bmp" />
     <Image Include="..\..\bmpSrc\espada-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\frame.bmp" />
     <Image Include="..\..\bmpSrc\loading-logo.bmp" />
     <Image Include="..\..\bmpSrc\lstart-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\menulightflare-sheet0.bmp" />
@@ -350,6 +353,7 @@
     <Image Include="..\..\bmpSrc\precio4-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\precio5-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\projectile-sheet0.bmp" />
+    <Image Include="..\..\bmpSrc\revise2.bmp" />
     <Image Include="..\..\bmpSrc\ring-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\ring2-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\ship-sheet0.bmp" />
