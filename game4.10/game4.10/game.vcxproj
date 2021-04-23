@@ -479,6 +479,8 @@
     <Image Include="..\..\running\j4.bmp" />
     <Image Include="..\..\running\j5.bmp" />
     <Image Include="..\..\running\j6.bmp" />
+    <Image Include="RES\Attach.bmp" />
+    <Image Include="RES\attack.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

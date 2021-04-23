@@ -639,5 +639,11 @@
     <Image Include="..\..\bmpSrc\frame.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\attack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\Attach.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

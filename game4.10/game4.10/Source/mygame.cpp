@@ -89,6 +89,9 @@ void CGameStateInit::OnInit()
 	character_body.LoadBitmap(IDB_BITMAP75, RGB(0, 255, 0));
 	character_eye.LoadBitmap(IDB_BITMAP74, RGB(0, 255, 0));
 	character_sword.LoadBitmap(IDB_BITMAP71, RGB(0, 255, 0));
+	character_wing_left.LoadBitmap(IDB_BITMAP69, RGB(0, 255, 0));
+	character_scarf1.LoadBitmap(IDB_BITMAP72, RGB(0, 255, 0));
+	character_scarf2.LoadBitmap(IDB_BITMAP73, RGB(0, 255, 0));
 	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	//
 	// 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
@@ -130,14 +133,20 @@ void CGameStateInit::OnShow()
 	btnAudio_open.SetTopLeft(SIZE_X-btnAudio_open.Width(), 0);
 	btnAudio_close.SetTopLeft(SIZE_X - btnAudio_close.Width(), 0);
 	btnStartGame.SetTopLeft(0, 300);
+	character_wing_left.SetTopLeft(300, 300);
+	character_scarf1.SetTopLeft(580, 160);
+	character_scarf2.SetTopLeft(580, 210);
 	character_body.SetTopLeft(520, 60);
 	character_eye.SetTopLeft(520, 50);
 	character_sword.SetTopLeft(420, 220);
 
 	logo1.ShowBitmap();
 	green_effect.ShowBitmap();
+	//character_wing_left.ShowBitmap();
 	logo2.ShowBitmap();
 	btnStartGame.ShowBitmap();
+	character_scarf1.ShowBitmap();
+	character_scarf2.ShowBitmap();
 	character_sword.ShowBitmap();
 	character_body.ShowBitmap();
 	character_eye.ShowBitmap();
@@ -413,7 +422,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	ground.SetTopLeft(0, SIZE_Y-ground.Height());
 	ground2.SetTopLeft(ground.Width(), SIZE_Y - ground2.Height());
 	if (JUMP_STATE == true) {
-		if (player.Top() > 200 && UP_STATE==true) {
+		if (player.Top() > max_hight && UP_STATE==true) {
 			player.SetTopLeft(50, player.Top() - 15);
 		}
 		else if(player.Top()+player.Height()< SIZE_Y - ground.Height() + 15){
@@ -421,9 +430,13 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			player.SetTopLeft(50, player.Top() + 15);
 		}
 		else {
+			player.SetTopLeft(50, SIZE_Y - player.Height() - 40);
 			JUMP_STATE = false;
+			CONTINUE_JUMP = true;
+			max_hight = 200;
 		}
 	}
+	attack.SetTopLeft(player.Left()+player.Width()-100, player.Top()-10);
 	player.OnMove();
 	if (grass.Left() < -grass.Width()) {
 		grass.SetTopLeft(SIZE_X - grass.Width(), SIZE_Y - ground.Height() - grass.Height() + 10);
@@ -443,8 +456,11 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
+	max_hight = 200;
+	CONTINUE_JUMP = true;
 	JUMP_STATE = false;
 	UP_STATE = false;
+	ATTACH_STATE = false;
 	for (int i = 0; i < 5; i++) {
 		player.AddBitmap(272-i, RGB(0, 255, 0));
 	}
@@ -453,7 +469,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	ground.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
 	ground2.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
 	grass.LoadBitmap(IDB_BITMAP58, RGB(0, 255, 0));
-	player.SetTopLeft(50, SIZE_Y - player.Height() - 40);
+	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
+	player.SetTopLeft(50, SIZE_Y - player.Height() - 50);
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
 	CAudio::Instance()->Load(AUDIO_NTUT,  "sounds\\ntut.mid");	// 載入編號2的聲音ntut.mid
@@ -487,10 +504,15 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	const char KEY_SPACE = 0x20; // keyboard空白建
 	const char KEY_LEFT  = 0x25; // keyboard左箭頭
 	const char KEY_UP    = 0x26; // keyboard上箭頭
 	const char KEY_RIGHT = 0x27; // keyboard右箭頭
 	const char KEY_DOWN  = 0x28; // keyboard下箭頭
+	if (nChar == KEY_SPACE) {
+		ATTACH_STATE = true;
+	}
+
 	if (nChar == KEY_LEFT) {
 		GotoGameState(GAME_STATE_OVER);
 	}
@@ -500,9 +522,14 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 		
 	if (nChar == KEY_UP) {
-		//GotoGameState(GAME_STATE_OVER);
-		JUMP_STATE = true;
-		UP_STATE = true;
+		if (CONTINUE_JUMP == true) {
+			if (JUMP_STATE == true) {
+				max_hight = player.Top()-100;
+				CONTINUE_JUMP = false;
+			}
+			JUMP_STATE = true;
+			UP_STATE = true;
+		}
 	}
 		
 	if (nChar == KEY_DOWN) {
@@ -550,6 +577,10 @@ void CGameStateRun::OnShow()
 	ground.ShowBitmap();
 	ground2.ShowBitmap();
 	grass.ShowBitmap();
+	if (ATTACH_STATE == true) {
+		attack.ShowBitmap();
+		ATTACH_STATE = false;
+	}
 	player.OnShow();
 }
 }

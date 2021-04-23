@@ -72,7 +72,7 @@ namespace game_framework {
 		CMovingBitmap logo1, logo2;
 		CMovingBitmap btnAudio_open,btnAudio_close,btnStartGame;
 		CMovingBitmap green_effect;
-		CMovingBitmap character_body, character_eye,character_sword,character_wing;
+		CMovingBitmap character_body, character_eye,character_sword,character_wing_left, character_wing_right,character_scarf1,character_scarf2;
 	};
 	/////////////////////////////////////////////////////////////////////////////
 
@@ -135,9 +135,10 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		bool JUMP_STATE,UP_STATE;
+		int max_hight;
+		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP;
 		CAnimation player;
-		CMovingBitmap background,ground,ground2,grass;
+		CMovingBitmap background,ground,ground2,grass,attack;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
