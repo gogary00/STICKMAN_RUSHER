@@ -280,6 +280,10 @@ void CGameStateSelect::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
 }
 
 void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
+	ifs.open("../set.txt", std::ios::out);
+	if (!ifs.is_open()) {
+		GotoGameState(GAME_STATE_OVER);
+	}
 	if (point.x > SIZE_X-btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
 		swAudio++;
 	}
@@ -304,6 +308,7 @@ void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
 	if (point.x > 520 && point.x < 520 + upgrade[5].Width() && point.y>305 && point.y < 305 + upgrade[5].Height()) {
 		select = 5;
 	}
+	ifs.close();
 }
 
 void CGameStateSelect::OnShow() {
@@ -418,7 +423,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動背景圖的座標
 	//
-	background.SetTopLeft(0, 0);
+	background.SetTopLeft(background.Left()-5, 0);
 	ground.SetTopLeft(0, SIZE_Y-ground.Height());
 	ground2.SetTopLeft(ground.Width(), SIZE_Y - ground2.Height());
 	if (JUMP_STATE == true) {
@@ -465,12 +470,13 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 		player.AddBitmap(272-i, RGB(0, 255, 0));
 	}
 	player.SetDelayCount(3);
-	background.LoadBitmap(IDB_BITMAP5);
+	background.LoadBitmap(IDB_BITMAP162);
 	ground.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
 	ground2.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
 	grass.LoadBitmap(IDB_BITMAP58, RGB(0, 255, 0));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
 	player.SetTopLeft(50, SIZE_Y - player.Height() - 50);
+	background.SetTopLeft(0, 0);
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
 	CAudio::Instance()->Load(AUDIO_NTUT,  "sounds\\ntut.mid");	// 載入編號2的聲音ntut.mid
@@ -524,7 +530,7 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if (nChar == KEY_UP) {
 		if (CONTINUE_JUMP == true) {
 			if (JUMP_STATE == true) {
-				max_hight = player.Top()-100;
+				max_hight = player.Top()-125;
 				CONTINUE_JUMP = false;
 			}
 			JUMP_STATE = true;

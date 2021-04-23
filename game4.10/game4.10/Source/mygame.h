@@ -38,9 +38,12 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
+#include <iostream>
+#include <fstream>
 #include "CEraser.h"
 #include "CBall.h"
 #include "CBouncingBall.h"
+using namespace std;
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -104,6 +107,7 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		int swAudio,select;
+		ifstream ifs;
 		CMovingBitmap background;
 		CMovingBitmap btnStartGame;
 		CMovingBitmap btnAudio_open, btnAudio_close;
@@ -136,6 +140,8 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		int max_hight;
+		char c;
+		ifstream ifs;
 		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP;
 		CAnimation player;
 		CMovingBitmap background,ground,ground2,grass,attack;

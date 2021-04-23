@@ -645,5 +645,11 @@
     <Image Include="RES\Attach.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\ran1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\background.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
