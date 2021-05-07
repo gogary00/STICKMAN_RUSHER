@@ -326,6 +326,7 @@
   <ItemGroup>
     <Image Include="..\..\bmpSrc\angel-sheet0.bmp" />
     <Image Include="..\..\bmpsrc\bitmap15.bmp" />
+    <Image Include="..\..\bmpsrc\bitmap16.bmp" />
     <Image Include="..\..\bmpSrc\bk1.bmp" />
     <Image Include="..\..\bmpSrc\bk2.bmp" />
     <Image Include="..\..\bmpSrc\bk3.bmp" />
@@ -482,6 +483,8 @@
     <Image Include="RES\Attach.bmp" />
     <Image Include="RES\attack.bmp" />
     <Image Include="RES\background.bmp" />
+    <Image Include="RES\bk1_new.bmp" />
+    <Image Include="RES\grass_new.bmp" />
     <Image Include="RES\ran1.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

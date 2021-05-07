@@ -269,6 +269,12 @@ void CGameStateSelect::OnInit() {
 	player[5].AddBitmap(IDB_BITMAP123, RGB(0, 255, 0));
 	player[5].AddBitmap(IDB_BITMAP124, RGB(0, 255, 0));
 	player[5].AddBitmap(IDB_BITMAP126, RGB(0, 255, 0));
+	ofs.open("./set.txt");
+	if (!ofs.is_open()) {
+		GotoGameState(GAME_STATE_OVER);
+	}
+	ofs << "0";
+	ofs.close();
 }
 
 void CGameStateSelect::OnBeginState() {
@@ -280,35 +286,42 @@ void CGameStateSelect::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
 }
 
 void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
-	ifs.open("../set.txt", std::ios::out);
-	if (!ifs.is_open()) {
+	ofs.open("./set.txt");
+	if (!ofs.is_open()) {
 		GotoGameState(GAME_STATE_OVER);
 	}
 	if (point.x > SIZE_X-btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
 		swAudio++;
 	}
 	if (point.x > SIZE_X - btnStartGame.Width() && point.y > 400 && point.y < 400 + btnStartGame.Height()) {
+		ofs.close();
 		GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
 	}
 	if (point.x > 113 && point.x < 113 + upgrade[0].Width() && point.y>150 && point.y < 150 + upgrade[0].Height()) {
 		select = 0;
+		ofs << "0";
 	}
 	if (point.x > 113 && point.x < 113 + upgrade[1].Width() && point.y>227 && point.y < 227 + upgrade[1].Height()) {
 		select = 1;
+		ofs << "1";
 	}
 	if (point.x > 113 && point.x < 113 + upgrade[2].Width() && point.y>305 && point.y < 305 + upgrade[2].Height()) {
 		select = 2;
+		ofs << "2";
 	}
 	if (point.x > 520 && point.x < 520 + upgrade[3].Width() && point.y>150 && point.y < 150 + upgrade[3].Height()) {
 		select = 3;
+		ofs << "3";
 	}
 	if (point.x > 520 && point.x < 520 + upgrade[4].Width() && point.y>227 && point.y < 227 + upgrade[4].Height()) {
 		select = 4;
+		ofs << "4";
 	}
 	if (point.x > 520 && point.x < 520 + upgrade[5].Width() && point.y>305 && point.y < 305 + upgrade[5].Height()) {
 		select = 5;
+		ofs << "5";
 	}
-	ifs.close();
+	ofs.close();
 }
 
 void CGameStateSelect::OnShow() {
@@ -398,7 +411,6 @@ void CGameStateOver::OnShow()
 
 CGameStateRun::CGameStateRun(CGame *g) : CGameState(g)
 {
-	
 }
 
 CGameStateRun::~CGameStateRun()
@@ -408,7 +420,6 @@ CGameStateRun::~CGameStateRun()
 
 void CGameStateRun::OnBeginState()
 {
-	grass.SetTopLeft(SIZE_X - grass.Width(), SIZE_Y-ground.Height()-grass.Height() + 10);
 	CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
 	CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
 	CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
@@ -416,6 +427,15 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
+	translating = player[s].Width() + 50;
+	ifs.open("./set.txt", ios::in);
+	if (!ifs.is_open()) {
+		GotoGameState(GAME_STATE_OVER);
+	}
+	getline(ifs, c);
+	ifs.close();
+	//TRACE("c = %d\n",c[0]-'0');
+	//s = c - '0';
 	//
 	// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
 	//
@@ -423,32 +443,30 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動背景圖的座標
 	//
-	background.SetTopLeft(background.Left()-5, 0);
-	ground.SetTopLeft(0, SIZE_Y-ground.Height());
-	ground2.SetTopLeft(ground.Width(), SIZE_Y - ground2.Height());
+	background.SetTopLeft(background.Left()-map_speed, 0);
+	ground.SetTopLeft(ground.Left() - map_speed, 0);
 	if (JUMP_STATE == true) {
-		if (player.Top() > max_hight && UP_STATE==true) {
-			player.SetTopLeft(50, player.Top() - 15);
+		if (player[s].Top() > max_hight && UP_STATE==true) {
+			player[s].SetTopLeft(50, player[s].Top() - dump_speed);
 		}
-		else if(player.Top()+player.Height()< SIZE_Y - ground.Height() + 15){
+		else if(player[s].Top()+player[s].Height()< SIZE_Y - 71 + 15){
 			UP_STATE = false;
-			player.SetTopLeft(50, player.Top() + 15);
+			player[s].SetTopLeft(50, player[s].Top() + dump_speed);
 		}
 		else {
-			player.SetTopLeft(50, SIZE_Y - player.Height() - 40);
+			player[s].SetTopLeft(50, SIZE_Y - player[s].Height() - 40);
 			JUMP_STATE = false;
 			CONTINUE_JUMP = true;
 			max_hight = 200;
 		}
 	}
-	attack.SetTopLeft(player.Left()+player.Width()-100, player.Top()-10);
-	player.OnMove();
-	if (grass.Left() < -grass.Width()) {
-		grass.SetTopLeft(SIZE_X - grass.Width(), SIZE_Y - ground.Height() - grass.Height() + 10);
+	if (abs(ground.Left())>(640-translating) && abs(ground.Left())<(730-translating) && player[s].Top() + player[s].Height() > 360) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
 	}
-	else {
-		grass.SetTopLeft(grass.Left() - 10, SIZE_Y - ground.Height() - grass.Height() + 10);
-	}
+	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
+	player[s].OnMove();
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -461,22 +479,49 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
+	s = 5;
+	map_speed = 10;
+	dump_speed = 15;
 	max_hight = 200;
 	CONTINUE_JUMP = true;
 	JUMP_STATE = false;
 	UP_STATE = false;
 	ATTACH_STATE = false;
-	for (int i = 0; i < 5; i++) {
-		player.AddBitmap(272-i, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP122, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP125, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP127, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP128, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP131, RGB(0, 255, 0));
+	player[0].AddBitmap(IDB_BITMAP132, RGB(0, 255, 0));
+	for (int i = 0; i < 4; i++) {
+		player[1].AddBitmap(293 + i, RGB(0, 255, 0));
 	}
-	player.SetDelayCount(3);
-	background.LoadBitmap(IDB_BITMAP162);
-	ground.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
-	ground2.LoadBitmap(IDB_BITMAP48, RGB(0, 255, 0));
-	grass.LoadBitmap(IDB_BITMAP58, RGB(0, 255, 0));
+	for (int i = 0; i < 6; i++) {
+		player[2].AddBitmap(297 + i, RGB(0, 255, 0));
+	}
+	for (int i = 0; i < 5; i++) {
+		player[3].AddBitmap(268 + i, RGB(0, 255, 0));
+	}
+	for (int i = 0; i < 4; i++) {
+		player[4].AddBitmap(289 + i, RGB(0, 255, 0));
+	}
+	player[5].AddBitmap(IDB_BITMAP119, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP120, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP121, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP123, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP124, RGB(0, 255, 0));
+	player[5].AddBitmap(IDB_BITMAP126, RGB(0, 255, 0));
+	for (int i = 0; i < 6; i++) {
+		player[i].SetDelayCount(3);
+	}
+	background.LoadBitmap(IDB_BITMAP164);
+	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
-	player.SetTopLeft(50, SIZE_Y - player.Height() - 50);
+	for (int i = 0; i < 6; i++) {
+		player[i].SetTopLeft(50, SIZE_Y - player[i].Height() - 50);
+	}
 	background.SetTopLeft(0, 0);
+	ground.SetTopLeft(0, 0);
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
 	CAudio::Instance()->Load(AUDIO_NTUT,  "sounds\\ntut.mid");	// 載入編號2的聲音ntut.mid
@@ -530,7 +575,7 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if (nChar == KEY_UP) {
 		if (CONTINUE_JUMP == true) {
 			if (JUMP_STATE == true) {
-				max_hight = player.Top()-125;
+				max_hight = player[s].Top()-125;
 				CONTINUE_JUMP = false;
 			}
 			JUMP_STATE = true;
@@ -579,14 +624,14 @@ void CGameStateRun::OnShow()
 	//
 	//  貼上背景圖、撞擊數、球、擦子、彈跳的球
 	//
+	//TRACE("s is %d\n", s);
+
 	background.ShowBitmap();
 	ground.ShowBitmap();
-	ground2.ShowBitmap();
-	grass.ShowBitmap();
 	if (ATTACH_STATE == true) {
 		attack.ShowBitmap();
 		ATTACH_STATE = false;
 	}
-	player.OnShow();
+	player[s].OnShow();
 }
 }

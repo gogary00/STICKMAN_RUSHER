@@ -651,5 +651,14 @@
     <Image Include="RES\background.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\bmpsrc\bitmap16.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\bk1_new.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\grass_new.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
