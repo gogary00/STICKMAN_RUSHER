@@ -446,7 +446,7 @@ void CGameStateRun::OnMove()							// 簿笆笴栏じ
 
 	//-----------------------------------------------------盎代┏场----------------------------------------------------------------
 	if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1275) { bottom = 415; }
-	if (abs(ground.Left()) + translating > 1275 && abs(ground.Left()) + translating < 2158) { bottom = (19/88*(abs(ground.Left())-translating-1275)+52); }
+	if (abs(ground.Left()) + translating > 1275 && abs(ground.Left()) + translating < 2158) { bottom = int(-0.23*(abs(ground.Left())+translating-1275)+430); }
 	if (abs(ground.Left()) + translating > 2158 && abs(ground.Left()) + translating < 2362) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 2362) { bottom = 415; }
 	//-----------------------------------------------------盎代┏场----------------------------------------------------------------
