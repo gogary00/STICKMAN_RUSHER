@@ -487,6 +487,11 @@ void CGameStateRun::OnMove()							// ²¾°Ê¹CÀ¸¤¸¯À
 	if (abs(ground.Left()) + translating > 2158 && abs(ground.Left()) + translating < 2170) {
 		IS_FUNC = true;
 	}
+	if (abs(ground.Left()) > (2158 - translating) && abs(ground.Left()) < (2362 - translating) && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
 	if (IS_FUNC == true) {
