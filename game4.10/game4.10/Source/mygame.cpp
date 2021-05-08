@@ -443,21 +443,34 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動背景圖的座標
 	//
+
+	//-----------------------------------------------------偵測底部----------------------------------------------------------------
+	if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1275) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 1275 && abs(ground.Left()) + translating < 2158) { bottom = (19/88*(abs(ground.Left())-translating-1275)+52); }
+	if (abs(ground.Left()) + translating > 2158 && abs(ground.Left()) + translating < 2362) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 2362) { bottom = 415; }
+	//-----------------------------------------------------偵測底部----------------------------------------------------------------
+
+	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 	background.SetTopLeft(background.Left()-map_speed, 0);
 	ground.SetTopLeft(ground.Left() - map_speed, 0);
+	if (JUMP_STATE == false) {
+		max_hight = bottom - player[s].Height() - 125;
+	}
 	if (JUMP_STATE == true) {
 		if (player[s].Top() > max_hight && UP_STATE==true) {
 			player[s].SetTopLeft(50, player[s].Top() - dump_speed);
 		}
-		else if(player[s].Top()+player[s].Height()< SIZE_Y - 71 + 15){
+		else if(player[s].Top()+player[s].Height()< bottom){
 			UP_STATE = false;
 			player[s].SetTopLeft(50, player[s].Top() + dump_speed);
 		}
 		else {
-			player[s].SetTopLeft(50, SIZE_Y - player[s].Height() - 40);
+			player[s].SetTopLeft(50, bottom - player[s].Height());
 			JUMP_STATE = false;
 			CONTINUE_JUMP = true;
-			max_hight = 200;
+			max_hight = bottom - player[s].Height() - 125;
+			IS_FUNC = true;
 		}
 	}
 	if (abs(ground.Left())>(640-translating) && abs(ground.Left())<(730-translating) && player[s].Top() + player[s].Height() > 360) {
@@ -465,8 +478,23 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			GotoGameState(GAME_STATE_OVER);
 		}
 	}
+	if (abs(ground.Left()) > (1275 - translating) && abs(ground.Left()) < (1790 - translating)) {
+		player[s].SetTopLeft(50, player[s].Top()-3);
+	}
+	if (abs(ground.Left()) + translating > 1275 && abs(ground.Left()) + translating < 2158) {
+		IS_FUNC = false;
+	}
+	if (abs(ground.Left()) + translating > 2158 && abs(ground.Left()) + translating < 2170) {
+		IS_FUNC = true;
+	}
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
+	if (IS_FUNC == true) {
+		if ((player[s].Top() + player[s].Height()) < bottom) {
+			player[s].SetTopLeft(50, player[s].Top() + 15);
+		}
+	}
+	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -480,9 +508,11 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 開始載入資料
 	//
 	s = 5;
+	IS_FUNC = true;
+	max_hight = 200;
+	bottom = 0;
 	map_speed = 10;
 	dump_speed = 15;
-	max_hight = 200;
 	CONTINUE_JUMP = true;
 	JUMP_STATE = false;
 	UP_STATE = false;
@@ -518,7 +548,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
 	for (int i = 0; i < 6; i++) {
-		player[i].SetTopLeft(50, SIZE_Y - player[i].Height() - 50);
+		player[i].SetTopLeft(50, SIZE_Y - player[i].Height() - 40);
 	}
 	background.SetTopLeft(0, 0);
 	ground.SetTopLeft(0, 0);
@@ -565,14 +595,15 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 
 	if (nChar == KEY_LEFT) {
-		GotoGameState(GAME_STATE_OVER);
+		GotoGameState(GAME_STATE_SELECT);
 	}
 		
 	if (nChar == KEY_RIGHT) {
-		GotoGameState(GAME_STATE_OVER);
+		GotoGameState(GAME_STATE_SELECT);
 	}
 		
 	if (nChar == KEY_UP) {
+		IS_FUNC = false;
 		if (CONTINUE_JUMP == true) {
 			if (JUMP_STATE == true) {
 				max_hight = player[s].Top()-125;
@@ -584,7 +615,7 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 		
 	if (nChar == KEY_DOWN) {
-		GotoGameState(GAME_STATE_OVER);
+		GotoGameState(GAME_STATE_SELECT);
 	}
 		
 }
