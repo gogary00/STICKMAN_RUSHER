@@ -443,12 +443,14 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動背景圖的座標
 	//
-
+	TRACE("bottom = %d\n", bottom);
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 	if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1275) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 1275 && abs(ground.Left()) + translating < 2158) { bottom = int(-0.23*(abs(ground.Left())+translating-1275)+430); }
 	if (abs(ground.Left()) + translating > 2158 && abs(ground.Left()) + translating < 2362) { bottom = 482; }
-	if (abs(ground.Left()) + translating > 2362) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 2362 && abs(ground.Left()) + translating < 2555) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 2555 && abs(ground.Left()) + translating < 2762) { bottom = 482; }
+	//if (abs(ground.Left()) + translating > 2762 && abs(ground.Left()) + translating < 3000) { bottom = 415; }
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
@@ -492,11 +494,16 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			GotoGameState(GAME_STATE_OVER);
 		}
 	}
+	if (abs(ground.Left()) > (2555 - translating) && abs(ground.Left()) < (2762 - translating) && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
 	if (IS_FUNC == true) {
 		if ((player[s].Top() + player[s].Height()) < bottom) {
-			player[s].SetTopLeft(50, player[s].Top() + 15);
+			player[s].SetTopLeft(50, player[s].Top() + 10);
 		}
 	}
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
