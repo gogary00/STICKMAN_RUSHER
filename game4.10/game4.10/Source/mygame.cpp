@@ -443,14 +443,14 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動背景圖的座標
 	//
-	TRACE("bottom = %d\n", bottom);
+	TRACE("map = %d\n", abs(background.Left()));
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 	if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1275) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 1275 && abs(ground.Left()) + translating < 2158) { bottom = int(-0.23*(abs(ground.Left())+translating-1275)+430); }
 	if (abs(ground.Left()) + translating > 2158 && abs(ground.Left()) + translating < 2362) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 2362 && abs(ground.Left()) + translating < 2555) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 2555 && abs(ground.Left()) + translating < 2762) { bottom = 482; }
-	//if (abs(ground.Left()) + translating > 2762 && abs(ground.Left()) + translating < 3000) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 2762 && abs(ground.Left()) + translating < 30000) { bottom = 415; }
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
@@ -607,11 +607,11 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 
 	if (nChar == KEY_LEFT) {
-		GotoGameState(GAME_STATE_SELECT);
+		GotoGameState(GAME_STATE_OVER);
 	}
 		
 	if (nChar == KEY_RIGHT) {
-		GotoGameState(GAME_STATE_SELECT);
+		GotoGameState(GAME_STATE_OVER);
 	}
 		
 	if (nChar == KEY_UP) {
@@ -627,7 +627,7 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 		
 	if (nChar == KEY_DOWN) {
-		GotoGameState(GAME_STATE_SELECT);
+		GotoGameState(GAME_STATE_OVER);
 	}
 		
 }
