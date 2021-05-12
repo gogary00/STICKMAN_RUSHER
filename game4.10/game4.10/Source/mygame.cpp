@@ -427,7 +427,7 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
-	translating = player[s].Width() + 50;
+	translating = player[s].Width() + distance;
 	ifs.open("./set.txt", ios::in);
 	if (!ifs.is_open()) {
 		GotoGameState(GAME_STATE_OVER);
@@ -453,7 +453,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 2762 && abs(ground.Left()) + translating < 3028) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 3028 && abs(ground.Left()) + translating < 3108) { bottom = 360; }
 	if (abs(ground.Left()) + translating > 3108 && abs(ground.Left()) + translating < 3748) { bottom = 415; }
-	if (abs(ground.Left()) + translating > 3748 && abs(ground.Left()) + translating < 3885) { bottom = 360; }
+	if (abs(ground.Left()) + translating > 3748 && abs(ground.Left()) + translating < 3885) { bottom = 350; }
 	if (abs(ground.Left()) + translating > 3885 && abs(ground.Left()) + translating < 9999) { bottom = 415; }
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
@@ -469,14 +469,14 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	}
 	if (JUMP_STATE == true) {
 		if (player[s].Top() > max_hight && UP_STATE==true) {
-			player[s].SetTopLeft(50, player[s].Top() - dump_speed);
+			player[s].SetTopLeft(distance, player[s].Top() - dump_speed);
 		}
 		else if(player[s].Top()+player[s].Height()< bottom){
 			UP_STATE = false;
-			player[s].SetTopLeft(50, player[s].Top() + dump_speed);
+			player[s].SetTopLeft(distance, player[s].Top() + dump_speed);
 		}
 		else {
-			player[s].SetTopLeft(50, bottom - player[s].Height());
+			player[s].SetTopLeft(distance, bottom - player[s].Height());
 			JUMP_STATE = false;
 			CONTINUE_JUMP = true;
 			max_hight = bottom - player[s].Height() - 125;
@@ -489,7 +489,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		}
 	}
 	if (abs(ground.Left()) > (1275 - translating) && abs(ground.Left()) < (1790 - translating)) {
-		player[s].SetTopLeft(50, player[s].Top()-3);
+		player[s].SetTopLeft(distance, player[s].Top()-3);
 	}
 	if (abs(ground.Left()) + translating > 1275 && abs(ground.Left()) + translating < 2158) {
 		IS_FUNC = false;
@@ -507,10 +507,11 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			GotoGameState(GAME_STATE_OVER);
 		}
 	}
-	if (abs(ground.Left()) + translating > 3028 && abs(ground.Left()) + translating < 3108 && player[s].Top() + player[s].Height() > 360 && player[s].Left()>0) {
+	if (abs(ground.Left()) + translating > 3028 && abs(ground.Left()) + translating < 3108 && player[s].Top() + player[s].Height() > 360 && player[s].Left() > 0) {
 		player[s].SetTopLeft(player[s].Left() - map_speed, player[s].Top());
-	}else if(player[s].Left() < 50) {
-		player[s].SetTopLeft(player[s].Left() + map_speed, player[s].Top());
+	}
+	if (abs(ground.Left()) + translating > 3108 && abs(ground.Left()) + translating < 3148 && player[s].Left() < distance) {
+		player[s].SetTopLeft(player[s].Left() + map_speed*2, player[s].Top());
 	}
 	if (abs(ground.Left()) > (3263 - translating) && abs(ground.Left()) < (3376 - translating) && player[s].Top() + player[s].Height() > 360) {
 		if (UP_STATE == false) {
@@ -520,8 +521,8 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 3748 && abs(ground.Left()) + translating < 3885 && player[s].Top() + player[s].Height() > 360 && player[s].Left() > 0) {
 		player[s].SetTopLeft(player[s].Left() - map_speed, player[s].Top());
 	}
-	else if (player[s].Left() < 50) {
-		player[s].SetTopLeft(player[s].Left() + map_speed, player[s].Top());
+	if (abs(ground.Left()) + translating > 3558 && abs(ground.Left()) + translating < 3638 && player[s].Left() < distance) {
+		player[s].SetTopLeft(player[s].Left() + map_speed * 2, player[s].Top());
 	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
@@ -530,7 +531,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// ====== drop down =======
 	if (IS_FUNC == true) {
 		if ((player[s].Top() + player[s].Height()) < bottom) {
-			player[s].SetTopLeft(50, player[s].Top() + 10);
+			player[s].SetTopLeft(distance, player[s].Top() + 10);
 		}
 	}
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
@@ -548,6 +549,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	s = 5;
 	IS_FUNC = true;
+	distance = 50;
+	AUTO_JUMP = true;
 	max_hight = 200;
 	bottom = 0;
 	map_speed = 10;
@@ -587,7 +590,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
 	for (int i = 0; i < 6; i++) {
-		player[i].SetTopLeft(50, SIZE_Y - player[i].Height() - 40);
+		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
 	background.SetTopLeft(0, 0);
 	ground.SetTopLeft(0, 0);
