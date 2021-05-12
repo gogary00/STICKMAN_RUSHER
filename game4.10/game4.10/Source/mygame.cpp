@@ -452,7 +452,9 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 2555 && abs(ground.Left()) + translating < 2762) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 2762 && abs(ground.Left()) + translating < 3028) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 3028 && abs(ground.Left()) + translating < 3108) { bottom = 360; }
-	if (abs(ground.Left()) + translating > 3108 && abs(ground.Left()) + translating < 30000) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 3108 && abs(ground.Left()) + translating < 3748) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 3748 && abs(ground.Left()) + translating < 3885) { bottom = 360; }
+	if (abs(ground.Left()) + translating > 3885 && abs(ground.Left()) + translating < 9999) { bottom = 415; }
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
@@ -514,6 +516,12 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		if (UP_STATE == false) {
 			GotoGameState(GAME_STATE_OVER);
 		}
+	}
+	if (abs(ground.Left()) + translating > 3748 && abs(ground.Left()) + translating < 3885 && player[s].Top() + player[s].Height() > 360 && player[s].Left() > 0) {
+		player[s].SetTopLeft(player[s].Left() - map_speed, player[s].Top());
+	}
+	else if (player[s].Left() < 50) {
+		player[s].SetTopLeft(player[s].Left() + map_speed, player[s].Top());
 	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
