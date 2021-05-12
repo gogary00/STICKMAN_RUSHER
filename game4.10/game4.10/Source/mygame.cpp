@@ -450,12 +450,17 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 2158 && abs(ground.Left()) + translating < 2362) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 2362 && abs(ground.Left()) + translating < 2555) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 2555 && abs(ground.Left()) + translating < 2762) { bottom = 482; }
-	if (abs(ground.Left()) + translating > 2762 && abs(ground.Left()) + translating < 30000) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 2762 && abs(ground.Left()) + translating < 3028) { bottom = 415; }
+	if (abs(ground.Left()) + translating > 3028 && abs(ground.Left()) + translating < 3108) { bottom = 360; }
+	if (abs(ground.Left()) + translating > 3108 && abs(ground.Left()) + translating < 30000) { bottom = 415; }
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 	background.SetTopLeft(background.Left()-map_speed, 0);
 	ground.SetTopLeft(ground.Left() - map_speed, 0);
+	if (UP_STATE == true) {
+		IS_FUNC = false;
+	}
 	if (JUMP_STATE == false) {
 		max_hight = bottom - player[s].Height() - 125;
 	}
@@ -499,8 +504,17 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			GotoGameState(GAME_STATE_OVER);
 		}
 	}
+	if (abs(ground.Left()) + translating > 3028 && abs(ground.Left()) + translating < 3108 && player[s].Top() + player[s].Height() > 360 && player[s].Left()>0) {
+		player[s].SetTopLeft(player[s].Left() - map_speed, player[s].Top());
+	}
+	else if(player[s].Left() < 50) {
+		player[s].SetTopLeft(player[s].Left() + map_speed, player[s].Top());
+	}
+
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
+
+	// ====== drop down =======
 	if (IS_FUNC == true) {
 		if ((player[s].Top() + player[s].Height()) < bottom) {
 			player[s].SetTopLeft(50, player[s].Top() + 10);
@@ -615,7 +629,6 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 		
 	if (nChar == KEY_UP) {
-		IS_FUNC = false;
 		if (CONTINUE_JUMP == true) {
 			if (JUMP_STATE == true) {
 				max_hight = player[s].Top()-125;
