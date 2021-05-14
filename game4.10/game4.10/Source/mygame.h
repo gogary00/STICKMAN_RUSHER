@@ -144,9 +144,9 @@ namespace game_framework {
 		int max_hight, s, map_speed, dump_speed, translating,bottom, distance;
 		string c;
 		ifstream ifs;
-		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP;
+		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP,iS_SHOW_POINT[2];
 		CAnimation player[6];
-		CMovingBitmap background,ground,attack;
+		CMovingBitmap background,ground,attack,point[2];
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
