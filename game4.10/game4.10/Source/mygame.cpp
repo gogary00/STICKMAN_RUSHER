@@ -442,11 +442,12 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
 	// ---------------------------------------------------移動POINT----------------------------------------------------------------
-	point[0].SetTopLeft(50, 50);
-	point[1].SetTopLeft(100, 50);
+	for (int i = 0; i < total_star; i++) {
+		cstar[i].SetTopLeft(cstar[i].Left() - map_speed, cstar[i].Top());
+	}
 	// ---------------------------------------------------移動POINT----------------------------------------------------------------
 	//
-	TRACE("map = %d\n", abs(background.Left()));
+	TRACE("point = %d\n", count_point);
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 	if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1281) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) { bottom = int(-0.23*(abs(ground.Left())+translating-1275)+430)-15; }
@@ -638,6 +639,21 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			player[s].SetTopLeft(distance, player[s].Top() + 10);
 		}
 	}
+	// ====== drop down =======
+	//===========偵測point碰撞===========
+	for (int i = 0; i < total_star; i++) {
+		if (player[s].Left()+player[s].Width()-10 >= cstar[i].Left() && player[s].Left() - 10 <= cstar[i].Left()+ cstar[i].Width() && player[s].Top()+ player[s].Height() - 10 >= cstar[i].Top() && player[s].Top() - 10 <= cstar[i].Top()+ cstar[i].Height()) {
+			if (cstar[i].get_IS_Show() == true) { count_point++; }
+			cstar[i].set_IS_Show(false);
+		}
+	}
+	//===========偵測point碰撞===========
+	//===========顯示目前距離===========
+	int current = abs(background.Left());
+	for (int i = 0; i < 5; i++) {
+		
+	}
+	//===========顯示目前距離===========
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 }
 
@@ -652,6 +668,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 開始載入資料
 	//
 	s = 5;
+	total_star = 3;
+	count_point = 0;
 	IS_FUNC = true;
 	distance = 50;
 	AUTO_JUMP = true;
@@ -663,6 +681,12 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	JUMP_STATE = false;
 	UP_STATE = false;
 	ATTACH_STATE = false;
+	for (int i = 0; i < total_star; i++) {
+		cstar[i].LoadBitmap();
+	}
+	for (int i = 0; i < total_star; i++) {
+		cstar[i].set_IS_Show(true);
+	}
 	player[0].AddBitmap(IDB_BITMAP122, RGB(0, 255, 0));
 	player[0].AddBitmap(IDB_BITMAP125, RGB(0, 255, 0));
 	player[0].AddBitmap(IDB_BITMAP127, RGB(0, 255, 0));
@@ -698,8 +722,11 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	}
 	background.SetTopLeft(0, 0);
 	ground.SetTopLeft(0, 0);
-	for (int i = 0; i < 2; i++) { point[i].LoadBitmap(IDB_BITMAP30, RGB(0, 255, 0)); }
-	for (int i = 0; i < 2; i++) { iS_SHOW_POINT[i] = true; }
+	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
+	cstar[0].SetTopLeft(350, 380);
+	cstar[1].SetTopLeft(430, 380);
+	cstar[2].SetTopLeft(510, 380);
+	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
 	CAudio::Instance()->Load(AUDIO_NTUT,  "sounds\\ntut.mid");	// 載入編號2的聲音ntut.mid
@@ -810,9 +837,9 @@ void CGameStateRun::OnShow()
 		attack.ShowBitmap();
 		ATTACH_STATE = false;
 	}
-	for (int i = 0; i < 2; i++) {
-		if (iS_SHOW_POINT[i]==true) {
-			point[i].ShowBitmap();
+	for (int i = 0; i < total_star; i++) {
+		if (cstar[i].get_IS_Show() == true) {
+			cstar[i].ShowBitmap();
 		}
 	}
 	player[s].OnShow();

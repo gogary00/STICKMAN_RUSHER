@@ -42,9 +42,7 @@
 #include <fstream>
 #include <string>
 #include <stdlib.h>
-#include "CEraser.h"
-#include "CBall.h"
-#include "CBouncingBall.h"
+#include "CStar.h"
 using namespace std;
 
 namespace game_framework {
@@ -141,12 +139,13 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		int max_hight, s, map_speed, dump_speed, translating,bottom, distance;
+		int max_hight, s, map_speed, dump_speed, translating,bottom, distance,total_star,count_point;
 		string c;
 		ifstream ifs;
-		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP,iS_SHOW_POINT[2];
+		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP;
 		CAnimation player[6];
-		CMovingBitmap background,ground,attack,point[2];
+		CMovingBitmap background,ground,attack,map_score[5][10];
+		CStar cstar[3];
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
