@@ -649,9 +649,10 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	}
 	//===========偵測point碰撞===========
 	//===========顯示目前距離===========
-	int current = abs(background.Left());
+	current = abs(background.Left());
+	int index=0;
 	for (int i = 0; i < 5; i++) {
-		
+		index = current / int(pow(10,i)) % 10;
 	}
 	//===========顯示目前距離===========
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
@@ -717,6 +718,11 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	background.LoadBitmap(IDB_BITMAP164);
 	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 10; j++) {
+			map_score[i][j].LoadBitmap(IDB_0, RGB(0, 0, 0));
+		}
+	}
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
