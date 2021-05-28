@@ -140,7 +140,7 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		int max_hight, s, map_speed, dump_speed, translating,bottom, distance,total_star,count_point,current,choice[5];
-		string c;
+		char c[20];
 		ifstream ifs;
 		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP;
 		CAnimation player[6];

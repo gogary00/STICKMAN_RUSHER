@@ -432,7 +432,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (!ifs.is_open()) {
 		GotoGameState(GAME_STATE_OVER);
 	}
-	getline(ifs, c);
+	ifs >> c;
 	ifs.close();
 	//TRACE("c = %d\n",c[0]-'0');
 	//s = c - '0';
@@ -447,7 +447,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	}
 	// ---------------------------------------------------移動POINT----------------------------------------------------------------
 	//
-	TRACE("point = %d\n", count_point);
+	TRACE("c = %s\n", c);
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 	if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1281) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) { bottom = int(-0.23*(abs(ground.Left())+translating-1275)+430)-15; }
@@ -648,13 +648,6 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		}
 	}
 	//===========偵測point碰撞===========
-	//===========顯示目前距離===========
-	current = abs(background.Left());
-	int index=0;
-	for (int i = 0; i < 5; i++) {
-		index = current / int(pow(10,i)) % 10;
-	}
-	//===========顯示目前距離===========
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 }
 
@@ -720,9 +713,47 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 10; j++) {
-			map_score[i][j].LoadBitmap(IDB_0, RGB(0, 0, 0));
+			switch (j) {
+				case 0:
+					map_score[i][j].LoadBitmap(IDB_0, RGB(0, 0, 0));
+					break;
+				case 1:
+					map_score[i][j].LoadBitmap(IDB_1, RGB(0, 0, 0));
+					break;
+				case 2:
+					map_score[i][j].LoadBitmap(IDB_2, RGB(0, 0, 0));
+					break;
+				case 3:
+					map_score[i][j].LoadBitmap(IDB_3, RGB(0, 0, 0));
+					break;
+				case 4:
+					map_score[i][j].LoadBitmap(IDB_4, RGB(0, 0, 0));
+					break;
+				case 5:
+					map_score[i][j].LoadBitmap(IDB_5, RGB(0, 0, 0));
+					break;
+				case 6:
+					map_score[i][j].LoadBitmap(IDB_6, RGB(0, 0, 0));
+					break;
+				case 7:
+					map_score[i][j].LoadBitmap(IDB_7, RGB(0, 0, 0));
+					break;
+				case 8:
+					map_score[i][j].LoadBitmap(IDB_8, RGB(0, 0, 0));
+					break;
+				case 9:
+					map_score[i][j].LoadBitmap(IDB_9, RGB(0, 0, 0));
+					break;
+				default:
+					break;
+			}
 		}
 	}
+	for (int i = 0; i < 10; i++) { map_score[0][i].SetTopLeft(300, 50); }
+	for (int i = 0; i < 10; i++) { map_score[1][i].SetTopLeft(270, 50); }
+	for (int i = 0; i < 10; i++) { map_score[2][i].SetTopLeft(240, 50); }
+	for (int i = 0; i < 10; i++) { map_score[3][i].SetTopLeft(210, 50); }
+	for (int i = 0; i < 10; i++) { map_score[4][i].SetTopLeft(180, 50); }
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
@@ -849,5 +880,13 @@ void CGameStateRun::OnShow()
 		}
 	}
 	player[s].OnShow();
+	//===========顯示目前距離===========
+	current = abs(background.Left());
+	int index = 0;
+	for (int i = 0; i <= log10(current); i++) {
+		index = current / int(pow(10, i)) % 10;
+		map_score[i][index].ShowBitmap();
+	}
+	//===========顯示目前距離===========
 }
 }
