@@ -485,6 +485,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 	background.SetTopLeft(background.Left()-map_speed, 0);
 	ground.SetTopLeft(ground.Left() - map_speed, 0);
+	score_board.SetTopLeft(240, 0);
 	if (UP_STATE == true) {
 		IS_FUNC = false;
 	}
@@ -675,6 +676,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	JUMP_STATE = false;
 	UP_STATE = false;
 	ATTACH_STATE = false;
+	score_board.LoadBitmap(IDB_BITMAP63, RGB(0, 255, 0));
+	point_board.LoadBitmap(IDB_BITMAP53, RGB(0, 255, 0));
+	point_board.SetTopLeft(0, 50);
 	for (int i = 0; i < total_star; i++) {
 		cstar[i].LoadBitmap();
 	}
@@ -749,11 +753,11 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 			}
 		}
 	}
-	for (int i = 0; i < 10; i++) { map_score[0][i].SetTopLeft(300, 50); }
-	for (int i = 0; i < 10; i++) { map_score[1][i].SetTopLeft(270, 50); }
-	for (int i = 0; i < 10; i++) { map_score[2][i].SetTopLeft(240, 50); }
-	for (int i = 0; i < 10; i++) { map_score[3][i].SetTopLeft(210, 50); }
-	for (int i = 0; i < 10; i++) { map_score[4][i].SetTopLeft(180, 50); }
+	for (int i = 0; i < 10; i++) { map_score[0][i].SetTopLeft(430, 50); }
+	for (int i = 0; i < 10; i++) { map_score[1][i].SetTopLeft(410, 50); }
+	for (int i = 0; i < 10; i++) { map_score[2][i].SetTopLeft(390, 50); }
+	for (int i = 0; i < 10; i++) { map_score[3][i].SetTopLeft(370, 50); }
+	for (int i = 0; i < 10; i++) { map_score[4][i].SetTopLeft(350, 50); }
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
@@ -880,6 +884,7 @@ void CGameStateRun::OnShow()
 		}
 	}
 	player[s].OnShow();
+	score_board.ShowBitmap();
 	//===========顯示目前距離===========
 	current = abs(background.Left());
 	int index = 0;
@@ -888,5 +893,6 @@ void CGameStateRun::OnShow()
 		map_score[i][index].ShowBitmap();
 	}
 	//===========顯示目前距離===========
+	point_board.ShowBitmap();
 }
 }
