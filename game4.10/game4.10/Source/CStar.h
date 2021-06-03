@@ -11,6 +11,7 @@ namespace game_framework {
 			bool get_IS_Show();
 			void set_IS_Show(bool);
 			void LoadBitmap();
+			void LoadBitmapStar();
 			void onMove(int);
 			void SetTopLeft(int, int);
 			void ShowBitmap();

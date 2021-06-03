@@ -19,6 +19,10 @@ namespace game_framework {
 		star.LoadBitmap(IDB_BITMAP30, RGB(0, 255, 0));
 	}
 
+	void CStar::LoadBitmapStar() {
+		star.LoadBitmap(IDB_BITMAP29, RGB(0, 255, 0));
+	}
+
 	void CStar::onMove(int speed) {
 		star.SetTopLeft(star.Left() - speed, star.Top());
 	}

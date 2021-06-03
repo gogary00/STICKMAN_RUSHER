@@ -144,8 +144,8 @@ namespace game_framework {
 		ifstream ifs;
 		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP;
 		CAnimation player[6];
-		CMovingBitmap background,ground,attack,map_score[5][10],score_board,csore_point[3][10],point_board;
-		CStar cstar[3];
+		CMovingBitmap background,ground,attack,map_score[5][10],score_board,score_point[3][10],point_board;
+		CStar cstar[10];
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

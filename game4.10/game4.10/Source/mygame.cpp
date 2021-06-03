@@ -643,7 +643,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// ====== drop down =======
 	//===========偵測point碰撞===========
 	for (int i = 0; i < total_star; i++) {
-		if (player[s].Left()+player[s].Width()-10 >= cstar[i].Left() && player[s].Left() - 10 <= cstar[i].Left()+ cstar[i].Width() && player[s].Top()+ player[s].Height() - 10 >= cstar[i].Top() && player[s].Top() - 10 <= cstar[i].Top()+ cstar[i].Height()) {
+		if (player[s].Left()+player[s].Width()-30 >= cstar[i].Left() && player[s].Left() - 30 <= cstar[i].Left()+ cstar[i].Width() && player[s].Top()+ player[s].Height() - 30 >= cstar[i].Top() && player[s].Top() - 30 <= cstar[i].Top()+ cstar[i].Height()) {
 			if (cstar[i].get_IS_Show() == true) { count_point++; }
 			cstar[i].set_IS_Show(false);
 		}
@@ -663,7 +663,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 開始載入資料
 	//
 	s = 5;
-	total_star = 3;
+	total_star = 10;
 	count_point = 0;
 	IS_FUNC = true;
 	distance = 50;
@@ -715,6 +715,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	background.LoadBitmap(IDB_BITMAP164);
 	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
+	//set map_score[][] loading picture
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 10; j++) {
 			switch (j) {
@@ -753,11 +754,53 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 			}
 		}
 	}
+	//set score_point[][] loading picture
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 10; j++) {
+			switch (j) {
+			case 0:
+				score_point[i][j].LoadBitmap(IDB_0, RGB(0, 0, 0));
+				break;
+			case 1:
+				score_point[i][j].LoadBitmap(IDB_1, RGB(0, 0, 0));
+				break;
+			case 2:
+				score_point[i][j].LoadBitmap(IDB_2, RGB(0, 0, 0));
+				break;
+			case 3:
+				score_point[i][j].LoadBitmap(IDB_3, RGB(0, 0, 0));
+				break;
+			case 4:
+				score_point[i][j].LoadBitmap(IDB_4, RGB(0, 0, 0));
+				break;
+			case 5:
+				score_point[i][j].LoadBitmap(IDB_5, RGB(0, 0, 0));
+				break;
+			case 6:
+				score_point[i][j].LoadBitmap(IDB_6, RGB(0, 0, 0));
+				break;
+			case 7:
+				score_point[i][j].LoadBitmap(IDB_7, RGB(0, 0, 0));
+				break;
+			case 8:
+				score_point[i][j].LoadBitmap(IDB_8, RGB(0, 0, 0));
+				break;
+			case 9:
+				score_point[i][j].LoadBitmap(IDB_9, RGB(0, 0, 0));
+				break;
+			default:
+				break;
+			}
+		}
+	}
 	for (int i = 0; i < 10; i++) { map_score[0][i].SetTopLeft(430, 50); }
 	for (int i = 0; i < 10; i++) { map_score[1][i].SetTopLeft(410, 50); }
 	for (int i = 0; i < 10; i++) { map_score[2][i].SetTopLeft(390, 50); }
 	for (int i = 0; i < 10; i++) { map_score[3][i].SetTopLeft(370, 50); }
 	for (int i = 0; i < 10; i++) { map_score[4][i].SetTopLeft(350, 50); }
+	for (int i = 0; i < 10; i++) { score_point[0][i].SetTopLeft(100, 70); }
+	for (int i = 0; i < 10; i++) { score_point[1][i].SetTopLeft(80, 70); }
+	for (int i = 0; i < 10; i++) { score_point[2][i].SetTopLeft(60, 70); }
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
@@ -767,6 +810,13 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	cstar[0].SetTopLeft(350, 380);
 	cstar[1].SetTopLeft(430, 380);
 	cstar[2].SetTopLeft(510, 380);
+	cstar[3].SetTopLeft(680, 260);
+	cstar[4].SetTopLeft(880, 380);
+	cstar[5].SetTopLeft(960, 380);
+	cstar[6].SetTopLeft(1040, 380);
+	cstar[7].SetTopLeft(2440, 250);
+	cstar[8].SetTopLeft(2440, 310);
+	cstar[9].SetTopLeft(2440, 370);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
@@ -893,6 +943,12 @@ void CGameStateRun::OnShow()
 		map_score[i][index].ShowBitmap();
 	}
 	//===========顯示目前距離===========
+	//===========顯示POINT分數===========
 	point_board.ShowBitmap();
+	for (int i = 0; i <= log10(count_point); i++) {
+		index = count_point / int(pow(10, i)) % 10;
+		score_point[i][index].ShowBitmap();
+	}
+	//===========顯示POINT分數===========
 }
 }
