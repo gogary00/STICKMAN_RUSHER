@@ -269,12 +269,7 @@ void CGameStateSelect::OnInit() {
 	player[5].AddBitmap(IDB_BITMAP123, RGB(0, 255, 0));
 	player[5].AddBitmap(IDB_BITMAP124, RGB(0, 255, 0));
 	player[5].AddBitmap(IDB_BITMAP126, RGB(0, 255, 0));
-	ofs.open("./set.txt");
-	if (!ofs.is_open()) {
-		GotoGameState(GAME_STATE_OVER);
-	}
-	ofs << "0";
-	ofs.close();
+	MyWrite('0');
 }
 
 void CGameStateSelect::OnBeginState() {
@@ -285,43 +280,47 @@ void CGameStateSelect::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
 
 }
 
-void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
+void CGameStateSelect::MyWrite(char c) {
+	ofstream ofs;
 	ofs.open("./set.txt");
 	if (!ofs.is_open()) {
 		GotoGameState(GAME_STATE_OVER);
 	}
+	ofs << c;
+	ofs.close();
+}
+
+void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
 	if (point.x > SIZE_X-btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
 		swAudio++;
 	}
 	if (point.x > SIZE_X - btnStartGame.Width() && point.y > 400 && point.y < 400 + btnStartGame.Height()) {
-		ofs.close();
 		GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
 	}
 	if (point.x > 113 && point.x < 113 + upgrade[0].Width() && point.y>150 && point.y < 150 + upgrade[0].Height()) {
 		select = 0;
-		ofs << "0";
+		MyWrite('0');
 	}
 	if (point.x > 113 && point.x < 113 + upgrade[1].Width() && point.y>227 && point.y < 227 + upgrade[1].Height()) {
 		select = 1;
-		ofs << "1";
+		MyWrite('1');
 	}
 	if (point.x > 113 && point.x < 113 + upgrade[2].Width() && point.y>305 && point.y < 305 + upgrade[2].Height()) {
 		select = 2;
-		ofs << "2";
+		MyWrite('2');
 	}
 	if (point.x > 520 && point.x < 520 + upgrade[3].Width() && point.y>150 && point.y < 150 + upgrade[3].Height()) {
 		select = 3;
-		ofs << "3";
+		MyWrite('3');
 	}
 	if (point.x > 520 && point.x < 520 + upgrade[4].Width() && point.y>227 && point.y < 227 + upgrade[4].Height()) {
 		select = 4;
-		ofs << "4";
+		MyWrite('4');
 	}
 	if (point.x > 520 && point.x < 520 + upgrade[5].Width() && point.y>305 && point.y < 305 + upgrade[5].Height()) {
 		select = 5;
-		ofs << "5";
+		MyWrite('5');
 	}
-	ofs.close();
 }
 
 void CGameStateSelect::OnShow() {
@@ -427,16 +426,14 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
-	translating = player[s].Width() + distance;
-	ifs.open("./set.txt", ios::in);
+	ifs.open("./set.txt");
 	if (!ifs.is_open()) {
 		GotoGameState(GAME_STATE_OVER);
 	}
 	ifs >> s;
 	ifs.close();
 	TRACE("s = %d\n", s);
-	//TRACE("c = %d\n",c[0]-'0');
-	//s = c - '0';
+	translating = player[s].Width() + distance;
 	//
 	// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
 	//
