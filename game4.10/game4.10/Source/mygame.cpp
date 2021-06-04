@@ -432,8 +432,9 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (!ifs.is_open()) {
 		GotoGameState(GAME_STATE_OVER);
 	}
-	ifs >> c;
+	ifs >> s;
 	ifs.close();
+	TRACE("s = %d\n", s);
 	//TRACE("c = %d\n",c[0]-'0');
 	//s = c - '0';
 	//
@@ -447,7 +448,6 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	}
 	// ---------------------------------------------------移動POINT----------------------------------------------------------------
 	//
-	TRACE("c = %s\n", c);
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 	if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1281) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) { bottom = int(-0.23*(abs(ground.Left())+translating-1275)+430)-15; }
@@ -662,7 +662,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
-	s = 5;
+	s = 0;
 	total_star = 21;
 	count_point = 0;
 	IS_FUNC = true;
