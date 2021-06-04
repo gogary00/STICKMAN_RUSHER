@@ -660,7 +660,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 開始載入資料
 	//
 	s = 0;
-	total_star = 21;
+	total_star = 31;
 	count_point = 0;
 	IS_FUNC = true;
 	distance = 50;
@@ -825,6 +825,16 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	cstar[18].SetTopLeft(6705, 180);
 	cstar[19].SetTopLeft(6705, 220);
 	cstar[20].SetTopLeft(6730, 200);
+	cstar[21].SetTopLeft(6960, 200);
+	cstar[22].SetTopLeft(6985, 180);
+	cstar[23].SetTopLeft(6985, 220);
+	cstar[24].SetTopLeft(7010, 200);
+	cstar[25].SetTopLeft(7225, 200);
+	cstar[26].SetTopLeft(7250, 180);
+	cstar[27].SetTopLeft(7250, 220);
+	cstar[28].SetTopLeft(7275, 200);
+	cstar[29].SetTopLeft(7570, 350);
+	cstar[30].SetTopLeft(7930, 310);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
