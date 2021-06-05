@@ -666,5 +666,11 @@
     <Image Include="RES\grass_new.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\new_map2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\tempMAP\new_grass2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
