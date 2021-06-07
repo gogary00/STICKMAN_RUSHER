@@ -432,7 +432,6 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	}
 	ifs >> s;
 	ifs.close();
-	TRACE("s = %d\n", s);
 	translating = player[s].Width() + distance;
 	//
 	// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
@@ -456,27 +455,29 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 3108 && abs(ground.Left()) + translating < 3748) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 3748 && abs(ground.Left()) + translating < 3885) { bottom = 350; }
 	if (abs(ground.Left()) + translating > 3885 && abs(ground.Left()) + translating < 4635) { bottom = 415; }
-	if (abs(ground.Left()) + translating > 4635 && abs(ground.Left()) + translating < 4777) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 4635 && abs(ground.Left()) + translating < 4777) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 4777 && abs(ground.Left()) + translating < 5037) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 5037 && abs(ground.Left()) + translating < 5885) { bottom = int(-0.17*(abs(ground.Left()) + translating - 5037) + 420)-15; }
-	if (abs(ground.Left()) + translating > 5885 && abs(ground.Left()) + translating < 6057) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 5885 && abs(ground.Left()) + translating < 6057) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 6057 && abs(ground.Left()) + translating < 6205) { bottom = 285; }
 	if (abs(ground.Left()) + translating > 6205 && abs(ground.Left()) + translating < 6340) { bottom = 220; }
 	if (abs(ground.Left()) + translating > 6340 && abs(ground.Left()) + translating < 6491) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 6491 && abs(ground.Left()) + translating < 6650) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 6491 && abs(ground.Left()) + translating < 6650) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 6650 && abs(ground.Left()) + translating < 6805) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 6805 && abs(ground.Left()) + translating < 6925) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 6805 && abs(ground.Left()) + translating < 6925) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 6925 && abs(ground.Left()) + translating < 7080) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 7080 && abs(ground.Left()) + translating < 7195) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 7080 && abs(ground.Left()) + translating < 7195) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 7195 && abs(ground.Left()) + translating < 7350) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 7350 && abs(ground.Left()) + translating < 7467) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 7350 && abs(ground.Left()) + translating < 7467) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 7467 && abs(ground.Left()) + translating < 7767) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 7767 && abs(ground.Left()) + translating < 8450) { bottom = int(-0.17*(abs(ground.Left()) + translating - 7767) + 400) - 15; }
 	if (abs(ground.Left()) + translating > 8450 && abs(ground.Left()) + translating < 8755) { bottom = int(0.31*(abs(ground.Left()) + translating - 8450) + 280) - 15; }
 	if (abs(ground.Left()) + translating > 8755 && abs(ground.Left()) + translating < 9380) { bottom = 376; }
 	if (abs(ground.Left()) + translating > 9380 && abs(ground.Left()) + translating < 10250) { bottom = int(-0.07*(abs(ground.Left()) + translating - 9380) + 380) - 15; }
 	if (abs(ground.Left()) + translating > 10250 && abs(ground.Left()) + translating < 13176) { bottom = 315; }
-	if (abs(ground.Left()) + translating > 13176 && abs(ground.Left()) + translating < 99999) { bottom = 380; }
+	if (abs(ground.Left()) + translating > 13176 && abs(ground.Left()) + translating < 14286) { bottom = 380; }
+	if (abs(ground.Left()) + translating > 14286 && abs(ground.Left()) + translating < 15836) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 15836 && abs(ground.Left()) + translating < 99999) { bottom = 390; }
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
@@ -630,6 +631,27 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 10250 && abs(ground.Left()) + translating < 10261) {
 		IS_FUNC = true;
 	}
+	if (abs(ground.Left()) + translating > 14086 && abs(ground.Left()) + translating < 15576 && player[s].Top() + player[s].Height() > 425) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 14279 && abs(ground.Left()) + translating < 14301 && player[s].Top()<120) {
+		JUMP_STATE = false;
+		IS_FUNC = false;
+		DRAG_STATE = true;
+	}
+	if (DRAG_STATE == true) {
+		if (abs(ground.Left()) + translating > 13936 && abs(ground.Left()) + translating < 15831) {
+			int temp = int(0.094*(abs(ground.Left()) + translating - 13936) + 30);
+			player[s].SetTopLeft(distance, temp);
+		}
+	}
+	if (abs(ground.Left()) + translating > 15829 && abs(ground.Left()) + translating < 15841) {
+		IS_FUNC = true;
+		CONTINUE_JUMP = true;
+		DRAG_STATE = false;
+	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
@@ -668,6 +690,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	IS_FUNC = true;
 	distance = 50;
 	AUTO_JUMP = true;
+	DRAG_STATE = false;
 	max_hight = 200;
 	bottom = 0;
 	map_speed = 10;
@@ -806,10 +829,10 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
-	background.SetTopLeft(0, 0);
-	ground.SetTopLeft(0, 0);
-	background2.SetTopLeft(13176, 0);
-	ground2.SetTopLeft(13176, 0);
+	background.SetTopLeft(-13376, 0);
+	ground.SetTopLeft(-13376, 0);
+	background2.SetTopLeft(0, 0);
+	ground2.SetTopLeft(0, 0);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	cstar[0].SetTopLeft(350, 370);
 	cstar[1].SetTopLeft(430, 370);
