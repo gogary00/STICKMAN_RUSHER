@@ -651,6 +651,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		IS_FUNC = true;
 		CONTINUE_JUMP = true;
 		DRAG_STATE = false;
+		UP_STATE = false;
 	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
@@ -829,10 +830,10 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
-	background.SetTopLeft(-13376, 0);
-	ground.SetTopLeft(-13376, 0);
-	background2.SetTopLeft(0, 0);
-	ground2.SetTopLeft(0, 0);
+	background.SetTopLeft(0, 0);
+	ground.SetTopLeft(0, 0);
+	background2.SetTopLeft(13376, 0);
+	ground2.SetTopLeft(13376, 0);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	cstar[0].SetTopLeft(350, 370);
 	cstar[1].SetTopLeft(430, 370);
