@@ -432,7 +432,6 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	}
 	ifs >> s;
 	ifs.close();
-	TRACE("s = %d\n", s);
 	translating = player[s].Width() + distance;
 	//
 	// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
@@ -456,32 +455,37 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 3108 && abs(ground.Left()) + translating < 3748) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 3748 && abs(ground.Left()) + translating < 3885) { bottom = 350; }
 	if (abs(ground.Left()) + translating > 3885 && abs(ground.Left()) + translating < 4635) { bottom = 415; }
-	if (abs(ground.Left()) + translating > 4635 && abs(ground.Left()) + translating < 4777) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 4635 && abs(ground.Left()) + translating < 4777) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 4777 && abs(ground.Left()) + translating < 5037) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 5037 && abs(ground.Left()) + translating < 5885) { bottom = int(-0.17*(abs(ground.Left()) + translating - 5037) + 420)-15; }
-	if (abs(ground.Left()) + translating > 5885 && abs(ground.Left()) + translating < 6057) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 5885 && abs(ground.Left()) + translating < 6057) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 6057 && abs(ground.Left()) + translating < 6205) { bottom = 285; }
 	if (abs(ground.Left()) + translating > 6205 && abs(ground.Left()) + translating < 6340) { bottom = 220; }
 	if (abs(ground.Left()) + translating > 6340 && abs(ground.Left()) + translating < 6491) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 6491 && abs(ground.Left()) + translating < 6650) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 6491 && abs(ground.Left()) + translating < 6650) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 6650 && abs(ground.Left()) + translating < 6805) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 6805 && abs(ground.Left()) + translating < 6925) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 6805 && abs(ground.Left()) + translating < 6925) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 6925 && abs(ground.Left()) + translating < 7080) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 7080 && abs(ground.Left()) + translating < 7195) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 7080 && abs(ground.Left()) + translating < 7195) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 7195 && abs(ground.Left()) + translating < 7350) { bottom = 285; }
-	if (abs(ground.Left()) + translating > 7350 && abs(ground.Left()) + translating < 7467) { bottom = 485; }
+	if (abs(ground.Left()) + translating > 7350 && abs(ground.Left()) + translating < 7467) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 7467 && abs(ground.Left()) + translating < 7767) { bottom = 415; }
 	if (abs(ground.Left()) + translating > 7767 && abs(ground.Left()) + translating < 8450) { bottom = int(-0.17*(abs(ground.Left()) + translating - 7767) + 400) - 15; }
 	if (abs(ground.Left()) + translating > 8450 && abs(ground.Left()) + translating < 8755) { bottom = int(0.31*(abs(ground.Left()) + translating - 8450) + 280) - 15; }
 	if (abs(ground.Left()) + translating > 8755 && abs(ground.Left()) + translating < 9380) { bottom = 376; }
 	if (abs(ground.Left()) + translating > 9380 && abs(ground.Left()) + translating < 10250) { bottom = int(-0.07*(abs(ground.Left()) + translating - 9380) + 380) - 15; }
-	if (abs(ground.Left()) + translating > 10250 && abs(ground.Left()) + translating < 99999) { bottom = 315; }
+	if (abs(ground.Left()) + translating > 10250 && abs(ground.Left()) + translating < 13176) { bottom = 315; }
+	if (abs(ground.Left()) + translating > 13176 && abs(ground.Left()) + translating < 14286) { bottom = 380; }
+	if (abs(ground.Left()) + translating > 14286 && abs(ground.Left()) + translating < 15836) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 15836 && abs(ground.Left()) + translating < 99999) { bottom = 390; }
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 	background.SetTopLeft(background.Left()-map_speed, 0);
 	ground.SetTopLeft(ground.Left() - map_speed, 0);
+	background2.SetTopLeft(background2.Left() - map_speed, 0);
+	ground2.SetTopLeft(ground2.Left() - map_speed, 0);
 	score_board.SetTopLeft(240, 0);
 	if (UP_STATE == true) {
 		IS_FUNC = false;
@@ -627,6 +631,28 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 10250 && abs(ground.Left()) + translating < 10261) {
 		IS_FUNC = true;
 	}
+	if (abs(ground.Left()) + translating > 14086 && abs(ground.Left()) + translating < 15576 && player[s].Top() + player[s].Height() > 425) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 14279 && abs(ground.Left()) + translating < 14301 && player[s].Top()<120) {
+		JUMP_STATE = false;
+		IS_FUNC = false;
+		DRAG_STATE = true;
+	}
+	if (DRAG_STATE == true) {
+		if (abs(ground.Left()) + translating > 13936 && abs(ground.Left()) + translating < 15831) {
+			int temp = int(0.094*(abs(ground.Left()) + translating - 13936) + 30);
+			player[s].SetTopLeft(distance, temp);
+		}
+	}
+	if (abs(ground.Left()) + translating > 15829 && abs(ground.Left()) + translating < 15841) {
+		IS_FUNC = true;
+		CONTINUE_JUMP = true;
+		DRAG_STATE = false;
+		UP_STATE = false;
+	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
@@ -660,11 +686,12 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 開始載入資料
 	//
 	s = 0;
-	total_star = 21;
+	total_star = 43;
 	count_point = 0;
 	IS_FUNC = true;
 	distance = 50;
 	AUTO_JUMP = true;
+	DRAG_STATE = false;
 	max_hight = 200;
 	bottom = 0;
 	map_speed = 10;
@@ -710,7 +737,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 		player[i].SetDelayCount(3);
 	}
 	background.LoadBitmap(IDB_BITMAP164);
+	background2.LoadBitmap(IDB_BITMAP165);
 	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
+	ground2.LoadBitmap(IDB_BITMAP166, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
 	//set map_score[][] loading picture
 	for (int i = 0; i < 5; i++) {
@@ -803,6 +832,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	}
 	background.SetTopLeft(0, 0);
 	ground.SetTopLeft(0, 0);
+	background2.SetTopLeft(13376, 0);
+	ground2.SetTopLeft(13376, 0);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	cstar[0].SetTopLeft(350, 370);
 	cstar[1].SetTopLeft(430, 370);
@@ -825,6 +856,28 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	cstar[18].SetTopLeft(6705, 180);
 	cstar[19].SetTopLeft(6705, 220);
 	cstar[20].SetTopLeft(6730, 200);
+	cstar[21].SetTopLeft(6960, 200);
+	cstar[22].SetTopLeft(6985, 180);
+	cstar[23].SetTopLeft(6985, 220);
+	cstar[24].SetTopLeft(7010, 200);
+	cstar[25].SetTopLeft(7225, 200);
+	cstar[26].SetTopLeft(7250, 180);
+	cstar[27].SetTopLeft(7250, 220);
+	cstar[28].SetTopLeft(7275, 200);
+	cstar[29].SetTopLeft(7570, 350);
+	cstar[30].SetTopLeft(7930, 310);
+	cstar[31].SetTopLeft(8340, 240);
+	cstar[32].SetTopLeft(8530, 250);
+	cstar[33].SetTopLeft(8930, 320);
+	cstar[34].SetTopLeft(10045, 240);
+	cstar[35].SetTopLeft(10360, 250);
+	cstar[36].SetTopLeft(10420, 255);
+	cstar[37].SetTopLeft(10480, 260);
+	cstar[38].SetTopLeft(10540, 265);
+	cstar[39].SetTopLeft(10720, 265);
+	cstar[40].SetTopLeft(10780, 260);
+	cstar[41].SetTopLeft(10840, 255);
+	cstar[42].SetTopLeft(10900, 250);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
@@ -932,6 +985,8 @@ void CGameStateRun::OnShow()
 
 	background.ShowBitmap();
 	ground.ShowBitmap();
+	background2.ShowBitmap();
+	ground2.ShowBitmap();
 	if (ATTACH_STATE == true) {
 		attack.ShowBitmap();
 		ATTACH_STATE = false;
