@@ -477,7 +477,12 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 10250 && abs(ground.Left()) + translating < 13176) { bottom = 315; }
 	if (abs(ground.Left()) + translating > 13176 && abs(ground.Left()) + translating < 14286) { bottom = 380; }
 	if (abs(ground.Left()) + translating > 14286 && abs(ground.Left()) + translating < 15836) { bottom = 482; }
-	if (abs(ground.Left()) + translating > 15836 && abs(ground.Left()) + translating < 99999) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 15836 && abs(ground.Left()) + translating < 16676) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 16676 && abs(ground.Left()) + translating < 17000) { bottom = 345; }
+	if (abs(ground.Left()) + translating > 17000 && abs(ground.Left()) + translating < 17226) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 17226 && abs(ground.Left()) + translating < 17361) { bottom = 345; }
+	if (abs(ground.Left()) + translating > 17361 && abs(ground.Left()) + translating < 17556) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 17556 && abs(ground.Left()) + translating < 99999) { bottom = 390; }
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
@@ -658,6 +663,21 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			GotoGameState(GAME_STATE_OVER);
 		}
 	}
+	if (abs(ground.Left()) + translating > 16676 && abs(ground.Left()) + translating < 16876 && player[s].Top() + player[s].Height() > 420) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 17000 && abs(ground.Left()) + translating < 17226 && player[s].Top() + player[s].Height() > 420) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 17361 && abs(ground.Left()) + translating < 17556 && player[s].Top() + player[s].Height() > 420) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
@@ -690,6 +710,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
+	cheat = 17676;
 	s = 0;
 	total_star = 43;
 	count_point = 0;
@@ -835,10 +856,10 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
-	background.SetTopLeft(-13376, 0);
-	ground.SetTopLeft(-13376, 0);
-	background2.SetTopLeft(0, 0);
-	ground2.SetTopLeft(0, 0);
+	background.SetTopLeft(0-cheat, 0);
+	ground.SetTopLeft(0-cheat, 0);
+	background2.SetTopLeft(13376 - cheat, 0);
+	ground2.SetTopLeft(13376 - cheat, 0);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	cstar[0].SetTopLeft(350, 370);
 	cstar[1].SetTopLeft(430, 370);
@@ -883,6 +904,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	cstar[40].SetTopLeft(10780, 260);
 	cstar[41].SetTopLeft(10840, 255);
 	cstar[42].SetTopLeft(10900, 250);
+	for (int i = 0; i < total_star; i++) {
+		cstar[i].SetTopLeft(cstar[i].Left()-cheat, cstar[i].Top());
+	}
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
 	CAudio::Instance()->Load(AUDIO_LAKE,  "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
