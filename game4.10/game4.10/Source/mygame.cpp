@@ -482,7 +482,12 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 17000 && abs(ground.Left()) + translating < 17226) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 17226 && abs(ground.Left()) + translating < 17361) { bottom = 345; }
 	if (abs(ground.Left()) + translating > 17361 && abs(ground.Left()) + translating < 17556) { bottom = 482; }
-	if (abs(ground.Left()) + translating > 17556 && abs(ground.Left()) + translating < 99999) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 17556 && abs(ground.Left()) + translating < 18281) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 18281 && abs(ground.Left()) + translating < 18436) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 18436 && abs(ground.Left()) + translating < 18556) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 18556 && abs(ground.Left()) + translating < 18721) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 18721 && abs(ground.Left()) + translating < 19746) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 19746 && abs(ground.Left()) + translating < 21211) { bottom = 482; }
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
@@ -674,6 +679,21 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		}
 	}
 	if (abs(ground.Left()) + translating > 17361 && abs(ground.Left()) + translating < 17556 && player[s].Top() + player[s].Height() > 420) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 18281 && abs(ground.Left()) + translating < 18436 && player[s].Top() + player[s].Height() > 480) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 18556 && abs(ground.Left()) + translating < 18721 && player[s].Top() + player[s].Height() > 480) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 19746 && abs(ground.Left()) + translating < 21211 && player[s].Top() + player[s].Height() > 430) {
 		if (UP_STATE == false) {
 			GotoGameState(GAME_STATE_OVER);
 		}
