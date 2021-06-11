@@ -749,7 +749,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
-	cheat = 18586;
+	cheat = 13176;
 	s = 0;
 	total_star = 43;
 	count_point = 0;
