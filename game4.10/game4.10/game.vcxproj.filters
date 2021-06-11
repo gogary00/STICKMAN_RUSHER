@@ -672,5 +672,8 @@
     <Image Include="..\..\tempMAP\new_grass2.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\new_grass2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

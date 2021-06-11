@@ -749,7 +749,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
-	cheat = 13176;
+	cheat = 0;
 	s = 0;
 	total_star = 43;
 	count_point = 0;
@@ -802,7 +802,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 		player[i].SetDelayCount(3);
 	}
 	background.LoadBitmap(IDB_BITMAP164);
-	background2.LoadBitmap(IDB_BITMAP165);
+	background2.LoadBitmap(IDB_BITMAP167);
 	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
 	ground2.LoadBitmap(IDB_BITMAP166, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
