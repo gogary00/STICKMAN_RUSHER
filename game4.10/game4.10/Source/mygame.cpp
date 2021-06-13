@@ -751,7 +751,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	cheat = 13176;
 	s = 0;
-	total_star = 48;
+	total_star = 56;
 	count_point = 0;
 	IS_FUNC = true;
 	distance = 50;
@@ -948,6 +948,14 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	cstar[45].SetTopLeft(14561, 145);
 	cstar[46].SetTopLeft(14701, 155);
 	cstar[47].SetTopLeft(15416, 225);
+	cstar[48].SetTopLeft(15696, 340);
+	cstar[49].SetTopLeft(15796, 340);
+	cstar[50].SetTopLeft(15896, 340);
+	cstar[51].SetTopLeft(16021, 180);
+	cstar[52].SetTopLeft(16021, 240);
+	cstar[53].SetTopLeft(16021, 300);
+	cstar[54].SetTopLeft(16176, 340);
+	cstar[55].SetTopLeft(16296, 340);
 	for (int i = 0; i < total_star; i++) {
 		cstar[i].SetTopLeft(cstar[i].Left()-cheat, cstar[i].Top());
 	}
