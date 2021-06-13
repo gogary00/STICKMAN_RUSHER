@@ -498,6 +498,8 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	ground.SetTopLeft(ground.Left() - map_speed, 0);
 	background2.SetTopLeft(background2.Left() - map_speed, 0);
 	ground2.SetTopLeft(ground2.Left() - map_speed, 0);
+	background3.SetTopLeft(background3.Left() - map_speed, 0);
+	ground3.SetTopLeft(ground3.Left() - map_speed, 0);
 	score_board.SetTopLeft(240, 0);
 	if (UP_STATE == true) {
 		IS_FUNC = false;
@@ -749,7 +751,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
-	cheat = 13176;
+	cheat = 23402;
 	s = 0;
 	total_star = 56;
 	count_point = 0;
@@ -803,8 +805,10 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	}
 	background.LoadBitmap(IDB_BITMAP164);
 	background2.LoadBitmap(IDB_BITMAP167);
+	background3.LoadBitmap(IDB_BITMAP169);
 	ground.LoadBitmap(IDB_BITMAP163, RGB(255, 255, 255));
 	ground2.LoadBitmap(IDB_BITMAP166, RGB(255, 255, 255));
+	ground3.LoadBitmap(IDB_BITMAP168, RGB(255, 255, 255));
 	attack.LoadBitmap(IDB_BITMAP160, RGB(255, 255, 255));
 	//set map_score[][] loading picture
 	for (int i = 0; i < 5; i++) {
@@ -899,6 +903,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	ground.SetTopLeft(0-cheat, 0);
 	background2.SetTopLeft(13176 - cheat, 0);
 	ground2.SetTopLeft(13176 - cheat, 0);
+	background3.SetTopLeft(23402 - cheat, 0);
+	ground3.SetTopLeft(23402 - cheat, 0);
 	// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
 	cstar[0].SetTopLeft(350, 370);
 	cstar[1].SetTopLeft(430, 370);
@@ -1068,6 +1074,8 @@ void CGameStateRun::OnShow()
 	ground.ShowBitmap();
 	background2.ShowBitmap();
 	ground2.ShowBitmap();
+	background3.ShowBitmap();
+	ground3.ShowBitmap();
 	if (ATTACH_STATE == true) {
 		attack.ShowBitmap();
 		ATTACH_STATE = false;

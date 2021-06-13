@@ -483,11 +483,13 @@
     <Image Include="..\..\running\j5.bmp" />
     <Image Include="..\..\running\j6.bmp" />
     <Image Include="..\..\tempMAP\new_grass2.bmp" />
+    <Image Include="..\..\tempMAP\new_grass3.bmp" />
     <Image Include="RES\Attach.bmp" />
     <Image Include="RES\attack.bmp" />
     <Image Include="RES\background.bmp" />
     <Image Include="RES\bk1_new.bmp" />
     <Image Include="RES\grass_new.bmp" />
+    <Image Include="RES\new_bk3.bmp" />
     <Image Include="RES\new_grass2.bmp" />
     <Image Include="RES\new_map2.bmp" />
     <Image Include="RES\ran1.bmp" />
