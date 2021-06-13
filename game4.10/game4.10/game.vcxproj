@@ -488,6 +488,7 @@
     <Image Include="RES\background.bmp" />
     <Image Include="RES\bk1_new.bmp" />
     <Image Include="RES\grass_new.bmp" />
+    <Image Include="RES\new_grass2.bmp" />
     <Image Include="RES\new_map2.bmp" />
     <Image Include="RES\ran1.bmp" />
   </ItemGroup>

@@ -139,12 +139,12 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		int max_hight, s, map_speed, dump_speed, translating,bottom, distance,total_star,count_point,current,choice[5];
+		int max_hight, s, map_speed, dump_speed, translating,bottom, distance,total_star,count_point,current,choice[5],cheat;
 		ifstream ifs;
 		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP,DRAG_STATE;
 		CAnimation player[6];
 		CMovingBitmap background,background2,ground,ground2,attack,map_score[5][10],score_board,score_point[3][10],point_board;
-		CStar cstar[43];
+		CStar cstar[48];
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
