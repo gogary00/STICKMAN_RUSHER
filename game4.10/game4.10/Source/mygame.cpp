@@ -489,7 +489,18 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 18356 && abs(ground.Left()) + translating < 18521) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 18521 && abs(ground.Left()) + translating < 19746) { bottom = 390; }
 	if (abs(ground.Left()) + translating > 19746 && abs(ground.Left()) + translating < 21206) { bottom = 482; }
-	if (abs(ground.Left()) + translating > 21206 && abs(ground.Left()) + translating < 99999) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 21206 && abs(ground.Left()) + translating < 23402) { bottom = 390; }
+	if (abs(ground.Left()) + translating > 23402 && abs(ground.Left()) + translating < 25377) { bottom = 380; }
+	if (abs(ground.Left()) + translating > 25377 && abs(ground.Left()) + translating < 25507) { bottom = 320; }
+	if (abs(ground.Left()) + translating > 25507 && abs(ground.Left()) + translating < 25672) { bottom = 380; }
+	if (abs(ground.Left()) + translating > 25672 && abs(ground.Left()) + translating < 25802) { bottom = 320; }
+	if (abs(ground.Left()) + translating > 25802 && abs(ground.Left()) + translating < 26042) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 26042 && abs(ground.Left()) + translating < 26642) { bottom = 380; }
+	if (abs(ground.Left()) + translating > 26642 && abs(ground.Left()) + translating < 26812) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 26812 && abs(ground.Left()) + translating < 27422) { bottom = 380; }
+	if (abs(ground.Left()) + translating > 27422 && abs(ground.Left()) + translating < 27582) { bottom = int(-0.34*(abs(ground.Left()) + translating - 27422) + 385) - 15;}
+	if (abs(ground.Left()) + translating > 27582 && abs(ground.Left()) + translating < 99999) { bottom = 482; }
+
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
 
@@ -718,6 +729,35 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		CONTINUE_JUMP = true;
 		DRAG_STATE = false;
 		UP_STATE = false;
+	}
+	if (abs(ground.Left()) + translating > 25377 && abs(ground.Left()) + translating < 25507 && player[s].Top() + player[s].Height() > 350 && player[s].Left() > 0) {
+		player[s].SetTopLeft(player[s].Left() - map_speed, player[s].Top());
+	}
+	if (abs(ground.Left()) + translating > 25459 && abs(ground.Left()) + translating < 25491 && player[s].Left() < distance) {
+		player[s].SetTopLeft(player[s].Left() + map_speed * 2, player[s].Top());
+	}
+	if (abs(ground.Left()) + translating > 25507 && abs(ground.Left()) + translating < 25672 && player[s].Top() + player[s].Height() > 360) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 25802 && abs(ground.Left()) + translating < 26042 && player[s].Top() + player[s].Height() > 470) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 26332 && abs(ground.Left()) + translating < 26422 && player[s].Top() + player[s].Height() > 350) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 26642 && abs(ground.Left()) + translating < 26812 && player[s].Top() + player[s].Height() > 470) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 27422 && abs(ground.Left()) + translating < 27582) {
+		player[s].SetTopLeft(player[s].Left(), bottom - player[s].Height());
 	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
