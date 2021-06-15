@@ -510,7 +510,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 30712 && abs(ground.Left()) + translating < 30842) { bottom = 315; }
 	if (abs(ground.Left()) + translating > 30842 && abs(ground.Left()) + translating < 31847) { bottom = 375; }
 	if (abs(ground.Left()) + translating > 31847 && abs(ground.Left()) + translating < 32017) { bottom = 482; }
-	if (abs(ground.Left()) + translating > 32017 && abs(ground.Left()) + translating < 32147) { bottom = 462; }
+	if (abs(ground.Left()) + translating > 32017 && abs(ground.Left()) + translating < 32147) { bottom = 460; }
 	if (abs(ground.Left()) + translating > 32147 && abs(ground.Left()) + translating < 32257) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 32257 && abs(ground.Left()) + translating < 32387) { bottom = 435; }
 	if (abs(ground.Left()) + translating > 32387 && abs(ground.Left()) + translating < 32482) { bottom = 482; }
@@ -793,6 +793,9 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 28197 && abs(ground.Left()) + translating < 28297 && player[s].Top() + player[s].Height() > 455) {
 		BOUNCE_STATE = true;
 	}
+	if (abs(ground.Left()) + translating > 29002 && abs(ground.Left()) + translating < 29097 && player[s].Top() + player[s].Height() > 455) {
+		BOUNCE_STATE = true;
+	}
 	if (BOUNCE_STATE == true) {
 		if (player[s].Top() > -50) {
 			IS_FUNC = false;
@@ -803,7 +806,31 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			BOUNCE_STATE = false;
 		}
 	}
-
+	if (abs(ground.Left()) + translating > 28292 && abs(ground.Left()) + translating < 28582 && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 28712 && abs(ground.Left()) + translating < 29002 && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 29097 && abs(ground.Left()) + translating < 29397 && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 29522 && abs(ground.Left()) + translating < 29652 && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 29652 && abs(ground.Left()) + translating < 29737 && player[s].Top() + player[s].Height() > 345) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
