@@ -780,6 +780,30 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 27422 && abs(ground.Left()) + translating < 27582) {
 		player[s].SetTopLeft(player[s].Left(), bottom - player[s].Height());
 	}
+	if (abs(ground.Left()) + translating > 27582 && abs(ground.Left()) + translating < 27777 && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 27907 && abs(ground.Left()) + translating < 28197 && player[s].Top() + player[s].Height() > 450) {
+		if (UP_STATE == false) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	if (abs(ground.Left()) + translating > 28197 && abs(ground.Left()) + translating < 28297 && player[s].Top() + player[s].Height() > 455) {
+		BOUNCE_STATE = true;
+	}
+	if (BOUNCE_STATE == true) {
+		if (player[s].Top() > -50) {
+			IS_FUNC = false;
+			player[s].SetTopLeft(player[s].Left(), player[s].Top() - 2*dump_speed);
+		}
+		else {
+			IS_FUNC = true;
+			BOUNCE_STATE = false;
+		}
+	}
+
 
 	attack.SetTopLeft(player[s].Left()+player[s].Width()-100, player[s].Top()-10);
 	player[s].OnMove();
@@ -798,6 +822,9 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			cstar[i].set_IS_Show(false);
 		}
 	}
+	if (abs(ground.Left()) + translating > 28197 && abs(ground.Left()) + translating < 28500) {
+		TRACE("%d\n", player[s].Top());
+	}
 	//===========偵測point碰撞===========
 	//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 }
@@ -812,8 +839,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 開始載入資料
 	//
-	cheat = 23402;
+	cheat = 26897;
 	s = 0;
+	BOUNCE_STATE = false;
 	total_star = 56;
 	count_point = 0;
 	IS_FUNC = true;

@@ -141,7 +141,7 @@ namespace game_framework {
 	private:
 		int max_hight, s, map_speed, dump_speed, translating,bottom, distance,total_star,count_point,current,choice[5],cheat;
 		ifstream ifs;
-		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP,DRAG_STATE;
+		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP,DRAG_STATE,BOUNCE_STATE;
 		CAnimation player[6];
 		CMovingBitmap background,background2, background3,ground,ground2, ground3,attack,map_score[5][10],score_board,score_point[3][10],point_board;
 		CStar cstar[56];
