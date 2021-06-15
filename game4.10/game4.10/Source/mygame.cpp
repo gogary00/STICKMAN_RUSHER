@@ -960,8 +960,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (int i = 0; i < 6; i++) {
 		player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 	}
-	background.SetTopLeft(0-cheat, 0);
-	ground.SetTopLeft(0-cheat, 0);
+	background.SetTopLeft(0 - cheat, 0);
+	ground.SetTopLeft(0 - cheat, 0);
 	background2.SetTopLeft(13176 - cheat, 0);
 	ground2.SetTopLeft(13176 - cheat, 0);
 	background3.SetTopLeft(23402 - cheat, 0);
