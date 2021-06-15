@@ -499,7 +499,28 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	if (abs(ground.Left()) + translating > 26642 && abs(ground.Left()) + translating < 26812) { bottom = 482; }
 	if (abs(ground.Left()) + translating > 26812 && abs(ground.Left()) + translating < 27422) { bottom = 380; }
 	if (abs(ground.Left()) + translating > 27422 && abs(ground.Left()) + translating < 27582) { bottom = int(-0.34*(abs(ground.Left()) + translating - 27422) + 385) - 15;}
-	if (abs(ground.Left()) + translating > 27582 && abs(ground.Left()) + translating < 99999) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 27582 && abs(ground.Left()) + translating < 27777) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 27777 && abs(ground.Left()) + translating < 27907) { bottom = 355; }
+	if (abs(ground.Left()) + translating > 27907 && abs(ground.Left()) + translating < 28577) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 28577 && abs(ground.Left()) + translating < 28710) { bottom = 355; }
+	if (abs(ground.Left()) + translating > 28710 && abs(ground.Left()) + translating < 29392) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 29392 && abs(ground.Left()) + translating < 29522) { bottom = 355; }
+	if (abs(ground.Left()) + translating > 29522 && abs(ground.Left()) + translating < 29652) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 29652 && abs(ground.Left()) + translating < 30712) { bottom = 375; }
+	if (abs(ground.Left()) + translating > 30712 && abs(ground.Left()) + translating < 30842) { bottom = 315; }
+	if (abs(ground.Left()) + translating > 30842 && abs(ground.Left()) + translating < 31847) { bottom = 375; }
+	if (abs(ground.Left()) + translating > 31847 && abs(ground.Left()) + translating < 32017) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 32017 && abs(ground.Left()) + translating < 32147) { bottom = 462; }
+	if (abs(ground.Left()) + translating > 32147 && abs(ground.Left()) + translating < 32257) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 32257 && abs(ground.Left()) + translating < 32387) { bottom = 435; }
+	if (abs(ground.Left()) + translating > 32387 && abs(ground.Left()) + translating < 32482) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 32482 && abs(ground.Left()) + translating < 32612) { bottom = 400; }
+	if (abs(ground.Left()) + translating > 32612 && abs(ground.Left()) + translating < 32717) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 32717 && abs(ground.Left()) + translating < 35227) { bottom = 385; }
+	if (abs(ground.Left()) + translating > 35227 && abs(ground.Left()) + translating < 35377) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 35377 && abs(ground.Left()) + translating < 35507) { bottom = 365; }
+	if (abs(ground.Left()) + translating > 35507 && abs(ground.Left()) + translating < 35627) { bottom = 482; }
+	if (abs(ground.Left()) + translating > 35627 && abs(ground.Left()) + translating < 99999) { bottom = 375; }
 
 	bottom += 15;
 	//-----------------------------------------------------偵測底部----------------------------------------------------------------
