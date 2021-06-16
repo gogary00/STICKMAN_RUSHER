@@ -909,10 +909,10 @@ namespace game_framework {
 		//
 		// 開始載入資料
 		//
-		cheat = 26897;
+		cheat = 23406;
 		s = 0;
 		BOUNCE_STATE = false;
-		total_star = 56;
+		total_star = 73;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1121,6 +1121,23 @@ namespace game_framework {
 		cstar[53].SetTopLeft(16021, 300);
 		cstar[54].SetTopLeft(16176, 340);
 		cstar[55].SetTopLeft(16296, 340);
+		cstar[56].SetTopLeft(16701, 305);
+		cstar[57].SetTopLeft(16751, 305);
+		cstar[58].SetTopLeft(17046, 305);
+		cstar[59].SetTopLeft(17101, 305);
+		cstar[60].SetTopLeft(17496, 340);
+		cstar[61].SetTopLeft(17836, 340);
+		cstar[62].SetTopLeft(18671, 340);
+		cstar[63].SetTopLeft(18721, 340);
+		cstar[64].SetTopLeft(19256, 340);
+		cstar[65].SetTopLeft(19306, 340);
+		cstar[66].SetTopLeft(19906, 130);
+		cstar[67].SetTopLeft(20046, 142);
+		cstar[68].SetTopLeft(20186, 154);
+		cstar[69].SetTopLeft(20326, 166);
+		cstar[70].SetTopLeft(20466, 178);
+		cstar[71].SetTopLeft(20606, 190);
+		cstar[72].SetTopLeft(21086, 235);
 		for (int i = 0; i < total_star; i++) {
 			cstar[i].SetTopLeft(cstar[i].Left() - cheat, cstar[i].Top());
 		}
