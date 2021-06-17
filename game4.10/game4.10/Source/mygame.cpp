@@ -891,7 +891,8 @@ namespace game_framework {
 		//===========°»´úpoint¸I¼²===========
 		for (int i = 0; i < total_star; i++) {
 			if (player[s].Left() + player[s].Width() - 30 >= cstar[i].Left() && player[s].Left() - 30 <= cstar[i].Left() + cstar[i].Width() && player[s].Top() + player[s].Height() - 30 >= cstar[i].Top() && player[s].Top() - 30 <= cstar[i].Top() + cstar[i].Height()) {
-				if (cstar[i].get_IS_Show() == true) { count_point++; }
+				if (cstar[i].get_IS_Show() == true && i<103) { count_point+=6; }
+				if (cstar[i].get_IS_Show() == true && i >= 103) { count_point+=11; }
 				cstar[i].set_IS_Show(false);
 			}
 		}
@@ -912,7 +913,7 @@ namespace game_framework {
 		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
-		total_star = 103;
+		total_star = 108;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1070,6 +1071,7 @@ namespace game_framework {
 		background3.SetTopLeft(23402 - cheat, 0);
 		ground3.SetTopLeft(23402 - cheat, 0);
 		// ---------------------------------------------------ªì©l¤ÆPOINT¦ì¸m----------------------------------------------------------------
+		//genaral point
 		cstar[0].SetTopLeft(350, 370);
 		cstar[1].SetTopLeft(430, 370);
 		cstar[2].SetTopLeft(510, 370);
@@ -1173,6 +1175,12 @@ namespace game_framework {
 		cstar[100].SetTopLeft(34852, 320);
 		cstar[101].SetTopLeft(36027, 310);
 		cstar[102].SetTopLeft(36527, 310);
+		//special point
+		cstar[103].SetTopLeft(660, 315);
+		cstar[104].SetTopLeft(2035, 195);
+		cstar[105].SetTopLeft(2970, 370);
+		cstar[106].SetTopLeft(3045, 310);
+		cstar[107].SetTopLeft(3125, 370);
 		for (int i = 0; i < total_star; i++) {
 			cstar[i].SetTopLeft(cstar[i].Left() - cheat, cstar[i].Top());
 		}
