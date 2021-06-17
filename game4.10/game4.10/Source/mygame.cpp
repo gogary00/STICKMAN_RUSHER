@@ -777,7 +777,7 @@ namespace game_framework {
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
-		if (abs(ground.Left()) + translating > 27422 && abs(ground.Left()) + translating < 27582) {
+		if (abs(ground.Left()) + translating > 27422 && abs(ground.Left()) + translating < 27582 && JUMP_STATE==false) {
 			player[s].SetTopLeft(player[s].Left(), bottom - player[s].Height());
 		}
 		if (abs(ground.Left()) + translating > 27582 && abs(ground.Left()) + translating < 27777 && player[s].Top() + player[s].Height() > 450) {
@@ -912,7 +912,7 @@ namespace game_framework {
 		cheat = 23406;
 		s = 0;
 		BOUNCE_STATE = false;
-		total_star = 73;
+		total_star = 88;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1138,6 +1138,21 @@ namespace game_framework {
 		cstar[70].SetTopLeft(20466, 178);
 		cstar[71].SetTopLeft(20606, 190);
 		cstar[72].SetTopLeft(21086, 235);
+		cstar[73].SetTopLeft(25420, 250);
+		cstar[74].SetTopLeft(26357, 270);
+		cstar[75].SetTopLeft(27102, 215);
+		cstar[76].SetTopLeft(27102, 265);
+		cstar[77].SetTopLeft(27102, 315);
+		cstar[78].SetTopLeft(28202, 395);
+		cstar[79].SetTopLeft(28242, 395);
+		cstar[80].SetTopLeft(29002, 395);
+		cstar[81].SetTopLeft(29042, 395);
+		cstar[82].SetTopLeft(29852, 340);
+		cstar[83].SetTopLeft(29902, 340);
+		cstar[84].SetTopLeft(29952, 340);
+		cstar[85].SetTopLeft(30532, 340);
+		cstar[86].SetTopLeft(30582, 340);
+		cstar[87].SetTopLeft(30632, 340);
 		for (int i = 0; i < total_star; i++) {
 			cstar[i].SetTopLeft(cstar[i].Left() - cheat, cstar[i].Top());
 		}
