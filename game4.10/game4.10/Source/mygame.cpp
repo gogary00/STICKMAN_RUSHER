@@ -913,7 +913,7 @@ namespace game_framework {
 		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
-		total_star = 108;
+		total_star = 117;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1087,7 +1087,7 @@ namespace game_framework {
 		cstar[12].SetTopLeft(3800, 260);
 		cstar[13].SetTopLeft(4300, 370);
 		cstar[14].SetTopLeft(4685, 250);
-		cstar[15].SetTopLeft(4685, 290);
+		cstar[15].SetTopLeft(4685, 300);
 		cstar[16].SetTopLeft(6255, 150);
 		cstar[17].SetTopLeft(6680, 200);
 		cstar[18].SetTopLeft(6705, 180);
@@ -1181,6 +1181,15 @@ namespace game_framework {
 		cstar[105].SetTopLeft(2970, 370);
 		cstar[106].SetTopLeft(3045, 310);
 		cstar[107].SetTopLeft(3125, 370);
+		cstar[108].SetTopLeft(3800, 160);
+		cstar[109].SetTopLeft(3800, 310);
+		cstar[110].SetTopLeft(4685, 200);
+		cstar[111].SetTopLeft(6220, 180);
+		cstar[112].SetTopLeft(6295, 180);
+		cstar[113].SetTopLeft(8010, 250);
+		cstar[114].SetTopLeft(8620, 240);
+		cstar[115].SetTopLeft(10600, 240);
+		cstar[116].SetTopLeft(10660, 240);
 		for (int i = 0; i < total_star; i++) {
 			cstar[i].SetTopLeft(cstar[i].Left() - cheat, cstar[i].Top());
 		}
