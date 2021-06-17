@@ -909,7 +909,7 @@ namespace game_framework {
 		//
 		// 開始載入資料
 		//
-		cheat = 32882;
+		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
 		total_star = 103;
@@ -930,7 +930,12 @@ namespace game_framework {
 		point_board.LoadBitmap(IDB_BITMAP53, RGB(0, 255, 0));
 		point_board.SetTopLeft(0, 50);
 		for (int i = 0; i < total_star; i++) {
-			cstar[i].LoadBitmap();
+			if (i < 103) {
+				cstar[i].LoadBitmap();
+			}
+			else {
+				cstar[i].LoadBitmapStar();
+			}
 		}
 		for (int i = 0; i < total_star; i++) {
 			cstar[i].set_IS_Show(true);
