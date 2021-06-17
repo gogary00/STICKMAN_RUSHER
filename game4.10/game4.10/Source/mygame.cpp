@@ -910,10 +910,10 @@ namespace game_framework {
 		//
 		// 開始載入資料
 		//
-		cheat = 0;
+		cheat = 34402;
 		s = 0;
 		BOUNCE_STATE = false;
-		total_star = 126;
+		total_star = 145;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1199,6 +1199,25 @@ namespace game_framework {
 		cstar[123].SetTopLeft(17046, 250);
 		cstar[124].SetTopLeft(17101, 250);
 		cstar[125].SetTopLeft(18270, 330);
+		cstar[126].SetTopLeft(20116, 148);
+		cstar[127].SetTopLeft(20701, 190);
+		cstar[128].SetTopLeft(20946, 225);
+		cstar[129].SetTopLeft(25380, 278);
+		cstar[130].SetTopLeft(25420, 200);
+		cstar[131].SetTopLeft(25455, 278);
+		cstar[132].SetTopLeft(26082, 325);
+		cstar[133].SetTopLeft(26697, 235);
+		cstar[134].SetTopLeft(26697, 285);
+		cstar[135].SetTopLeft(26902, 315);
+		cstar[136].SetTopLeft(27262, 315);
+		cstar[137].SetTopLeft(28202, 345);
+		cstar[138].SetTopLeft(28242, 345);
+		cstar[139].SetTopLeft(29002, 345);
+		cstar[140].SetTopLeft(29042, 345);
+		cstar[141].SetTopLeft(33952, 320);
+		cstar[142].SetTopLeft(34352, 320);
+		cstar[143].SetTopLeft(35139, 300);
+		cstar[144].SetTopLeft(35416, 300);
 		for (int i = 0; i < total_star; i++) {
 			cstar[i].SetTopLeft(cstar[i].Left() - cheat, cstar[i].Top());
 		}
@@ -1212,29 +1231,6 @@ namespace game_framework {
 	}
 
 	void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
-	{
-		const char KEY_LEFT = 0x25; // keyboard左箭頭
-		const char KEY_UP = 0x26; // keyboard上箭頭
-		const char KEY_RIGHT = 0x27; // keyboard右箭頭
-		const char KEY_DOWN = 0x28; // keyboard下箭頭
-		if (nChar == KEY_LEFT) {
-
-		}
-
-		if (nChar == KEY_RIGHT) {
-
-		}
-
-		if (nChar == KEY_UP) {
-
-		}
-
-		if (nChar == KEY_DOWN) {
-
-		}
-	}
-
-	void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 		const char KEY_SPACE = 0x20; // keyboard空白建
 		const char KEY_LEFT = 0x25; // keyboard左箭頭
@@ -1266,6 +1262,26 @@ namespace game_framework {
 
 		if (nChar == KEY_DOWN) {
 			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+
+	void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
+	{
+		const char KEY_LEFT = 0x25; // keyboard左箭頭
+		const char KEY_UP = 0x26; // keyboard上箭頭
+		const char KEY_RIGHT = 0x27; // keyboard右箭頭
+		const char KEY_DOWN = 0x28; // keyboard下箭頭
+		if (nChar == KEY_LEFT) {
+			
+		}
+		if (nChar == KEY_RIGHT) {
+			
+		}
+		if (nChar == KEY_UP) {
+			
+		}
+		if (nChar == KEY_DOWN) {
+			
 		}
 
 	}
