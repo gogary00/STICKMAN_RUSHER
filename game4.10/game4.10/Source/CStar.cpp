@@ -16,7 +16,7 @@ namespace game_framework {
 	}
 
 	void CStar::LoadBitmap() {
-		star.LoadBitmap(IDB_BITMAP30, RGB(0, 255, 0));
+		star.LoadBitmap(IDB_BITMAP170, RGB(0, 0, 0));
 	}
 
 	void CStar::LoadBitmapStar() {

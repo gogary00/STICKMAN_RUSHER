@@ -913,7 +913,7 @@ namespace game_framework {
 		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
-		total_star = 117;
+		total_star = 126;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1128,10 +1128,10 @@ namespace game_framework {
 		cstar[53].SetTopLeft(16021, 300);
 		cstar[54].SetTopLeft(16176, 340);
 		cstar[55].SetTopLeft(16296, 340);
-		cstar[56].SetTopLeft(16701, 305);
-		cstar[57].SetTopLeft(16751, 305);
-		cstar[58].SetTopLeft(17046, 305);
-		cstar[59].SetTopLeft(17101, 305);
+		cstar[56].SetTopLeft(16701, 300);
+		cstar[57].SetTopLeft(16751, 300);
+		cstar[58].SetTopLeft(17046, 300);
+		cstar[59].SetTopLeft(17101, 300);
 		cstar[60].SetTopLeft(17496, 340);
 		cstar[61].SetTopLeft(17836, 340);
 		cstar[62].SetTopLeft(18671, 340);
@@ -1154,15 +1154,15 @@ namespace game_framework {
 		cstar[79].SetTopLeft(28242, 395);
 		cstar[80].SetTopLeft(29002, 395);
 		cstar[81].SetTopLeft(29042, 395);
-		cstar[82].SetTopLeft(29852, 340);
-		cstar[83].SetTopLeft(29902, 340);
-		cstar[84].SetTopLeft(29952, 340);
-		cstar[85].SetTopLeft(30532, 340);
-		cstar[86].SetTopLeft(30582, 340);
-		cstar[87].SetTopLeft(30632, 340);
-		cstar[88].SetTopLeft(31472, 340);
-		cstar[89].SetTopLeft(31522, 340);
-		cstar[90].SetTopLeft(31572, 340);
+		cstar[82].SetTopLeft(29852, 320);
+		cstar[83].SetTopLeft(29902, 320);
+		cstar[84].SetTopLeft(29952, 320);
+		cstar[85].SetTopLeft(30532, 320);
+		cstar[86].SetTopLeft(30582, 320);
+		cstar[87].SetTopLeft(30632, 320);
+		cstar[88].SetTopLeft(31472, 320);
+		cstar[89].SetTopLeft(31522, 320);
+		cstar[90].SetTopLeft(31572, 320);
 		cstar[91].SetTopLeft(32057, 415);
 		cstar[92].SetTopLeft(32297, 380);
 		cstar[93].SetTopLeft(32522, 345);
@@ -1190,6 +1190,15 @@ namespace game_framework {
 		cstar[114].SetTopLeft(8620, 240);
 		cstar[115].SetTopLeft(10600, 240);
 		cstar[116].SetTopLeft(10660, 240);
+		cstar[117].SetTopLeft(13980, 265);
+		cstar[118].SetTopLeft(14491, 140);
+		cstar[119].SetTopLeft(14961, 185);
+		cstar[120].SetTopLeft(15326, 215);
+		cstar[121].SetTopLeft(16701, 250);
+		cstar[122].SetTopLeft(16751, 250);
+		cstar[123].SetTopLeft(17046, 250);
+		cstar[124].SetTopLeft(17101, 250);
+		cstar[125].SetTopLeft(18270, 330);
 		for (int i = 0; i < total_star; i++) {
 			cstar[i].SetTopLeft(cstar[i].Left() - cheat, cstar[i].Top());
 		}

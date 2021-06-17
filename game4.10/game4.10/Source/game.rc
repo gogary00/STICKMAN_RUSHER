@@ -434,6 +434,8 @@ IDB_BITMAP168           BITMAP                  "..\\..\\..\\tempMAP\\new_grass3
 
 IDB_BITMAP169           BITMAP                  "..\\RES\\new_bk3.bmp"
 
+IDB_BITMAP170           BITMAP                  "..\\RES\\new_point.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

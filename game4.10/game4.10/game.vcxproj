@@ -492,6 +492,7 @@
     <Image Include="RES\new_bk3.bmp" />
     <Image Include="RES\new_grass2.bmp" />
     <Image Include="RES\new_map2.bmp" />
+    <Image Include="RES\new_point.bmp" />
     <Image Include="RES\ran1.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
