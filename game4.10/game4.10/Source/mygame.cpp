@@ -990,6 +990,7 @@ namespace game_framework {
 		// 開始載入資料
 		//
 		MyWrite("flag.txt", 1);
+		MyWrite("record.txt", 0);
 		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
