@@ -362,18 +362,22 @@ namespace game_framework {
 
 	void CGameStateOver::OnMove()
 	{
-		counter--;
+		background.SetTopLeft(0, 0);
+		btnAgain.SetTopLeft(290, 350);
+		/*counter--;
 		if (counter < 0)
-			GotoGameState(GAME_STATE_INIT);
+			GotoGameState(GAME_STATE_INIT);*/
 	}
 
 	void CGameStateOver::OnBeginState()
 	{
-		counter = 30 * 5; // 5 seconds
+		//counter = 30 * 5; // 5 seconds
 	}
 
 	void CGameStateOver::OnInit()
 	{
+		background.LoadBitmap(IDB_BITMAP171);
+		btnAgain.LoadBitmap(IDB_BITMAP172);
 		//
 		// 當圖很多時，OnInit載入所有的圖要花很多時間。為避免玩遊戲的人
 		//     等的不耐煩，遊戲會出現「Loading ...」，顯示Loading的進度。
@@ -389,9 +393,18 @@ namespace game_framework {
 		ShowInitProgress(100);
 	}
 
+	void CGameStateOver::OnLButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
+	{
+		if (point.x > 290 && point.x < 290 + btnAgain.Width() && point.y > 350 && point.y < 350 + btnAgain.Height()) {
+			GotoGameState(GAME_STATE_SELECT);
+		}
+	}
+
 	void CGameStateOver::OnShow()
 	{
-		CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
+		background.ShowBitmap();
+		btnAgain.ShowBitmap();
+		/*CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
 		CFont f, *fp;
 		f.CreatePointFont(160, "Times New Roman");	// 產生 font f; 160表示16 point的字
 		fp = pDC->SelectObject(&f);					// 選用 font f
@@ -401,7 +414,7 @@ namespace game_framework {
 		sprintf(str, "Game Over ! (%d)", counter / 30);
 		pDC->TextOut(240, 210, str);
 		pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
-		CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
+		CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC*/
 	}
 
 	/////////////////////////////////////////////////////////////////////////////

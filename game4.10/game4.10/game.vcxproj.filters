@@ -684,5 +684,11 @@
     <Image Include="RES\new_point.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\sprite48-sheet0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\sprite49-sheet0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
