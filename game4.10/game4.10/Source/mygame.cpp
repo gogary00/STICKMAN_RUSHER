@@ -1109,7 +1109,7 @@ namespace game_framework {
 			}
 		}
 		//set score_point[][] loading picture
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 10; j++) {
 				switch (j) {
 				case 0:
@@ -1155,6 +1155,7 @@ namespace game_framework {
 		for (int i = 0; i < 10; i++) { score_point[0][i].SetTopLeft(100, 70); }
 		for (int i = 0; i < 10; i++) { score_point[1][i].SetTopLeft(80, 70); }
 		for (int i = 0; i < 10; i++) { score_point[2][i].SetTopLeft(60, 70); }
+		for (int i = 0; i < 10; i++) { score_point[3][i].SetTopLeft(40, 70); }
 		for (int i = 0; i < 6; i++) {
 			player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 		}
