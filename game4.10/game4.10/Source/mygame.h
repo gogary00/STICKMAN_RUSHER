@@ -103,7 +103,7 @@ namespace game_framework {
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
 		void OnLButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
-		void MyWrite(char);
+		void MyWrite(string, char);
 	protected:
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
@@ -135,12 +135,13 @@ namespace game_framework {
 		void OnMouseMove(UINT nFlags, CPoint point);	// 處理滑鼠的動作 
 		void OnRButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
 		void OnRButtonUp(UINT nFlags, CPoint point);	// 處理滑鼠的動作
+		void MyWrite(string, int);
+		int MyRead(string);
 	protected:
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		int max_hight, s, map_speed, dump_speed, translating,bottom, distance,total_star,count_point,current,choice[5],cheat;
-		ifstream ifs;
+		int max_hight, s, map_speed, dump_speed, translating, bottom, distance, total_star, count_point, current, choice[5], cheat, record_point[10][2] = { {80,415},{4800,415},{7540,415},{13401,380},{17416,390},{21714,390},{24002,380},{26892,380},{29802,375},{35852,375} };
 		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP,DRAG_STATE,BOUNCE_STATE;
 		CAnimation player[6];
 		CMovingBitmap background,background2, background3,ground,ground2, ground3,attack,map_score[5][10],score_board,score_point[3][10],point_board;

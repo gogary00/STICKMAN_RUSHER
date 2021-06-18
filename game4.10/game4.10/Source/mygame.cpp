@@ -269,7 +269,7 @@ namespace game_framework {
 		player[5].AddBitmap(IDB_BITMAP123, RGB(0, 255, 0));
 		player[5].AddBitmap(IDB_BITMAP124, RGB(0, 255, 0));
 		player[5].AddBitmap(IDB_BITMAP126, RGB(0, 255, 0));
-		MyWrite('0');
+		MyWrite("./set.txt", '0');
 	}
 
 	void CGameStateSelect::OnBeginState() {
@@ -280,9 +280,9 @@ namespace game_framework {
 
 	}
 
-	void CGameStateSelect::MyWrite(char c) {
+	void CGameStateSelect::MyWrite(string file, char c) {
 		ofstream ofs;
-		ofs.open("./set.txt");
+		ofs.open(file);
 		if (!ofs.is_open()) {
 			GotoGameState(GAME_STATE_OVER);
 		}
@@ -299,27 +299,27 @@ namespace game_framework {
 		}
 		if (point.x > 113 && point.x < 113 + upgrade[0].Width() && point.y>150 && point.y < 150 + upgrade[0].Height()) {
 			select = 0;
-			MyWrite('0');
+			MyWrite("./set.txt", '0');
 		}
 		if (point.x > 113 && point.x < 113 + upgrade[1].Width() && point.y>227 && point.y < 227 + upgrade[1].Height()) {
 			select = 1;
-			MyWrite('1');
+			MyWrite("./set.txt", '1');
 		}
 		if (point.x > 113 && point.x < 113 + upgrade[2].Width() && point.y>305 && point.y < 305 + upgrade[2].Height()) {
 			select = 2;
-			MyWrite('2');
+			MyWrite("./set.txt", '2');
 		}
 		if (point.x > 520 && point.x < 520 + upgrade[3].Width() && point.y>150 && point.y < 150 + upgrade[3].Height()) {
 			select = 3;
-			MyWrite('3');
+			MyWrite("./set.txt", '3');
 		}
 		if (point.x > 520 && point.x < 520 + upgrade[4].Width() && point.y>227 && point.y < 227 + upgrade[4].Height()) {
 			select = 4;
-			MyWrite('4');
+			MyWrite("./set.txt", '4');
 		}
 		if (point.x > 520 && point.x < 520 + upgrade[5].Width() && point.y>305 && point.y < 305 + upgrade[5].Height()) {
 			select = 5;
-			MyWrite('5');
+			MyWrite("./set.txt", '5');
 		}
 	}
 
@@ -424,14 +424,21 @@ namespace game_framework {
 		CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
 	}
 
-	void CGameStateRun::OnMove()							// 移動遊戲元素
-	{
-		ifs.open("./set.txt");
+	int CGameStateRun::MyRead(string file) {
+		int temp;
+		ifstream ifs;
+		ifs.open(file);
 		if (!ifs.is_open()) {
 			GotoGameState(GAME_STATE_OVER);
 		}
-		ifs >> s;
+		ifs >> temp;
 		ifs.close();
+		return temp;
+	}
+
+	void CGameStateRun::OnMove()							// 移動遊戲元素
+	{
+		s = MyRead("./set.txt");
 		translating = player[s].Width() + distance;
 		//
 		// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
@@ -533,6 +540,7 @@ namespace game_framework {
 		background3.SetTopLeft(background3.Left() - map_speed, 0);
 		ground3.SetTopLeft(ground3.Left() - map_speed, 0);
 		score_board.SetTopLeft(240, 0);
+		MyWrite("record.txt", abs(background.Left()));
 		if (UP_STATE == true) {
 			IS_FUNC = false;
 		}
@@ -566,7 +574,7 @@ namespace game_framework {
 		if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) {
 			IS_FUNC = false;
 		}
-		if (abs(ground.Left()) + translating > 2157 && abs(ground.Left()) + translating < 2170) {
+		if (abs(ground.Left()) + translating > 2157 && abs(ground.Left()) + translating < 2368) {
 			IS_FUNC = true;
 		}
 		if (abs(ground.Left()) > (2157 - translating) && abs(ground.Left()) < (2368 - translating) && player[s].Top() + player[s].Height() > 450) {
@@ -900,6 +908,16 @@ namespace game_framework {
 		//-----------------------------------------------------偵測障礙物----------------------------------------------------------------
 	}
 
+	void CGameStateRun::MyWrite(string file, int c) {
+		ofstream ofs;
+		ofs.open(file);
+		if (!ofs.is_open()) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+		ofs << c;
+		ofs.close();
+	}
+
 	void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	{
 		//
@@ -910,7 +928,7 @@ namespace game_framework {
 		//
 		// 開始載入資料
 		//
-		cheat = 34402;
+		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
 		total_star = 145;
