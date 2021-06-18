@@ -440,6 +440,25 @@ namespace game_framework {
 	{
 		s = MyRead("./set.txt");
 		translating = player[s].Width() + distance;
+		if (MyRead("flag.txt")==1) {
+			int temp = MyRead("record.txt");
+			for (int i = 0; i < 9; i++) {
+				if (temp >= record_point[i][0] && temp < record_point[i + 1][0]) {
+					player[s].SetTopLeft(distance, record_point[i][1] - player[s].Height());
+					for (int j = 0; j < total_star; j++) {
+						cstar[j].SetTopLeft(cstar[j].Left() + abs(record_point[i][0]- abs(background.Left())), cstar[j].Top());
+					}
+					background.SetTopLeft(0 - record_point[i][0], 0);
+					ground.SetTopLeft(0 - record_point[i][0], 0);
+					background2.SetTopLeft(13176 - record_point[i][0], 0);
+					ground2.SetTopLeft(13176 - record_point[i][0], 0);
+					background3.SetTopLeft(23402 - record_point[i][0], 0);
+					ground3.SetTopLeft(23402 - record_point[i][0], 0);
+					MyWrite("flag.txt", 0);
+					break;
+				}
+			}
+		}
 		//
 		// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
 		//
@@ -453,7 +472,7 @@ namespace game_framework {
 		//
 		//-----------------------------------------------------偵測底部----------------------------------------------------------------
 		if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1281) { bottom = 415; }
-		if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) { bottom = int(-0.23*(abs(ground.Left()) + translating - 1275) + 430) - 15; }
+		if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) { bottom = int(-0.18*(abs(ground.Left()) + translating - 1271) + 430) - 30; }
 		if (abs(ground.Left()) + translating > 2157 && abs(ground.Left()) + translating < 2369) { bottom = 482; }
 		if (abs(ground.Left()) + translating > 2369 && abs(ground.Left()) + translating < 2555) { bottom = 415; }
 		if (abs(ground.Left()) + translating > 2555 && abs(ground.Left()) + translating < 2762) { bottom = 482; }
@@ -565,25 +584,30 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) > (632 - translating) && abs(ground.Left()) < (741 - translating) && player[s].Top() + player[s].Height() > 368) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
-		if (abs(ground.Left()) > (1281 - translating) && abs(ground.Left()) < (1850 - translating)) {
-			player[s].SetTopLeft(distance, player[s].Top() - 3);
+		if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) {
+			if (JUMP_STATE == false) {
+				player[s].SetTopLeft(distance, bottom - player[s].Height());
+			}
 		}
 		if (abs(ground.Left()) + translating > 1281 && abs(ground.Left()) + translating < 2157) {
 			IS_FUNC = false;
 		}
-		if (abs(ground.Left()) + translating > 2157 && abs(ground.Left()) + translating < 2368) {
+		if (abs(ground.Left()) + translating > 2157 && abs(ground.Left()) + translating < 2181) {
 			IS_FUNC = true;
 		}
 		if (abs(ground.Left()) > (2157 - translating) && abs(ground.Left()) < (2368 - translating) && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) > (2554 - translating) && abs(ground.Left()) < (2763 - translating) && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -595,6 +619,7 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) > (3265 - translating) && abs(ground.Left()) < (3375 - translating) && player[s].Top() + player[s].Height() > 368) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -606,11 +631,13 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) > (4573 - translating) && abs(ground.Left()) < (4633 - translating) && player[s].Top() + player[s].Height() > 390) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) > (4633 - translating) && abs(ground.Left()) < (4775 - translating) && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -625,6 +652,7 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 5885 && abs(ground.Left()) + translating < 6057 && player[s].Top() + player[s].Height() > 415) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -636,21 +664,25 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 6491 && abs(ground.Left()) + translating < 6650 && player[s].Top() + player[s].Height() > 430) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 6805 && abs(ground.Left()) + translating < 6925 && player[s].Top() + player[s].Height() > 430) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 7080 && abs(ground.Left()) + translating < 7195 && player[s].Top() + player[s].Height() > 430) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 7350 && abs(ground.Left()) + translating < 7467 && player[s].Top() + player[s].Height() > 430) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -668,11 +700,13 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 7991 && abs(ground.Left()) + translating < 8081 && player[s].Top() + player[s].Height() > 314) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 8590 && abs(ground.Left()) + translating < 8677 && player[s].Top() + player[s].Height() > 298) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -687,6 +721,7 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 14086 && abs(ground.Left()) + translating < 15576 && player[s].Top() + player[s].Height() > 425) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -709,36 +744,43 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 16001 && abs(ground.Left()) + translating < 16091 && player[s].Top() + player[s].Height() > 355) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 16476 && abs(ground.Left()) + translating < 16676 && player[s].Top() + player[s].Height() > 420) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 16806 && abs(ground.Left()) + translating < 17031 && player[s].Top() + player[s].Height() > 420) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 17161 && abs(ground.Left()) + translating < 17356 && player[s].Top() + player[s].Height() > 420) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 18081 && abs(ground.Left()) + translating < 18236 && player[s].Top() + player[s].Height() > 480) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 18356 && abs(ground.Left()) + translating < 18521 && player[s].Top() + player[s].Height() > 480) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 19746 && abs(ground.Left()) + translating < 21206 && player[s].Top() + player[s].Height() > 430) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -767,21 +809,25 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 25507 && abs(ground.Left()) + translating < 25672 && player[s].Top() + player[s].Height() > 360) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 25802 && abs(ground.Left()) + translating < 26042 && player[s].Top() + player[s].Height() > 470) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 26332 && abs(ground.Left()) + translating < 26422 && player[s].Top() + player[s].Height() > 350) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 26642 && abs(ground.Left()) + translating < 26812 && player[s].Top() + player[s].Height() > 470) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -790,11 +836,13 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 27582 && abs(ground.Left()) + translating < 27777 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 27907 && abs(ground.Left()) + translating < 28197 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -816,31 +864,37 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 28292 && abs(ground.Left()) + translating < 28582 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 28712 && abs(ground.Left()) + translating < 29002 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 29097 && abs(ground.Left()) + translating < 29397 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 29522 && abs(ground.Left()) + translating < 29652 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 29652 && abs(ground.Left()) + translating < 29737 && player[s].Top() + player[s].Height() > 345) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 30412 && abs(ground.Left()) + translating < 30497 && player[s].Top() + player[s].Height() > 345) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -852,36 +906,43 @@ namespace game_framework {
 		}
 		if (abs(ground.Left()) + translating > 31262 && abs(ground.Left()) + translating < 31442 && player[s].Top() + player[s].Height() > 345) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 31847 && abs(ground.Left()) + translating < 32017 && player[s].Top() + player[s].Height() > 475) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 32147 && abs(ground.Left()) + translating < 32257 && player[s].Top() + player[s].Height() > 470) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 32387 && abs(ground.Left()) + translating < 32482 && player[s].Top() + player[s].Height() > 470) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 32612 && abs(ground.Left()) + translating < 32717 && player[s].Top() + player[s].Height() > 470) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 35227 && abs(ground.Left()) + translating < 35377 && player[s].Top() + player[s].Height() > 455) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		if (abs(ground.Left()) + translating > 35507 && abs(ground.Left()) + translating < 35627 && player[s].Top() + player[s].Height() > 455) {
 			if (UP_STATE == false) {
+				MyWrite("flag.txt", 1);
 				GotoGameState(GAME_STATE_OVER);
 			}
 		}
@@ -928,6 +989,7 @@ namespace game_framework {
 		//
 		// 開始載入資料
 		//
+		MyWrite("flag.txt", 1);
 		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;

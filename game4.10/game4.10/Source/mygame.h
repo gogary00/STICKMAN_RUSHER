@@ -141,7 +141,7 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		int max_hight, s, map_speed, dump_speed, translating, bottom, distance, total_star, count_point, current, choice[5], cheat, record_point[10][2] = { {80,415},{4800,415},{7540,415},{13401,380},{17416,390},{21714,390},{24002,380},{26892,380},{29802,375},{35852,375} };
+		int max_hight, s, map_speed, dump_speed, translating, bottom, distance, total_star, count_point, current, choice[5], cheat, record_point[10][2] = { {0,415},{4800,415},{7540,415},{13401,380},{17416,390},{21714,390},{24002,380},{26892,380},{29802,375},{35852,375} };
 		bool JUMP_STATE,UP_STATE,ATTACH_STATE,CONTINUE_JUMP,IS_FUNC,AUTO_JUMP,DRAG_STATE,BOUNCE_STATE;
 		CAnimation player[6];
 		CMovingBitmap background,background2, background3,ground,ground2, ground3,attack,map_score[5][10],score_board,score_point[3][10],point_board;
