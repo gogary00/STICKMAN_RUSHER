@@ -461,6 +461,9 @@ namespace game_framework {
 					for (int j = 0; j < total_star; j++) {
 						cstar[j].SetTopLeft(cstar[j].Left() + abs(record_point[i][0]- abs(background.Left())), cstar[j].Top());
 					}
+					for (int j = 0; j < total_enemy; j++) {
+						enemy[j].SetTopLeft(enemy[j].Left() + abs(record_point[i][0] - abs(background.Left())), enemy[j].Top());
+					}
 					background.SetTopLeft(0 - record_point[i][0], 0);
 					ground.SetTopLeft(0 - record_point[i][0], 0);
 					background2.SetTopLeft(13176 - record_point[i][0], 0);
@@ -1028,8 +1031,8 @@ namespace game_framework {
 		s = 0;
 		BOUNCE_STATE = false;
 		total_star = 145;
-		total_enemy = 1;
-		total_is_alive = 1;
+		total_enemy = 2;
+		total_is_alive = 2;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1055,6 +1058,10 @@ namespace game_framework {
 			enemy[0].SetDelayCount(2);
 		}
 		enemy[0].SetTopLeft(8390, 170);
+		enemy[1].SetTopLeft(10590, 90);
+		for (int i = 0; i < total_enemy; i++) {
+			enemy[i].SetTopLeft(enemy[i].Left() - cheat, enemy[i].Top());
+		}
 		// ====================================== enemy ======================================
 		for (int i = 0; i < total_is_alive; i++) {
 			IS_ALIVE[i] = true;
