@@ -978,8 +978,11 @@ namespace game_framework {
 				if (enemy[i].Left() > player[s].Left() + player[s].Width()) {
 					enemy[i].SetTopLeft(enemy[i].Left() - 10, enemy[i].Top());
 				}
-				if (enemy[i].Top() + enemy[i].Height() < player[s].Top() + 30 && enemy[i].Top() + enemy[i].Height() < bottom) {
+				if (enemy[i].Top() + enemy[i].Height() < player[s].Top() && enemy[i].Top() + enemy[i].Height() < bottom) {
 					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() + 10);
+				}
+				if (enemy[i].Top() > player[s].Top() + player[s].Height()) {
+					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() - 10);
 				}
 			}
 			enemy[i].OnMove();
