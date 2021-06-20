@@ -690,5 +690,11 @@
     <Image Include="RES\sprite49-sheet0.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\enemy\enemy14.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy15.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

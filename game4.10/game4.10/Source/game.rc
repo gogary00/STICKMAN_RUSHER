@@ -440,6 +440,10 @@ IDB_BITMAP171           BITMAP                  "..\\RES\\sprite48-sheet0.bmp"
 
 IDB_BITMAP172           BITMAP                  "..\\RES\\sprite49-sheet0.bmp"
 
+IDB_BITMAP173           BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\enemy\\enemy14.bmp"
+
+IDB_BITMAP174           BITMAP                  "C:\\Users\\twm20\\OneDrive\\文件\\GitTutorial\\enemy\\enemy15.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

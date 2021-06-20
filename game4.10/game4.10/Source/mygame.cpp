@@ -482,6 +482,7 @@ namespace game_framework {
 			cstar[i].SetTopLeft(cstar[i].Left() - map_speed, cstar[i].Top());
 		}
 		// ---------------------------------------------------移動POINT----------------------------------------------------------------
+
 		//
 		//-----------------------------------------------------偵測底部----------------------------------------------------------------
 		if (abs(ground.Left()) + translating > 0 && abs(ground.Left()) + translating < 1281) { bottom = 415; }
@@ -963,6 +964,25 @@ namespace game_framework {
 		attack.SetTopLeft(player[s].Left() + player[s].Width() - 100, player[s].Top() - 10);
 		player[s].OnMove();
 
+		// ====== enemy =======
+		for (int i = 0; i < total_enemy; i++) {
+			enemy[i].SetTopLeft(enemy[i].Left() - map_speed, enemy[i].Top());
+			if (player[s].Left() + player[s].Width() >= enemy[i].Left() && player[s].Left() <= enemy[i].Left() + enemy[i].Width() && player[s].Top() + player[s].Height() >= enemy[i].Top() && player[s].Top() <= enemy[i].Top() + enemy[i].Height() && IS_ALIVE[i]==true) {
+				IS_ALIVE[i] = false;
+				GotoGameState(GAME_STATE_OVER);
+			}
+			if ((enemy[i].Left() - (player[s].Left() + player[s].Width()))*(enemy[i].Left() - (player[s].Left() + player[s].Width())) + (enemy[i].Top() + enemy[i].Height() - player[s].Top())*(enemy[i].Top() + enemy[i].Height() - player[s].Top()) < 250000) {
+				if (enemy[i].Left() > player[s].Left() + player[s].Width()) {
+					enemy[i].SetTopLeft(enemy[i].Left() - 10, enemy[i].Top());
+				}
+				if (enemy[i].Top() + enemy[i].Height() < player[s].Top() + 30 && enemy[i].Top() + enemy[i].Height() < bottom) {
+					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() + 10);
+				}
+			}
+			enemy[i].OnMove();
+		}
+		// ====== enemy =======
+
 		// ====== drop down =======
 		if (IS_FUNC == true) {
 			if ((player[s].Top() + player[s].Height()) < bottom) {
@@ -1008,6 +1028,8 @@ namespace game_framework {
 		s = 0;
 		BOUNCE_STATE = false;
 		total_star = 145;
+		total_enemy = 1;
+		total_is_alive = 1;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1024,6 +1046,19 @@ namespace game_framework {
 		score_board.LoadBitmap(IDB_BITMAP63, RGB(0, 255, 0));
 		point_board.LoadBitmap(IDB_BITMAP53, RGB(0, 255, 0));
 		point_board.SetTopLeft(0, 50);
+		// ====================================== enemy ======================================
+		for (int i = 0; i < total_enemy; i++) {
+			for(int j = 329; j < 331; j++)
+			enemy[i].AddBitmap(j, RGB(255, 255, 255));
+		}
+		for (int i = 0; i < total_enemy; i++) {
+			enemy[0].SetDelayCount(2);
+		}
+		enemy[0].SetTopLeft(8390, 170);
+		// ====================================== enemy ======================================
+		for (int i = 0; i < total_is_alive; i++) {
+			IS_ALIVE[i] = true;
+		}
 		for (int i = 0; i < total_star; i++) {
 			if (i < 103) {
 				cstar[i].LoadBitmap();
@@ -1334,6 +1369,12 @@ namespace game_framework {
 		const char KEY_DOWN = 0x28; // keyboard下箭頭
 		if (nChar == KEY_SPACE) {
 			ATTACH_STATE = true;
+			for (int i = 0; i < total_enemy; i++) {
+				if (attack.Left() + attack.Width() >= enemy[i].Left() && attack.Left() <= enemy[i].Left() + enemy[i].Width() && attack.Top() + attack.Height() >= enemy[i].Top() && attack.Top() <= enemy[i].Top() + enemy[i].Height()) {
+					IS_ALIVE[i] = false;
+					count_point += 100;
+				}
+			}
 		}
 
 		if (nChar == KEY_LEFT) {
@@ -1450,5 +1491,12 @@ namespace game_framework {
 			score_point[i][index].ShowBitmap();
 		}
 		//===========顯示POINT分數===========
+		//===========顯示ENEMY===========
+		for (int i = 0; i < total_enemy; i++) {
+			if (IS_ALIVE[i] == true) {
+				enemy[i].OnShow();
+			}
+		}
+		//===========顯示ENEMY===========
 	}
 }

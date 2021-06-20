@@ -423,6 +423,8 @@
     <Image Include="..\..\bmpSrc\upgrade3-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\upgrade4-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\upgrade9-sheet0.bmp" />
+    <Image Include="..\..\enemy\enemy14.bmp" />
+    <Image Include="..\..\enemy\enemy15.bmp" />
     <Image Include="..\..\running\1.bmp" />
     <Image Include="..\..\running\10.bmp" />
     <Image Include="..\..\running\11.bmp" />
