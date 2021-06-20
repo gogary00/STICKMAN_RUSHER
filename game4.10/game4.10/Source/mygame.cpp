@@ -1022,7 +1022,7 @@ namespace game_framework {
 	{
 		//
 		// 當圖很多時，OnInit載入所有的圖要花很多時間。為避免玩遊戲的人
-		//     等的不耐煩，遊戲會出現「Loading ...」，顯示Loading的進度。
+		// 等的不耐煩，遊戲會出現「Loading ...」，顯示Loading的進度。
 		//
 		ShowInitProgress(33);	// 接個前一個狀態的進度，此處進度視為33%
 		//
