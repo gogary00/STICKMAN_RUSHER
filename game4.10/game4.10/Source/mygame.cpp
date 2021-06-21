@@ -453,7 +453,7 @@ namespace game_framework {
 	{
 		s = MyRead("./set.txt");
 		translating = player[s].Width() + distance;
-		if (MyRead("flag.txt")==1) {
+		if (MyRead("flag.txt")==1 && cheat==0) {
 			int temp = MyRead("record.txt");
 			for (int i = 0; i < 9; i++) {
 				if (temp >= record_point[i][0] && temp < record_point[i + 1][0]) {
@@ -974,7 +974,7 @@ namespace game_framework {
 				IS_ALIVE[i] = false;
 				GotoGameState(GAME_STATE_OVER);
 			}
-			if ((enemy[i].Left() - (player[s].Left() + player[s].Width()))*(enemy[i].Left() - (player[s].Left() + player[s].Width())) + (enemy[i].Top() + enemy[i].Height() - player[s].Top())*(enemy[i].Top() + enemy[i].Height() - player[s].Top()) < 250000) {
+			if ((enemy[i].Left() - (player[s].Left() + player[s].Width()))*(enemy[i].Left() - (player[s].Left() + player[s].Width())) + (enemy[i].Top() + enemy[i].Height() - player[s].Top())*(enemy[i].Top() + enemy[i].Height() - player[s].Top()) < 250000 && i<5) {
 				if (enemy[i].Left() > player[s].Left() + player[s].Width()) {
 					enemy[i].SetTopLeft(enemy[i].Left() - 10, enemy[i].Top());
 				}
@@ -1034,8 +1034,8 @@ namespace game_framework {
 		s = 0;
 		BOUNCE_STATE = false;
 		total_star = 145;
-		total_enemy = 2;
-		total_is_alive = 2;
+		total_enemy = 9;
+		total_is_alive = 9;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1058,10 +1058,17 @@ namespace game_framework {
 			enemy[i].AddBitmap(j, RGB(255, 255, 255));
 		}
 		for (int i = 0; i < total_enemy; i++) {
-			enemy[0].SetDelayCount(2);
+			enemy[i].SetDelayCount(2);
 		}
-		enemy[0].SetTopLeft(8390, 170);
-		enemy[1].SetTopLeft(10590, 90);
+		enemy[0].SetTopLeft(6800, 100);
+		enemy[1].SetTopLeft(8390, 170);
+		enemy[2].SetTopLeft(10590, 90);
+		enemy[3].SetTopLeft(18396, 100);
+		enemy[4].SetTopLeft(30560, 150);
+		enemy[5].SetTopLeft(14331, 125);
+		enemy[6].SetTopLeft(14471, 130);
+		enemy[7].SetTopLeft(14821, 155);
+		enemy[8].SetTopLeft(15121, 190);
 		for (int i = 0; i < total_enemy; i++) {
 			enemy[i].SetTopLeft(enemy[i].Left() - cheat, enemy[i].Top());
 		}
