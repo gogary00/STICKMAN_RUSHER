@@ -272,7 +272,7 @@ namespace game_framework {
 		for (int i = 0; i < 6; i++) { block[i].LoadBitmap(IDB_BITMAP186); }
 		for (int i = 0; i < 6; i++) { IS_SHOW[i] = true; }
 		IS_SHOW[0] = false;
-		MyWrite("./set.txt", '0');
+		sMyWrite("./set.txt", 0);
 	}
 
 	void CGameStateSelect::OnBeginState() {
@@ -283,7 +283,7 @@ namespace game_framework {
 
 	}
 
-	void CGameStateSelect::MyWrite(string file, int c) {
+	void CGameStateSelect::sMyWrite(string file, int c) {
 		ofstream ofs;
 		ofs.open(file);
 		if (!ofs.is_open()) {
@@ -293,7 +293,7 @@ namespace game_framework {
 		ofs.close();
 	}
 
-	int CGameStateSelect::MyRead(string file) {
+	int CGameStateSelect::sMyRead(string file) {
 		int temp;
 		ifstream ifs;
 		ifs.open(file);
@@ -313,86 +313,86 @@ namespace game_framework {
 			GotoGameState(GAME_STATE_RUN);		// ¤Á´«¦ÜGAME_STATE_RUN
 		}
 		if (point.x > 113 && point.x < 113 + upgrade[0].Width() && point.y>150 && point.y < 150 + upgrade[0].Height()) {
-			if (MyRead("./money.txt") >= 0 || IS_SHOW[0] == false) {
+			if (sMyRead("./money.txt") >= 0 || IS_SHOW[0] == false) {
 				if (IS_SHOW[0] == true) {
-					MyWrite("./money.txt", MyRead("./money.txt") - 0);
+					sMyWrite("./money.txt", sMyRead("./money.txt") - 0);
 					IS_SHOW[0] = false;
 					select = 0;
-					MyWrite("./set.txt", 0);
+					sMyWrite("./set.txt", 0);
 				}
 				else {
 					select = 0;
-					MyWrite("./set.txt", 0);
+					sMyWrite("./set.txt", 0);
 				}
 			}
 		}
 		if (point.x > 113 && point.x < 113 + upgrade[1].Width() && point.y>227 && point.y < 227 + upgrade[1].Height()) {
-			if (MyRead("./money.txt") >= 300 || IS_SHOW[1] == false) {
+			if (sMyRead("./money.txt") >= 300 || IS_SHOW[1] == false) {
 				if (IS_SHOW[1] == true) {
-					MyWrite("./money.txt", MyRead("./money.txt") - 300);
+					sMyWrite("./money.txt", sMyRead("./money.txt") - 300);
 					IS_SHOW[1] = false;
 					select = 1;
-					MyWrite("./set.txt", 1);
+					sMyWrite("./set.txt", 1);
 				}
 				else {
 					select = 1;
-					MyWrite("./set.txt", 1);
+					sMyWrite("./set.txt", 1);
 				}
 			}
 		}
 		if (point.x > 113 && point.x < 113 + upgrade[2].Width() && point.y>305 && point.y < 305 + upgrade[2].Height()) {
-			if (MyRead("./money.txt") >= 600 || IS_SHOW[2] == false) {
+			if (sMyRead("./money.txt") >= 600 || IS_SHOW[2] == false) {
 				if (IS_SHOW[2] == true) {
-					MyWrite("./money.txt", MyRead("./money.txt") - 600);
+					sMyWrite("./money.txt", sMyRead("./money.txt") - 600);
 					IS_SHOW[2] = false;
 					select = 2;
-					MyWrite("./set.txt", 2);
+					sMyWrite("./set.txt", 2);
 				}
 				else {
 					select = 2;
-					MyWrite("./set.txt", 2);
+					sMyWrite("./set.txt", 2);
 				}
 			}
 		}
 		if (point.x > 520 && point.x < 520 + upgrade[3].Width() && point.y>150 && point.y < 150 + upgrade[3].Height()) {
-			if (MyRead("./money.txt") >= 900 || IS_SHOW[3] == false) {
+			if (sMyRead("./money.txt") >= 900 || IS_SHOW[3] == false) {
 				if (IS_SHOW[3] == true) {
-					MyWrite("./money.txt", MyRead("./money.txt") - 900);
+					sMyWrite("./money.txt", sMyRead("./money.txt") - 900);
 					IS_SHOW[3] = false;
 					select = 3;
-					MyWrite("./set.txt", 3);
+					sMyWrite("./set.txt", 3);
 				}
 				else {
 					select = 3;
-					MyWrite("./set.txt", 3);
+					sMyWrite("./set.txt", 3);
 				}
 			}
 		}
 		if (point.x > 520 && point.x < 520 + upgrade[4].Width() && point.y>227 && point.y < 227 + upgrade[4].Height()) {
-			if (MyRead("./money.txt") >= 1200 || IS_SHOW[4] == false) {
+			if (sMyRead("./money.txt") >= 1200 || IS_SHOW[4] == false) {
 				if (IS_SHOW[4] == true) {
-					MyWrite("./money.txt", MyRead("./money.txt") - 1200);
+					sMyWrite("./money.txt", sMyRead("./money.txt") - 1200);
 					IS_SHOW[4] = false;
 					select = 4;
-					MyWrite("./set.txt", 4);
+					sMyWrite("./set.txt", 4);
 				}
 				else {
 					select = 4;
-					MyWrite("./set.txt", 4);
+					sMyWrite("./set.txt", 4);
 				}
 			}
 		}
 		if (point.x > 520 && point.x < 520 + upgrade[5].Width() && point.y>305 && point.y < 305 + upgrade[5].Height()) {
-			if (MyRead("./money.txt") >= 1500 || IS_SHOW[5] == false) {
+			if (sMyRead("./money.txt") >= 1500 || IS_SHOW[5] == false) {
 				if (IS_SHOW[5] == true) {
-					MyWrite("./money.txt", MyRead("./money.txt") - 1500);
+					sMyWrite("./money.txt", sMyRead("./money.txt") - 1500);
 					IS_SHOW[5] = false;
 					select = 5;
-					MyWrite("./set.txt", 5);
+					sMyWrite("./set.txt", 5);
 				}
 				else {
 					select = 5;
-					MyWrite("./set.txt", 5);
+					sMyWrite("./set.txt", 5);
 				}
 			}
 		}
