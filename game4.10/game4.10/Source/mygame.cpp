@@ -986,6 +986,11 @@ namespace game_framework {
 					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() - 10);
 				}
 			}
+			if ((enemy[i].Left() - (player[s].Left() + player[s].Width()))*(enemy[i].Left() - (player[s].Left() + player[s].Width())) + (enemy[i].Top() + enemy[i].Height() - player[s].Top())*(enemy[i].Top() + enemy[i].Height() - player[s].Top()) < 250000 && i >= 17 && i < 21) {
+				if (enemy[i].Left() > player[s].Left() + player[s].Width()) {
+					enemy[i].SetTopLeft(enemy[i].Left() - 5, enemy[i].Top());
+				}
+			}
 			enemy[i].OnMove();
 		}
 		// ====== enemy =======
@@ -1031,12 +1036,12 @@ namespace game_framework {
 		//
 		MyWrite("flag.txt", 1);
 		MyWrite("record.txt", 0);
-		cheat = 0;
+		cheat = 33402;
 		s = 0;
 		BOUNCE_STATE = false;
 		total_star = 145;
-		total_enemy = 17;
-		total_is_alive = 17;
+		total_enemy = 21;
+		total_is_alive = 21;
 		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
@@ -1055,13 +1060,25 @@ namespace game_framework {
 		point_board.SetTopLeft(0, 50);
 		// ====================================== enemy ======================================
 		for (int i = 0; i < total_enemy; i++) {
-			for(int j = 329; j < 331; j++)
-			enemy[i].AddBitmap(j, RGB(255, 255, 255));
+			if (i < 17) {
+				for (int j = 329; j < 331; j++) {
+					enemy[i].AddBitmap(j, RGB(255, 255, 255));
+				}
+			}
+			if (i >= 17) {
+				enemy[i].AddBitmap(IDB_BITMAP179, RGB(255, 255, 255));
+				enemy[i].AddBitmap(IDB_BITMAP180, RGB(255, 255, 255));
+				enemy[i].AddBitmap(IDB_BITMAP181, RGB(255, 255, 255));
+				enemy[i].AddBitmap(IDB_BITMAP182, RGB(255, 255, 255));
+				enemy[i].AddBitmap(IDB_BITMAP183, RGB(255, 255, 255));
+				enemy[i].AddBitmap(IDB_BITMAP184, RGB(255, 255, 255));
+				enemy[i].AddBitmap(IDB_BITMAP185, RGB(255, 255, 255));
+			}
 		}
 		for (int i = 0; i < total_enemy; i++) {
 			enemy[i].SetDelayCount(2);
 		}
-		enemy[0].SetTopLeft(6800, 100);
+		enemy[0].SetTopLeft(6800, 100); // 追尾型敵人
 		enemy[1].SetTopLeft(8390, 170);
 		enemy[2].SetTopLeft(10590, 90);
 		enemy[3].SetTopLeft(18396, 100);
@@ -1070,15 +1087,20 @@ namespace game_framework {
 		enemy[6].SetTopLeft(29662, 80);
 		enemy[7].SetTopLeft(32342, 170);
 		enemy[8].SetTopLeft(34352, 220);
-		enemy[9].SetTopLeft(37102, 270);
+		enemy[9].SetTopLeft(37102, 150);
 
-		enemy[10].SetTopLeft(14331, 125);
+		enemy[10].SetTopLeft(14331, 125); //定點型敵人
 		enemy[11].SetTopLeft(14471, 130);
 		enemy[12].SetTopLeft(14821, 155);
 		enemy[13].SetTopLeft(15121, 190);
 		enemy[14].SetTopLeft(19950, 120);
 		enemy[15].SetTopLeft(20230, 150);
 		enemy[16].SetTopLeft(20800, 200);
+
+		enemy[17].SetTopLeft(4450, 300); //前進型敵人
+		enemy[18].SetTopLeft(9300, 270);
+		enemy[19].SetTopLeft(19176, 280);
+		enemy[20].SetTopLeft(36300, 280);
 		for (int i = 0; i < total_enemy; i++) {
 			enemy[i].SetTopLeft(enemy[i].Left() - cheat, enemy[i].Top());
 		}

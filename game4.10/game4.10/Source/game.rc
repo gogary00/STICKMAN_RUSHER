@@ -444,6 +444,28 @@ IDB_BITMAP173           BITMAP                  "..\\..\\..\\enemy\\enemy14.bmp"
 
 IDB_BITMAP174           BITMAP                  "..\\..\\..\\enemy\\enemy15.bmp"
 
+IDB_BITMAP175           BITMAP                  "..\\RES\\enemy_green_2.bmp"
+
+IDB_BITMAP176           BITMAP                  "..\\RES\\enemy_green_3.bmp"
+
+IDB_BITMAP177           BITMAP                  "..\\RES\\enemy_green_1.bmp"
+
+IDB_BITMAP178           BITMAP                  "..\\RES\\enemy_green_4.bmp"
+
+IDB_BITMAP179           BITMAP                  "..\\..\\..\\enemy\\enemy0.bmp"
+
+IDB_BITMAP180           BITMAP                  "..\\..\\..\\enemy\\enemy1.bmp"
+
+IDB_BITMAP181           BITMAP                  "..\\..\\..\\enemy\\enemy2.bmp"
+
+IDB_BITMAP182           BITMAP                  "..\\..\\..\\enemy\\enemy3.bmp"
+
+IDB_BITMAP183           BITMAP                  "..\\..\\..\\enemy\\enemy4.bmp"
+
+IDB_BITMAP184           BITMAP                  "..\\..\\..\\enemy\\enemy5.bmp"
+
+IDB_BITMAP185           BITMAP                  "..\\..\\..\\enemy\\enemy6.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -696,5 +696,38 @@
     <Image Include="..\..\enemy\enemy15.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\enemy_green_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\enemy_green_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\enemy_green_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\enemy_green_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\enemy\enemy6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

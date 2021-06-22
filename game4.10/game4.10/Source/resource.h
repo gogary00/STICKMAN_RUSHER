@@ -207,6 +207,17 @@
 #define IDB_BITMAP172                   328
 #define IDB_BITMAP173                   329
 #define IDB_BITMAP174                   330
+#define IDB_BITMAP175                   331
+#define IDB_BITMAP176                   332
+#define IDB_BITMAP177                   333
+#define IDB_BITMAP178                   334
+#define IDB_BITMAP179                   335
+#define IDB_BITMAP180                   336
+#define IDB_BITMAP181                   337
+#define IDB_BITMAP182                   338
+#define IDB_BITMAP183                   340
+#define IDB_BITMAP184                   341
+#define IDB_BITMAP185                   342
 #define IDC_README                      1001
 #define ID_FILE_PAUSE                   32771
 #define ID_TOGGLE_FULLSCREEN            32772
@@ -219,7 +230,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        331
+#define _APS_NEXT_RESOURCE_VALUE        343
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           101

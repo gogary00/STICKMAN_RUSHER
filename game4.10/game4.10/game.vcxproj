@@ -423,8 +423,15 @@
     <Image Include="..\..\bmpSrc\upgrade3-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\upgrade4-sheet0.bmp" />
     <Image Include="..\..\bmpSrc\upgrade9-sheet0.bmp" />
+    <Image Include="..\..\enemy\enemy0.bmp" />
+    <Image Include="..\..\enemy\enemy1.bmp" />
     <Image Include="..\..\enemy\enemy14.bmp" />
     <Image Include="..\..\enemy\enemy15.bmp" />
+    <Image Include="..\..\enemy\enemy2.bmp" />
+    <Image Include="..\..\enemy\enemy3.bmp" />
+    <Image Include="..\..\enemy\enemy4.bmp" />
+    <Image Include="..\..\enemy\enemy5.bmp" />
+    <Image Include="..\..\enemy\enemy6.bmp" />
     <Image Include="..\..\running\1.bmp" />
     <Image Include="..\..\running\10.bmp" />
     <Image Include="..\..\running\11.bmp" />
@@ -490,6 +497,10 @@
     <Image Include="RES\attack.bmp" />
     <Image Include="RES\background.bmp" />
     <Image Include="RES\bk1_new.bmp" />
+    <Image Include="RES\enemy_green_1.bmp" />
+    <Image Include="RES\enemy_green_2.bmp" />
+    <Image Include="RES\enemy_green_3.bmp" />
+    <Image Include="RES\enemy_green_4.bmp" />
     <Image Include="RES\grass_new.bmp" />
     <Image Include="RES\new_bk3.bmp" />
     <Image Include="RES\new_grass2.bmp" />
