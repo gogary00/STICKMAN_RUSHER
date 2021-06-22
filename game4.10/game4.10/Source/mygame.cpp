@@ -1036,7 +1036,7 @@ namespace game_framework {
 		//
 		MyWrite("flag.txt", 1);
 		MyWrite("record.txt", 0);
-		cheat = 33402;
+		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
 		total_star = 145;
