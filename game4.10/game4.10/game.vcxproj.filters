@@ -729,5 +729,8 @@
     <Image Include="..\..\enemy\enemy6.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\block.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -497,6 +497,7 @@
     <Image Include="RES\attack.bmp" />
     <Image Include="RES\background.bmp" />
     <Image Include="RES\bk1_new.bmp" />
+    <Image Include="RES\block.bmp" />
     <Image Include="RES\enemy_green_1.bmp" />
     <Image Include="RES\enemy_green_2.bmp" />
     <Image Include="RES\enemy_green_3.bmp" />

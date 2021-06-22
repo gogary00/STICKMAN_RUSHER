@@ -103,15 +103,17 @@ namespace game_framework {
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
 		void OnLButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
-		void MyWrite(string, char);
+		void MyWrite(string, int);
+		int MyRead(string);
 	protected:
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		int swAudio,select;
+		bool IS_SHOW[6];
 		CMovingBitmap background;
 		CMovingBitmap btnStartGame;
 		CMovingBitmap btnAudio_open, btnAudio_close;
-		CMovingBitmap upgrade[6],frame;
+		CMovingBitmap upgrade[6],block[6],frame;
 		CAnimation player[6];
 	};
 
