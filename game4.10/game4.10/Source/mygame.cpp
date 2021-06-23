@@ -467,6 +467,7 @@ namespace game_framework {
 	void CGameStateOver::OnBeginState()
 	{
 		//counter = 30 * 5; // 5 seconds
+		CAudio::Instance()->Play(AUDIO_DEAD);
 		CAudio::Instance()->Stop(AUDIO_RUN);
 	}
 
@@ -1070,7 +1071,6 @@ namespace game_framework {
 			if (player[s].Left() + player[s].Width() >= enemy[i].Left() && player[s].Left() <= enemy[i].Left() + enemy[i].Width() && player[s].Top() + player[s].Height() >= enemy[i].Top() && player[s].Top() <= enemy[i].Top() + enemy[i].Height() && IS_ALIVE[i]==true) {
 				IS_ALIVE[i] = false;
 				MyWrite("flag.txt", 1);
-				CAudio::Instance()->Play(AUDIO_DEAD);
 				GotoGameState(GAME_STATE_OVER);
 			}
 			if ((enemy[i].Left() - (player[s].Left() + player[s].Width()))*(enemy[i].Left() - (player[s].Left() + player[s].Width())) + (enemy[i].Top() + enemy[i].Height() - player[s].Top())*(enemy[i].Top() + enemy[i].Height() - player[s].Top()) < 250000 && i < 10) {
