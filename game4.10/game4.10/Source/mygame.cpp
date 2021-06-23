@@ -538,7 +538,6 @@ namespace game_framework {
 	void CGameStateRun::OnMove()							// ²¾°Ê¹CÀ¸¤¸¯À
 	{
 		s = MyRead("./set.txt");
-		MyWrite("./money.txt", count_point);
 		translating = player[s].Width() + distance;
 		if (MyRead("flag.txt")==1 && cheat==0) {
 			int temp = MyRead("record.txt");
@@ -665,6 +664,7 @@ namespace game_framework {
 		ground3.SetTopLeft(ground3.Left() - map_speed, 0);
 		score_board.SetTopLeft(240, 0);
 		MyWrite("record.txt", abs(background.Left()));
+		MyWrite("./money.txt", count_point);
 		if (UP_STATE == true) {
 			IS_FUNC = false;
 		}
