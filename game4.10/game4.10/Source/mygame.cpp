@@ -102,7 +102,7 @@ namespace game_framework {
 	{
 		CAudio::Instance()->Load(AUDIO_OPEN, "sounds\\opening.mp3");
 		CAudio::Instance()->Load(AUDIO_SELECT, "sounds\\pickWeapon.mp3");
-		CAudio::Instance()->Load(AUDIO_RUN, "sounds\\opening.mp3");
+		CAudio::Instance()->Load(AUDIO_RUN, "sounds\\battleMusic.mp3");
 		CAudio::Instance()->Load(AUDIO_DEAD, "sounds\\dead.mp3");
 		CAudio::Instance()->Load(AUDIO_EAT_POINT, "sounds\\eating.mp3");
 		CAudio::Instance()->Load(AUDIO_EAT_START, "sounds\\eatbig.mp3");
