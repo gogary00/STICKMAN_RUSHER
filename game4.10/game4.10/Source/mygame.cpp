@@ -100,6 +100,13 @@ namespace game_framework {
 
 	void CGameStateInit::OnBeginState()
 	{
+		CAudio::Instance()->Load(AUDIO_OPEN, "sounds\\opening.mp3");
+		CAudio::Instance()->Load(AUDIO_SELECT, "sounds\\pickWeapon.mp3");
+		CAudio::Instance()->Load(AUDIO_RUN, "sounds\\opening.mp3");
+		CAudio::Instance()->Load(AUDIO_DEAD, "sounds\\dead.mp3");
+		CAudio::Instance()->Load(AUDIO_EAT_POINT, "sounds\\eating.mp3");
+		CAudio::Instance()->Load(AUDIO_EAT_START, "sounds\\eatbig.mp3");
+		CAudio::Instance()->Play(AUDIO_OPEN, true);
 	}
 
 	void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -193,7 +200,7 @@ namespace game_framework {
 	}
 
 	void CGameStatePrepare::OnBeginState() {
-
+		
 	}
 
 	void CGameStatePrepare::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
@@ -276,7 +283,9 @@ namespace game_framework {
 	}
 
 	void CGameStateSelect::OnBeginState() {
-
+		CAudio::Instance()->Stop(AUDIO_OPEN);
+		CAudio::Instance()->Stop(AUDIO_RUN);
+		CAudio::Instance()->Play(AUDIO_SELECT, true);
 	}
 
 	void CGameStateSelect::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
@@ -518,9 +527,8 @@ namespace game_framework {
 
 	void CGameStateRun::OnBeginState()
 	{
-		CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
-		CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
-		CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
+		CAudio::Instance()->Stop(AUDIO_SELECT);
+		CAudio::Instance()->Play(AUDIO_RUN, true);
 	}
 
 	int CGameStateRun::MyRead(string file) {
@@ -1061,6 +1069,7 @@ namespace game_framework {
 			if (player[s].Left() + player[s].Width() >= enemy[i].Left() && player[s].Left() <= enemy[i].Left() + enemy[i].Width() && player[s].Top() + player[s].Height() >= enemy[i].Top() && player[s].Top() <= enemy[i].Top() + enemy[i].Height() && IS_ALIVE[i]==true) {
 				IS_ALIVE[i] = false;
 				MyWrite("flag.txt", 1);
+				CAudio::Instance()->Play(AUDIO_DEAD);
 				GotoGameState(GAME_STATE_OVER);
 			}
 			if ((enemy[i].Left() - (player[s].Left() + player[s].Width()))*(enemy[i].Left() - (player[s].Left() + player[s].Width())) + (enemy[i].Top() + enemy[i].Height() - player[s].Top())*(enemy[i].Top() + enemy[i].Height() - player[s].Top()) < 250000 && i < 10) {
@@ -1490,9 +1499,7 @@ namespace game_framework {
 			cstar[i].SetTopLeft(cstar[i].Left() - cheat, cstar[i].Top());
 		}
 		// ---------------------------------------------------初始化POINT位置----------------------------------------------------------------
-		CAudio::Instance()->Load(AUDIO_DING, "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
-		CAudio::Instance()->Load(AUDIO_LAKE, "sounds\\lake.mp3");	// 載入編號1的聲音lake.mp3
-		CAudio::Instance()->Load(AUDIO_NTUT, "sounds\\ntut.mid");	// 載入編號2的聲音ntut.mid
+		
 		//
 		// 此OnInit動作會接到CGameStaterOver::OnInit()，所以進度還沒到100%
 		//
