@@ -467,6 +467,7 @@ namespace game_framework {
 	void CGameStateOver::OnBeginState()
 	{
 		//counter = 30 * 5; // 5 seconds
+		CAudio::Instance()->Stop(AUDIO_RUN);
 	}
 
 	void CGameStateOver::OnInit()
