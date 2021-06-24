@@ -732,5 +732,8 @@
     <Image Include="RES\block.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\sprite179-sheet0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

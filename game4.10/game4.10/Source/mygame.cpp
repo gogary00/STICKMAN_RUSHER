@@ -572,6 +572,9 @@ namespace game_framework {
 	void CGameStateRun::OnMove()							// 移動遊戲元素
 	{
 		translating = player[s].Width() + distance;
+		if (abs(ground.Left()) > 37800) {
+			GotoGameState(GAME_STATE_OVER);
+		}
 		if (MyRead("flag.txt")==1 && cheat==0) {
 			int temp = MyRead("record.txt");
 			count_point = MyRead("./money.txt");
@@ -1119,6 +1122,38 @@ namespace game_framework {
 					enemy[i].SetTopLeft(enemy[i].Left() - 5, enemy[i].Top());
 				}
 			}
+			if (i == 21) {
+				if (MONSTER_UP[i] == true) {
+					if (enemy[i].Top() > 150) {
+						enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() - 5);
+					}
+					else {
+						MONSTER_UP[i] = false;
+					}
+				}
+				else {
+					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() + 5);
+					if (enemy[i].Top() + enemy[i].Height() > 400) {
+						MONSTER_UP[i] = true;
+					}
+				}
+			}
+			if (i >= 22 && i<=27) {
+				if (MONSTER_UP[i] == true) {
+					if (enemy[i].Top() > 150) {
+						enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() - 5);
+					}
+					else {
+						MONSTER_UP[i] = false;
+					}
+				}
+				else {
+					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() + 5);
+					if (enemy[i].Top() + enemy[i].Height() > 430) {
+						MONSTER_UP[i] = true;
+					}
+				}
+			}
 			enemy[i].OnMove();
 		}
 		// ====== enemy =======
@@ -1174,8 +1209,9 @@ namespace game_framework {
 		cheat = 0;
 		s = 0;
 		total_star = 145;
-		total_enemy = 22;
-		total_is_alive = 22;
+		total_enemy = 28;
+		total_is_alive = 28;
+		total_monster_up = 28;
 		count_point = 0;
 		BOUNCE_STATE = false;
 		IS_MONSTERDIE = false;
@@ -1197,6 +1233,9 @@ namespace game_framework {
 		point_board.LoadBitmap(IDB_BITMAP53, RGB(0, 255, 0));
 		point_board.SetTopLeft(0, 50);
 		// ====================================== enemy ======================================
+		for (int i = 0; i < total_enemy; i++) {
+			MONSTER_UP[i] = true;
+		}
 		for (int i = 0; i < total_enemy; i++) {
 			if (i < 17) {
 				for (int j = 329; j < 331; j++) {
@@ -1232,13 +1271,13 @@ namespace game_framework {
 		enemy[3].SetTopLeft(18396, 100);
 		enemy[4].SetTopLeft(26402, 100);
 		enemy[5].SetTopLeft(30560, 150);
-		enemy[6].SetTopLeft(29662, 80);
+		enemy[6].SetTopLeft(29862, 80);
 		enemy[7].SetTopLeft(32342, 170);
 		enemy[8].SetTopLeft(34352, 220);
 		enemy[9].SetTopLeft(37102, 150);
 
 		enemy[10].SetTopLeft(14331, 125); //定點型敵人
-		enemy[11].SetTopLeft(14471, 130);
+		enemy[11].SetTopLeft(14580, 145);
 		enemy[12].SetTopLeft(14821, 155);
 		enemy[13].SetTopLeft(15121, 190);
 		enemy[14].SetTopLeft(19950, 120);
@@ -1250,7 +1289,13 @@ namespace game_framework {
 		enemy[19].SetTopLeft(19176, 280);
 		enemy[20].SetTopLeft(36300, 280);
 
-		enemy[21].SetTopLeft(1000, 0); //上下型敵人
+		enemy[21].SetTopLeft(16876, 300); //上下型敵人
+		enemy[22].SetTopLeft(18116, 420);
+		enemy[23].SetTopLeft(18402, 420);
+		enemy[24].SetTopLeft(25871, 420);
+		enemy[25].SetTopLeft(28017, 420);
+		enemy[26].SetTopLeft(29191, 420);
+		enemy[27].SetTopLeft(35267, 420);
 		for (int i = 0; i < total_enemy; i++) {
 			enemy[i].SetTopLeft(enemy[i].Left() - cheat, enemy[i].Top());
 		}
@@ -1446,7 +1491,7 @@ namespace game_framework {
 		cstar[42].SetTopLeft(10900, 250);
 		cstar[43].SetTopLeft(14281, 125);
 		cstar[44].SetTopLeft(14421, 135);
-		cstar[45].SetTopLeft(14561, 145);
+		cstar[45].SetTopLeft(14600, 145);
 		cstar[46].SetTopLeft(14701, 155);
 		cstar[47].SetTopLeft(15416, 225);
 		cstar[48].SetTopLeft(15696, 340);
@@ -1520,7 +1565,7 @@ namespace game_framework {
 		cstar[115].SetTopLeft(10600, 240);
 		cstar[116].SetTopLeft(10660, 240);
 		cstar[117].SetTopLeft(13980, 265);
-		cstar[118].SetTopLeft(14491, 140);
+		cstar[118].SetTopLeft(14500, 140);
 		cstar[119].SetTopLeft(14961, 185);
 		cstar[120].SetTopLeft(15326, 215);
 		cstar[121].SetTopLeft(16701, 250);
@@ -1572,7 +1617,6 @@ namespace game_framework {
 					IS_MONSTERDIE = true;
 					IS_ALIVE[i] = false;
 					count_point += 100;
-					break;
 				}
 				else {
 					IS_MONSTERDIE = false;
@@ -1584,11 +1628,49 @@ namespace game_framework {
 		}
 
 		if (nChar == KEY_LEFT) {
-			GotoGameState(GAME_STATE_OVER);
+			int temp = MyRead("record.txt");
+			for (int i = 0; i < 9; i++) {
+				if (temp >= record_point[i][0] && temp < record_point[i + 1][0]) {
+					player[s].SetTopLeft(distance, record_point[i][1] - player[s].Height());
+					for (int j = 0; j < total_star; j++) {
+						cstar[j].SetTopLeft(cstar[j].Left() + abs(record_point[i][0] - abs(background.Left())), cstar[j].Top());
+					}
+					for (int j = 0; j < total_enemy; j++) {
+						enemy[j].SetTopLeft(enemy[j].Left() + abs(record_point[i][0] - abs(background.Left())), enemy[j].Top());
+					}
+					background.SetTopLeft(0 - record_point[i][0], 0);
+					ground.SetTopLeft(0 - record_point[i][0], 0);
+					background2.SetTopLeft(13176 - record_point[i][0], 0);
+					ground2.SetTopLeft(13176 - record_point[i][0], 0);
+					background3.SetTopLeft(23402 - record_point[i][0], 0);
+					ground3.SetTopLeft(23402 - record_point[i][0], 0);
+					MyWrite("flag.txt", 0);
+					break;
+				}
+			}
 		}
 
 		if (nChar == KEY_RIGHT) {
-			GotoGameState(GAME_STATE_OVER);
+			int temp = MyRead("record.txt");
+			for (int i = 0; i < 9; i++) {
+				if (temp >= record_point[i][0] && temp < record_point[i + 1][0]) {
+					player[s].SetTopLeft(distance, record_point[i+1][1] - player[s].Height());
+					for (int j = 0; j < total_star; j++) {
+						cstar[j].SetTopLeft(cstar[j].Left() - abs(record_point[i+1][0] - abs(background.Left())), cstar[j].Top());
+					}
+					for (int j = 0; j < total_enemy; j++) {
+						enemy[j].SetTopLeft(enemy[j].Left() - abs(record_point[i+1][0] - abs(background.Left())), enemy[j].Top());
+					}
+					background.SetTopLeft(0 - record_point[i + 1][0], 0);
+					ground.SetTopLeft(0 - record_point[i + 1][0], 0);
+					background2.SetTopLeft(13176 - record_point[i + 1][0], 0);
+					ground2.SetTopLeft(13176 - record_point[i + 1][0], 0);
+					background3.SetTopLeft(23402 - record_point[i + 1][0], 0);
+					ground3.SetTopLeft(23402 - record_point[i + 1][0], 0);
+					MyWrite("flag.txt", 0);
+					break;
+				}
+			}
 		}
 
 		if (nChar == KEY_UP) {
@@ -1604,7 +1686,7 @@ namespace game_framework {
 		}
 
 		if (nChar == KEY_DOWN) {
-			GotoGameState(GAME_STATE_OVER);
+			
 		}
 	}
 

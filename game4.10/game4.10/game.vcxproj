@@ -508,6 +508,7 @@
     <Image Include="RES\new_map2.bmp" />
     <Image Include="RES\new_point.bmp" />
     <Image Include="RES\ran1.bmp" />
+    <Image Include="RES\sprite179-sheet0.bmp" />
     <Image Include="RES\sprite48-sheet0.bmp" />
     <Image Include="RES\sprite49-sheet0.bmp" />
   </ItemGroup>
