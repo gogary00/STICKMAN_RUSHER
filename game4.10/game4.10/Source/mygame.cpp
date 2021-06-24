@@ -570,6 +570,9 @@ namespace game_framework {
 	void CGameStateRun::OnMove()							// ²¾°Ê¹CÀ¸¤¸¯À
 	{
 		translating = player[s].Width() + distance;
+		if (abs(ground.Left()) > 37800) {
+			GotoGameState(GAME_STATE_OVER);
+		}
 		if (MyRead("flag.txt")==1 && cheat==0) {
 			int temp = MyRead("record.txt");
 			count_point = MyRead("./money.txt");
@@ -1614,11 +1617,49 @@ namespace game_framework {
 		}
 
 		if (nChar == KEY_LEFT) {
-			GotoGameState(GAME_STATE_OVER);
+			int temp = MyRead("record.txt");
+			for (int i = 0; i < 9; i++) {
+				if (temp >= record_point[i][0] && temp < record_point[i + 1][0]) {
+					player[s].SetTopLeft(distance, record_point[i][1] - player[s].Height());
+					for (int j = 0; j < total_star; j++) {
+						cstar[j].SetTopLeft(cstar[j].Left() + abs(record_point[i][0] - abs(background.Left())), cstar[j].Top());
+					}
+					for (int j = 0; j < total_enemy; j++) {
+						enemy[j].SetTopLeft(enemy[j].Left() + abs(record_point[i][0] - abs(background.Left())), enemy[j].Top());
+					}
+					background.SetTopLeft(0 - record_point[i][0], 0);
+					ground.SetTopLeft(0 - record_point[i][0], 0);
+					background2.SetTopLeft(13176 - record_point[i][0], 0);
+					ground2.SetTopLeft(13176 - record_point[i][0], 0);
+					background3.SetTopLeft(23402 - record_point[i][0], 0);
+					ground3.SetTopLeft(23402 - record_point[i][0], 0);
+					MyWrite("flag.txt", 0);
+					break;
+				}
+			}
 		}
 
 		if (nChar == KEY_RIGHT) {
-			GotoGameState(GAME_STATE_OVER);
+			int temp = MyRead("record.txt");
+			for (int i = 0; i < 9; i++) {
+				if (temp >= record_point[i][0] && temp < record_point[i + 1][0]) {
+					player[s].SetTopLeft(distance, record_point[i+1][1] - player[s].Height());
+					for (int j = 0; j < total_star; j++) {
+						cstar[j].SetTopLeft(cstar[j].Left() - abs(record_point[i+1][0] - abs(background.Left())), cstar[j].Top());
+					}
+					for (int j = 0; j < total_enemy; j++) {
+						enemy[j].SetTopLeft(enemy[j].Left() - abs(record_point[i+1][0] - abs(background.Left())), enemy[j].Top());
+					}
+					background.SetTopLeft(0 - record_point[i + 1][0], 0);
+					ground.SetTopLeft(0 - record_point[i + 1][0], 0);
+					background2.SetTopLeft(13176 - record_point[i + 1][0], 0);
+					ground2.SetTopLeft(13176 - record_point[i + 1][0], 0);
+					background3.SetTopLeft(23402 - record_point[i + 1][0], 0);
+					ground3.SetTopLeft(23402 - record_point[i + 1][0], 0);
+					MyWrite("flag.txt", 0);
+					break;
+				}
+			}
 		}
 
 		if (nChar == KEY_UP) {
@@ -1634,7 +1675,7 @@ namespace game_framework {
 		}
 
 		if (nChar == KEY_DOWN) {
-			GotoGameState(GAME_STATE_OVER);
+			
 		}
 	}
 

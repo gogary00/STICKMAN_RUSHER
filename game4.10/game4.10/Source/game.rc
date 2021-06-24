@@ -468,6 +468,8 @@ IDB_BITMAP185           BITMAP                  "..\\..\\..\\enemy\\enemy6.bmp"
 
 IDB_BITMAP186           BITMAP                  "..\\RES\\block.bmp"
 
+IDB_BITMAP187           BITMAP                  "..\\RES\\sprite179-sheet0.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
