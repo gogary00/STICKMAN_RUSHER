@@ -1111,34 +1111,34 @@ namespace game_framework {
 				}
 			}
 			if (i == 21) {
-				if (MONSTER_UP == true) {
-					if (enemy[i].Top() > 120) {
+				if (MONSTER_UP[i] == true) {
+					if (enemy[i].Top() > 150) {
 						enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() - 5);
 					}
 					else {
-						MONSTER_UP = false;
+						MONSTER_UP[i] = false;
 					}
 				}
 				else {
 					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() + 5);
 					if (enemy[i].Top() + enemy[i].Height() > 400) {
-						MONSTER_UP = true;
+						MONSTER_UP[i] = true;
 					}
 				}
 			}
-			if (i == 22) {
-				if (MONSTER_UP == true) {
+			if (i >= 22 && i<=27) {
+				if (MONSTER_UP[i] == true) {
 					if (enemy[i].Top() > 150) {
 						enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() - 5);
 					}
 					else {
-						MONSTER_UP = false;
+						MONSTER_UP[i] = false;
 					}
 				}
 				else {
 					enemy[i].SetTopLeft(enemy[i].Left(), enemy[i].Top() + 5);
-					if (enemy[i].Top() + enemy[i].Height() > 480) {
-						MONSTER_UP = true;
+					if (enemy[i].Top() + enemy[i].Height() > 430) {
+						MONSTER_UP[i] = true;
 					}
 				}
 			}
@@ -1194,11 +1194,12 @@ namespace game_framework {
 		MyWrite("flag.txt", 1);
 		MyWrite("record.txt", 0);
 		MyWrite("money.txt", 0);
-		cheat = 13176;
+		cheat = 0;
 		s = 0;
 		total_star = 145;
-		total_enemy = 23;
-		total_is_alive = 23;
+		total_enemy = 28;
+		total_is_alive = 28;
+		total_monster_up = 28;
 		count_point = 0;
 		BOUNCE_STATE = false;
 		IS_MONSTERDIE = false;
@@ -1210,7 +1211,6 @@ namespace game_framework {
 		JUMP_STATE = false;
 		UP_STATE = false;
 		ATTACH_STATE = false;
-		MONSTER_UP = true;
 		max_hight = 200;
 		bottom = 0;
 		map_speed = 10;
@@ -1219,6 +1219,9 @@ namespace game_framework {
 		point_board.LoadBitmap(IDB_BITMAP53, RGB(0, 255, 0));
 		point_board.SetTopLeft(0, 50);
 		// ====================================== enemy ======================================
+		for (int i = 0; i < total_enemy; i++) {
+			MONSTER_UP[i] = true;
+		}
 		for (int i = 0; i < total_enemy; i++) {
 			if (i < 17) {
 				for (int j = 329; j < 331; j++) {
@@ -1254,7 +1257,7 @@ namespace game_framework {
 		enemy[3].SetTopLeft(18396, 100);
 		enemy[4].SetTopLeft(26402, 100);
 		enemy[5].SetTopLeft(30560, 150);
-		enemy[6].SetTopLeft(29662, 80);
+		enemy[6].SetTopLeft(29862, 80);
 		enemy[7].SetTopLeft(32342, 170);
 		enemy[8].SetTopLeft(34352, 220);
 		enemy[9].SetTopLeft(37102, 150);
@@ -1274,6 +1277,11 @@ namespace game_framework {
 
 		enemy[21].SetTopLeft(16876, 300); //上下型敵人
 		enemy[22].SetTopLeft(18116, 420);
+		enemy[23].SetTopLeft(18402, 420);
+		enemy[24].SetTopLeft(25871, 420);
+		enemy[25].SetTopLeft(28017, 420);
+		enemy[26].SetTopLeft(29191, 420);
+		enemy[27].SetTopLeft(35267, 420);
 		for (int i = 0; i < total_enemy; i++) {
 			enemy[i].SetTopLeft(enemy[i].Left() - cheat, enemy[i].Top());
 		}
