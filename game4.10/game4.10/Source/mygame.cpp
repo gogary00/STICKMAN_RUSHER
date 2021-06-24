@@ -538,6 +538,21 @@ namespace game_framework {
 	{
 		CAudio::Instance()->Stop(AUDIO_SELECT);
 		CAudio::Instance()->Play(AUDIO_RUN, true);
+		s = MyRead("./set.txt");
+		BOUNCE_STATE = false;
+		IS_MONSTERDIE = false;
+		IS_FUNC = true;
+		distance = 50;
+		AUTO_JUMP = true;
+		DRAG_STATE = false;
+		CONTINUE_JUMP = true;
+		JUMP_STATE = false;
+		UP_STATE = false;
+		ATTACH_STATE = false;
+		max_hight = 200;
+		bottom = 0;
+		map_speed = 10;
+		dump_speed = 15;
 	}
 
 	int CGameStateRun::MyRead(string file) {
@@ -554,7 +569,6 @@ namespace game_framework {
 
 	void CGameStateRun::OnMove()							// 移動遊戲元素
 	{
-		s = MyRead("./set.txt");
 		translating = player[s].Width() + distance;
 		if (MyRead("flag.txt")==1 && cheat==0) {
 			int temp = MyRead("record.txt");
@@ -1150,24 +1164,24 @@ namespace game_framework {
 		MyWrite("money.txt", 0);
 		cheat = 0;
 		s = 0;
+		total_star = 145;
+		total_enemy = 22;
+		total_is_alive = 22;
+		count_point = 0;
 		BOUNCE_STATE = false;
 		IS_MONSTERDIE = false;
-		total_star = 145;
-		total_enemy = 21;
-		total_is_alive = 21;
-		count_point = 0;
 		IS_FUNC = true;
 		distance = 50;
 		AUTO_JUMP = true;
 		DRAG_STATE = false;
-		max_hight = 200;
-		bottom = 0;
-		map_speed = 10;
-		dump_speed = 15;
 		CONTINUE_JUMP = true;
 		JUMP_STATE = false;
 		UP_STATE = false;
 		ATTACH_STATE = false;
+		max_hight = 200;
+		bottom = 0;
+		map_speed = 10;
+		dump_speed = 15;
 		score_board.LoadBitmap(IDB_BITMAP63, RGB(0, 255, 0));
 		point_board.LoadBitmap(IDB_BITMAP53, RGB(0, 255, 0));
 		point_board.SetTopLeft(0, 50);
@@ -1178,7 +1192,7 @@ namespace game_framework {
 					enemy[i].AddBitmap(j, RGB(255, 255, 255));
 				}
 			}
-			if (i >= 17) {
+			if (i >= 17 && i < 21) {
 				enemy[i].AddBitmap(IDB_BITMAP179, RGB(255, 255, 255));
 				enemy[i].AddBitmap(IDB_BITMAP180, RGB(255, 255, 255));
 				enemy[i].AddBitmap(IDB_BITMAP181, RGB(255, 255, 255));
@@ -1187,9 +1201,19 @@ namespace game_framework {
 				enemy[i].AddBitmap(IDB_BITMAP184, RGB(255, 255, 255));
 				enemy[i].AddBitmap(IDB_BITMAP185, RGB(255, 255, 255));
 			}
+			if (i >= 21) {
+				for (int j = 331; j < 335; j++) {
+					enemy[i].AddBitmap(j, RGB(255, 0, 0));
+				}
+			}
 		}
 		for (int i = 0; i < total_enemy; i++) {
-			enemy[i].SetDelayCount(2);
+			if (i < 21) {
+				enemy[i].SetDelayCount(2);
+			}
+			else {
+				enemy[i].SetDelayCount(3);
+			}
 		}
 		enemy[0].SetTopLeft(6800, 100); // 追尾型敵人
 		enemy[1].SetTopLeft(8390, 170);
@@ -1214,6 +1238,8 @@ namespace game_framework {
 		enemy[18].SetTopLeft(9300, 270);
 		enemy[19].SetTopLeft(19176, 280);
 		enemy[20].SetTopLeft(36300, 280);
+
+		enemy[21].SetTopLeft(1000, 0); //上下型敵人
 		for (int i = 0; i < total_enemy; i++) {
 			enemy[i].SetTopLeft(enemy[i].Left() - cheat, enemy[i].Top());
 		}
