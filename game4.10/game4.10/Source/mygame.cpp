@@ -105,7 +105,12 @@ namespace game_framework {
 		CAudio::Instance()->Load(AUDIO_RUN, "sounds\\battleMusic.mp3");
 		CAudio::Instance()->Load(AUDIO_DEAD, "sounds\\dead.mp3");
 		CAudio::Instance()->Load(AUDIO_EAT_POINT, "sounds\\eating.mp3");
-		CAudio::Instance()->Load(AUDIO_EAT_START, "sounds\\eatbig.mp3");
+		CAudio::Instance()->Load(AUDIO_EAT_STAR, "sounds\\eatbig.mp3");
+		CAudio::Instance()->Load(AUDIO_SLASH, "sounds\\slash.mp3");
+		CAudio::Instance()->Load(AUDIO_MONSTERDIE, "sounds\\monsterDie.mp3");
+		CAudio::Instance()->Load(AUDIO_JUMP, "sounds\\jump.mp3");
+		CAudio::Instance()->Load(AUDIO_OVER, "sounds\\sad.mp3");
+
 		CAudio::Instance()->Play(AUDIO_OPEN, true);
 	}
 
@@ -285,6 +290,7 @@ namespace game_framework {
 	void CGameStateSelect::OnBeginState() {
 		CAudio::Instance()->Stop(AUDIO_OPEN);
 		CAudio::Instance()->Stop(AUDIO_RUN);
+		CAudio::Instance()->Stop(AUDIO_OVER);
 		CAudio::Instance()->Play(AUDIO_SELECT, true);
 	}
 
@@ -468,6 +474,7 @@ namespace game_framework {
 	{
 		//counter = 30 * 5; // 5 seconds
 		CAudio::Instance()->Play(AUDIO_DEAD);
+		CAudio::Instance()->Play(AUDIO_OVER, true);
 		CAudio::Instance()->Stop(AUDIO_RUN);
 	}
 
@@ -1103,8 +1110,14 @@ namespace game_framework {
 		//===========°»´úpoint¸I¼²===========
 		for (int i = 0; i < total_star; i++) {
 			if (player[s].Left() + player[s].Width() - 30 >= cstar[i].Left() && player[s].Left() - 30 <= cstar[i].Left() + cstar[i].Width() && player[s].Top() + player[s].Height() - 30 >= cstar[i].Top() && player[s].Top() - 30 <= cstar[i].Top() + cstar[i].Height()) {
-				if (cstar[i].get_IS_Show() == true && i < 103) { count_point+=6; }
-				if (cstar[i].get_IS_Show() == true && i >= 103) { count_point+=11; }
+				if (cstar[i].get_IS_Show() == true && i < 103) {
+					CAudio::Instance()->Play(AUDIO_EAT_POINT);
+					count_point+=6; 
+				}
+				if (cstar[i].get_IS_Show() == true && i >= 103) { 
+					CAudio::Instance()->Play(AUDIO_EAT_STAR);
+					count_point+=11; 
+				}
 				cstar[i].set_IS_Show(false);
 			}
 		}
@@ -1138,6 +1151,7 @@ namespace game_framework {
 		cheat = 0;
 		s = 0;
 		BOUNCE_STATE = false;
+		IS_MONSTERDIE = false;
 		total_star = 145;
 		total_enemy = 21;
 		total_is_alive = 21;
@@ -1517,9 +1531,18 @@ namespace game_framework {
 			ATTACH_STATE = true;
 			for (int i = 0; i < total_enemy; i++) {
 				if (attack.Left() + attack.Width() >= enemy[i].Left() && attack.Left() <= enemy[i].Left() + enemy[i].Width() && attack.Top() + attack.Height() >= enemy[i].Top() && attack.Top() <= enemy[i].Top() + enemy[i].Height()) {
+					CAudio::Instance()->Play(AUDIO_MONSTERDIE);
+					IS_MONSTERDIE = true;
 					IS_ALIVE[i] = false;
 					count_point += 100;
+					break;
 				}
+				else {
+					IS_MONSTERDIE = false;
+				}
+			}
+			if (IS_MONSTERDIE == false) {
+				CAudio::Instance()->Play(AUDIO_SLASH);
 			}
 		}
 
@@ -1532,6 +1555,7 @@ namespace game_framework {
 		}
 
 		if (nChar == KEY_UP) {
+			CAudio::Instance()->Play(AUDIO_JUMP);
 			if (CONTINUE_JUMP == true) {
 				if (JUMP_STATE == true) {
 					max_hight = player[s].Top() - 125;
