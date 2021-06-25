@@ -80,6 +80,7 @@ namespace game_framework {
 		//
 		// 開始載入資料
 		//
+		swAudio = 0;
 		logo1.LoadBitmap(IDB_BITMAP54);
 		logo2.LoadBitmap(IDB_BITMAP42, RGB(0, 255, 0));
 		green_effect.LoadBitmap(IDB_BITMAP68, RGB(0, 255, 0));
@@ -111,7 +112,31 @@ namespace game_framework {
 		CAudio::Instance()->Load(AUDIO_JUMP, "sounds\\jump.mp3");
 		CAudio::Instance()->Load(AUDIO_OVER, "sounds\\sad.mp3");
 
-		CAudio::Instance()->Play(AUDIO_OPEN, true);
+		if (MyRead("audio.txt") == 1) {
+			CAudio::Instance()->Play(AUDIO_OPEN, true);
+		}
+	}
+
+	void CGameStateInit::MyWrite(string file, int c) {
+		ofstream ofs;
+		ofs.open(file);
+		if (!ofs.is_open()) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+		ofs << c;
+		ofs.close();
+	}
+
+	int CGameStateInit::MyRead(string file) {
+		int temp;
+		ifstream ifs;
+		ifs.open(file);
+		if (!ifs.is_open()) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+		ifs >> temp;
+		ifs.close();
+		return temp;
 	}
 
 	void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -127,7 +152,14 @@ namespace game_framework {
 	void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 		if (point.x > SIZE_X - btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
-			swAudio++;
+			if (swAudio == 0) {
+				swAudio = 1;
+				CAudio::Instance()->Play(AUDIO_OPEN, true);
+			}
+			else {
+				swAudio = 0;
+				CAudio::Instance()->Stop(AUDIO_OPEN);
+			}
 		}
 		if (point.x < 207 && point.y>300 && point.y < 300 + btnStartGame.Height()) {
 			GotoGameState(GAME_STATE_PREPARE);		// 切換至GAME_STATE_PREPARE
@@ -162,11 +194,13 @@ namespace game_framework {
 		character_sword.ShowBitmap();
 		character_body.ShowBitmap();
 		character_eye.ShowBitmap();
-		if (swAudio % 2 == 0) {
+		if (swAudio == 1) {
 			btnAudio_open.ShowBitmap();
+			MyWrite("audio.txt", 1);
 		}
 		else {
 			btnAudio_close.ShowBitmap();
+			MyWrite("audio.txt", 0);
 		}
 		//
 		// Demo螢幕字型的使用，不過開發時請盡量避免直接使用字型，改用CMovingBitmap比較好
@@ -198,6 +232,7 @@ namespace game_framework {
 	}
 
 	void CGameStatePrepare::OnInit() {
+		swAudio = MyRead("audio.txt");
 		background.LoadBitmap(IDB_BITMAP88);
 		btnStartGame.LoadBitmap(IDB_BITMAP43, RGB(0, 255, 0));
 		btnAudio_open.LoadBitmap(IDB_BITMAP55, RGB(0, 255, 0));
@@ -208,13 +243,40 @@ namespace game_framework {
 		
 	}
 
+	void CGameStatePrepare::MyWrite(string file, int c) {
+		ofstream ofs;
+		ofs.open(file);
+		if (!ofs.is_open()) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+		ofs << c;
+		ofs.close();
+	}
+
+	int CGameStatePrepare::MyRead(string file) {
+		int temp;
+		ifstream ifs;
+		ifs.open(file);
+		if (!ifs.is_open()) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+		ifs >> temp;
+		ifs.close();
+		return temp;
+	}
+
 	void CGameStatePrepare::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
 
 	}
 
 	void CGameStatePrepare::OnLButtonDown(UINT nFlags, CPoint point) {
-		if (point.x < btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
-			swAudio++;
+		if (swAudio == 0) {
+			swAudio = 1;
+			CAudio::Instance()->Play(AUDIO_OPEN, true);
+		}
+		else {
+			swAudio = 0;
+			CAudio::Instance()->Stop(AUDIO_OPEN);
 		}
 		if (point.x > SIZE_X - btnStartGame.Width() && point.y > 241 && point.y < 241 + btnStartGame.Height()) {
 			GotoGameState(GAME_STATE_SELECT);		// 切換至GAME_STATE_SELECT
@@ -229,11 +291,13 @@ namespace game_framework {
 
 		background.ShowBitmap();
 		btnStartGame.ShowBitmap();
-		if (swAudio % 2 == 0) {
+		if (swAudio == 1) {
 			btnAudio_open.ShowBitmap();
+			MyWrite("audio.txt", 1);
 		}
 		else {
 			btnAudio_close.ShowBitmap();
+			MyWrite("audio.txt", 0);
 		}
 	}
 
@@ -244,7 +308,7 @@ namespace game_framework {
 	}
 
 	void CGameStateSelect::OnInit() {
-		swAudio = 0;
+		swAudio = sMyRead("audio.txt");
 		select = 0;
 		background.LoadBitmap(IDB_BITMAP84);
 		btnStartGame.LoadBitmap(IDB_BITMAP43, RGB(0, 255, 0));
@@ -334,7 +398,9 @@ namespace game_framework {
 		CAudio::Instance()->Stop(AUDIO_OPEN);
 		CAudio::Instance()->Stop(AUDIO_RUN);
 		CAudio::Instance()->Stop(AUDIO_OVER);
-		CAudio::Instance()->Play(AUDIO_SELECT, true);
+		if (sMyRead("audio.txt")==1) {
+			CAudio::Instance()->Play(AUDIO_SELECT, true);
+		}
 	}
 
 	void CGameStateSelect::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) {
@@ -367,8 +433,13 @@ namespace game_framework {
 	}
 
 	void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
-		if (point.x > SIZE_X - btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
-			swAudio++;
+		if (swAudio == 0) {
+			swAudio = 1;
+			CAudio::Instance()->Play(AUDIO_SELECT, true);
+		}
+		else {
+			swAudio = 0;
+			CAudio::Instance()->Stop(AUDIO_SELECT);
 		}
 		if (point.x > SIZE_X - btnStartGame.Width() && point.y > 400 && point.y < 400 + btnStartGame.Height()) {
 			GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
@@ -481,11 +552,13 @@ namespace game_framework {
 		frame.SetTopLeft(upgrade[select].Left(), upgrade[select].Top());
 
 		btnStartGame.ShowBitmap();
-		if (swAudio % 2 == 0) {
+		if (swAudio == 1) {
 			btnAudio_open.ShowBitmap();
+			sMyWrite("audio.txt", 1);
 		}
 		else {
 			btnAudio_close.ShowBitmap();
+			sMyWrite("audio.txt", 0);
 		}
 		frame.ShowBitmap();
 		for (int i = 0; i < 6; i++) {
@@ -523,8 +596,10 @@ namespace game_framework {
 	void CGameStateOver::OnBeginState()
 	{
 		//counter = 30 * 5; // 5 seconds
-		CAudio::Instance()->Play(AUDIO_DEAD);
-		CAudio::Instance()->Play(AUDIO_OVER, true);
+		if (MyRead("audio.txt") == 1) {
+			CAudio::Instance()->Play(AUDIO_DEAD);
+			CAudio::Instance()->Play(AUDIO_OVER, true);
+		}
 		CAudio::Instance()->Stop(AUDIO_RUN);
 	}
 
@@ -706,7 +781,9 @@ namespace game_framework {
 	void CGameStateRun::OnBeginState()
 	{
 		CAudio::Instance()->Stop(AUDIO_SELECT);
-		CAudio::Instance()->Play(AUDIO_RUN, true);
+		if (MyRead("audio.txt") == 1) {
+			CAudio::Instance()->Play(AUDIO_RUN, true);
+		}
 		s = MyRead("./set.txt");
 		BOUNCE_STATE = false;
 		IS_MONSTERDIE = false;
@@ -1339,11 +1416,15 @@ namespace game_framework {
 		for (int i = 0; i < total_star; i++) {
 			if (player[s].Left() + player[s].Width() - 30 >= cstar[i].Left() && player[s].Left() - 30 <= cstar[i].Left() + cstar[i].Width() && player[s].Top() + player[s].Height() - 30 >= cstar[i].Top() && player[s].Top() - 30 <= cstar[i].Top() + cstar[i].Height()) {
 				if (cstar[i].get_IS_Show() == true && i < 103) {
-					CAudio::Instance()->Play(AUDIO_EAT_POINT);
+					if (MyRead("audio.txt") == 1) {
+						CAudio::Instance()->Play(AUDIO_EAT_POINT);
+					}
 					count_point+=6; 
 				}
 				if (cstar[i].get_IS_Show() == true && i >= 103) { 
-					CAudio::Instance()->Play(AUDIO_EAT_STAR);
+					if (MyRead("audio.txt") == 1) {
+						CAudio::Instance()->Play(AUDIO_EAT_STAR);
+					}
 					count_point+=11; 
 				}
 				cstar[i].set_IS_Show(false);
@@ -1784,7 +1865,9 @@ namespace game_framework {
 			ATTACH_STATE = true;
 			for (int i = 0; i < total_enemy; i++) {
 				if (attack.Left() + attack.Width() >= enemy[i].Left() && attack.Left() <= enemy[i].Left() + enemy[i].Width() && attack.Top() + attack.Height() >= enemy[i].Top() && attack.Top() <= enemy[i].Top() + enemy[i].Height()) {
-					CAudio::Instance()->Play(AUDIO_MONSTERDIE);
+					if (MyRead("audio.txt") == 1) {
+						CAudio::Instance()->Play(AUDIO_MONSTERDIE);
+					}
 					IS_MONSTERDIE = true;
 					IS_ALIVE[i] = false;
 					count_point += 100;
@@ -1794,7 +1877,9 @@ namespace game_framework {
 				}
 			}
 			if (IS_MONSTERDIE == false) {
-				CAudio::Instance()->Play(AUDIO_SLASH);
+				if (MyRead("audio.txt") == 1) {
+					CAudio::Instance()->Play(AUDIO_SLASH);
+				}
 			}
 		}
 
@@ -1845,7 +1930,9 @@ namespace game_framework {
 		}
 
 		if (nChar == KEY_UP) {
-			CAudio::Instance()->Play(AUDIO_JUMP);
+			if (MyRead("audio.txt") == 1) {
+				CAudio::Instance()->Play(AUDIO_JUMP);
+			}
 			if (CONTINUE_JUMP == true) {
 				if (JUMP_STATE == true) {
 					max_hight = player[s].Top() - 140;
@@ -1857,7 +1944,7 @@ namespace game_framework {
 		}
 
 		if (nChar == KEY_DOWN) {
-			
+			GotoGameState(GAME_STATE_OVER);
 		}
 	}
 
