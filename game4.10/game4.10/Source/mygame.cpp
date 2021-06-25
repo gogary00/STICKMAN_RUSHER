@@ -80,7 +80,6 @@ namespace game_framework {
 		//
 		// 開始載入資料
 		//
-		swAudio = 0;
 		logo1.LoadBitmap(IDB_BITMAP54);
 		logo2.LoadBitmap(IDB_BITMAP42, RGB(0, 255, 0));
 		green_effect.LoadBitmap(IDB_BITMAP68, RGB(0, 255, 0));
@@ -101,6 +100,7 @@ namespace game_framework {
 
 	void CGameStateInit::OnBeginState()
 	{
+		swAudio = MyRead("audio.txt");
 		CAudio::Instance()->Load(AUDIO_OPEN, "sounds\\opening.mp3");
 		CAudio::Instance()->Load(AUDIO_SELECT, "sounds\\pickWeapon.mp3");
 		CAudio::Instance()->Load(AUDIO_RUN, "sounds\\battleMusic.mp3");
@@ -232,7 +232,6 @@ namespace game_framework {
 	}
 
 	void CGameStatePrepare::OnInit() {
-		swAudio = MyRead("audio.txt");
 		background.LoadBitmap(IDB_BITMAP88);
 		btnStartGame.LoadBitmap(IDB_BITMAP43, RGB(0, 255, 0));
 		btnAudio_open.LoadBitmap(IDB_BITMAP55, RGB(0, 255, 0));
@@ -240,7 +239,7 @@ namespace game_framework {
 	}
 
 	void CGameStatePrepare::OnBeginState() {
-		
+		swAudio = MyRead("audio.txt");
 	}
 
 	void CGameStatePrepare::MyWrite(string file, int c) {
@@ -308,7 +307,6 @@ namespace game_framework {
 	}
 
 	void CGameStateSelect::OnInit() {
-		swAudio = sMyRead("audio.txt");
 		select = 0;
 		background.LoadBitmap(IDB_BITMAP84);
 		btnStartGame.LoadBitmap(IDB_BITMAP43, RGB(0, 255, 0));
@@ -398,6 +396,7 @@ namespace game_framework {
 		CAudio::Instance()->Stop(AUDIO_OPEN);
 		CAudio::Instance()->Stop(AUDIO_RUN);
 		CAudio::Instance()->Stop(AUDIO_OVER);
+		swAudio = sMyRead("audio.txt");
 		if (sMyRead("audio.txt")==1) {
 			CAudio::Instance()->Play(AUDIO_SELECT, true);
 		}
