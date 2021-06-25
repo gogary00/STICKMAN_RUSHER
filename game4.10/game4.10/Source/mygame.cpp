@@ -552,7 +552,7 @@ namespace game_framework {
 		max_hight = 300;
 		bottom = 0;
 		map_speed = 10;
-		jump_speed = 27;
+		jump_speed = 25;
 		dump_speed = 6;
 		acceleration = 1;
 	}
@@ -705,8 +705,8 @@ namespace game_framework {
 			IS_FUNC = false;
 		}
 		if (JUMP_STATE == false) {
-			max_hight = bottom - player[s].Height() - 125;
-			jump_speed = 27;
+			max_hight = bottom - player[s].Height() - 140;
+			jump_speed = 25;
 			dump_speed = 6;
 		}
 		if (JUMP_STATE == true) {
@@ -723,9 +723,9 @@ namespace game_framework {
 				player[s].SetTopLeft(distance, bottom - player[s].Height());
 				JUMP_STATE = false;
 				CONTINUE_JUMP = true;
-				max_hight = bottom - player[s].Height() - 125;
+				max_hight = bottom - player[s].Height() - 140;
 				IS_FUNC = true;
-				jump_speed = 27;
+				jump_speed = 25;
 				dump_speed = 6;
 			}
 		}
@@ -1227,7 +1227,7 @@ namespace game_framework {
 		max_hight = 300;
 		bottom = 0;
 		map_speed = 10;
-		jump_speed = 27;
+		jump_speed = 25;
 		dump_speed = 6;
 		acceleration = 1;
 		score_board.LoadBitmap(IDB_BITMAP63, RGB(0, 255, 0));
@@ -1678,7 +1678,7 @@ namespace game_framework {
 			CAudio::Instance()->Play(AUDIO_JUMP);
 			if (CONTINUE_JUMP == true) {
 				if (JUMP_STATE == true) {
-					max_hight = player[s].Top() - 125;
+					max_hight = player[s].Top() - 140;
 					CONTINUE_JUMP = false;
 				}
 				JUMP_STATE = true;
