@@ -108,7 +108,7 @@ namespace game_framework {
 		CGameStateSelect(CGame *g);
 		void OnInit();  								// 遊戲的初值及圖形設定
 		void OnBeginState();							// 設定每次重玩所需的變數
-		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
+		void OnKeyDown(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
 		void OnLButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
 		void sMyWrite(string, int);
 		int sMyRead(string);
@@ -120,7 +120,7 @@ namespace game_framework {
 		CMovingBitmap background;
 		CMovingBitmap btnStartGame;
 		CMovingBitmap btnAudio_open, btnAudio_close;
-		CMovingBitmap upgrade[6],block[6],frame;
+		CMovingBitmap upgrade[6],block[6],frame, money[5][10];
 		CAnimation player[6];
 	};
 
@@ -170,12 +170,25 @@ namespace game_framework {
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnInit();
 		void OnLButtonUp(UINT nFlags, CPoint point);	// 處理滑鼠的動作
+		void MyWrite(string, int);
+		int MyRead(string);
 	protected:
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		int counter;	// 倒數之計數器
-		CMovingBitmap background, btnAgain;
+		CMovingBitmap background, btnAgain, map_score[5][10], max_score[5][10];
 	};
 
+	class CGameStateEnd : public CGameState {
+	public:
+		CGameStateEnd(CGame *g);
+		void OnInit();  								// 遊戲的初值及圖形設定
+		void OnBeginState();	
+	protected:
+		void OnMove();
+		void OnShow();									// 顯示這個狀態的遊戲畫面
+	private:
+		CMovingBitmap background;
+	};
 }

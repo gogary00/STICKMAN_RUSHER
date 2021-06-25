@@ -735,5 +735,65 @@
     <Image Include="RES\sprite179-sheet0.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="RES\small0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small8.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\small9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\8.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

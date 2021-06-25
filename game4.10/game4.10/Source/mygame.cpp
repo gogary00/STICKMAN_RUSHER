@@ -285,6 +285,49 @@ namespace game_framework {
 		for (int i = 0; i < 6; i++) { IS_SHOW[i] = true; }
 		IS_SHOW[0] = false;
 		sMyWrite("./set.txt", 0);
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 10; j++) {
+				switch (j) {
+				case 0:
+					money[i][j].LoadBitmap(IDB_BITMAP189, RGB(0, 255, 0));
+					break;
+				case 1:
+					money[i][j].LoadBitmap(IDB_BITMAP190, RGB(0, 255, 0));
+					break;
+				case 2:
+					money[i][j].LoadBitmap(IDB_BITMAP191, RGB(0, 255, 0));
+					break;
+				case 3:
+					money[i][j].LoadBitmap(IDB_BITMAP192, RGB(0, 255, 0));
+					break;
+				case 4:
+					money[i][j].LoadBitmap(IDB_BITMAP193, RGB(0, 255, 0));
+					break;
+				case 5:
+					money[i][j].LoadBitmap(IDB_BITMAP194, RGB(0, 255, 0));
+					break;
+				case 6:
+					money[i][j].LoadBitmap(IDB_BITMAP195, RGB(0, 255, 0));
+					break;
+				case 7:
+					money[i][j].LoadBitmap(IDB_BITMAP196, RGB(0, 255, 0));
+					break;
+				case 8:
+					money[i][j].LoadBitmap(IDB_BITMAP197, RGB(0, 255, 0));
+					break;
+				case 9:
+					money[i][j].LoadBitmap(IDB_BITMAP198, RGB(0, 255, 0));
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		for (int i = 0; i < 10; i++) { money[0][i].SetTopLeft(130, 20); }
+		for (int i = 0; i < 10; i++) { money[1][i].SetTopLeft(100, 20); }
+		for (int i = 0; i < 10; i++) { money[2][i].SetTopLeft(70, 20); }
+		for (int i = 0; i < 10; i++) { money[3][i].SetTopLeft(40, 20); }
+		for (int i = 0; i < 10; i++) { money[4][i].SetTopLeft(10, 20); }
 	}
 
 	void CGameStateSelect::OnBeginState() {
@@ -294,8 +337,11 @@ namespace game_framework {
 		CAudio::Instance()->Play(AUDIO_SELECT, true);
 	}
 
-	void CGameStateSelect::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) {
-
+	void CGameStateSelect::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) {
+		const char KEY_SPACE = 0x20; // keyboard空白建
+		if (nChar == KEY_SPACE) {
+			sMyWrite("money.txt", sMyRead("money.txt") + 500);
+		}
 	}
 
 	void CGameStateSelect::sMyWrite(string file, int c) {
@@ -453,6 +499,10 @@ namespace game_framework {
 				block[i].ShowBitmap();
 			}
 		}
+		for (int i = 0; i <= log10(sMyRead("money.txt")); i++) {
+			int index = sMyRead("money.txt") / int(pow(10, i)) % 10;
+			money[i][index].ShowBitmap();
+		}
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -495,6 +545,92 @@ namespace game_framework {
 		// 最終進度為100%
 		//
 		ShowInitProgress(100);
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 10; j++) {
+				switch (j) {
+				case 0:
+					map_score[i][j].LoadBitmap(IDB_BITMAP189, RGB(0, 255, 0));
+					break;
+				case 1:
+					map_score[i][j].LoadBitmap(IDB_BITMAP190, RGB(0, 255, 0));
+					break;
+				case 2:
+					map_score[i][j].LoadBitmap(IDB_BITMAP191, RGB(0, 255, 0));
+					break;
+				case 3:
+					map_score[i][j].LoadBitmap(IDB_BITMAP192, RGB(0, 255, 0));
+					break;
+				case 4:
+					map_score[i][j].LoadBitmap(IDB_BITMAP193, RGB(0, 255, 0));
+					break;
+				case 5:
+					map_score[i][j].LoadBitmap(IDB_BITMAP194, RGB(0, 255, 0));
+					break;
+				case 6:
+					map_score[i][j].LoadBitmap(IDB_BITMAP195, RGB(0, 255, 0));
+					break;
+				case 7:
+					map_score[i][j].LoadBitmap(IDB_BITMAP196, RGB(0, 255, 0));
+					break;
+				case 8:
+					map_score[i][j].LoadBitmap(IDB_BITMAP197, RGB(0, 255, 0));
+					break;
+				case 9:
+					map_score[i][j].LoadBitmap(IDB_BITMAP198, RGB(0, 255, 0));
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 10; j++) {
+				switch (j) {
+				case 0:
+					max_score[i][j].LoadBitmap(IDB_BITMAP189, RGB(0, 255, 0));
+					break;
+				case 1:
+					max_score[i][j].LoadBitmap(IDB_BITMAP190, RGB(0, 255, 0));
+					break;
+				case 2:
+					max_score[i][j].LoadBitmap(IDB_BITMAP191, RGB(0, 255, 0));
+					break;
+				case 3:
+					max_score[i][j].LoadBitmap(IDB_BITMAP192, RGB(0, 255, 0));
+					break;
+				case 4:
+					max_score[i][j].LoadBitmap(IDB_BITMAP193, RGB(0, 255, 0));
+					break;
+				case 5:
+					max_score[i][j].LoadBitmap(IDB_BITMAP194, RGB(0, 255, 0));
+					break;
+				case 6:
+					max_score[i][j].LoadBitmap(IDB_BITMAP195, RGB(0, 255, 0));
+					break;
+				case 7:
+					max_score[i][j].LoadBitmap(IDB_BITMAP196, RGB(0, 255, 0));
+					break;
+				case 8:
+					max_score[i][j].LoadBitmap(IDB_BITMAP197, RGB(0, 255, 0));
+					break;
+				case 9:
+					max_score[i][j].LoadBitmap(IDB_BITMAP198, RGB(0, 255, 0));
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		for (int i = 0; i < 10; i++) { map_score[0][i].SetTopLeft(170, 250); }
+		for (int i = 0; i < 10; i++) { map_score[1][i].SetTopLeft(140, 250); }
+		for (int i = 0; i < 10; i++) { map_score[2][i].SetTopLeft(110, 250); }
+		for (int i = 0; i < 10; i++) { map_score[3][i].SetTopLeft(80, 250); }
+		for (int i = 0; i < 10; i++) { map_score[4][i].SetTopLeft(50, 250); }
+		for (int i = 0; i < 10; i++) { max_score[0][i].SetTopLeft(715, 250); }
+		for (int i = 0; i < 10; i++) { max_score[1][i].SetTopLeft(685, 250); }
+		for (int i = 0; i < 10; i++) { max_score[2][i].SetTopLeft(655, 250); }
+		for (int i = 0; i < 10; i++) { max_score[3][i].SetTopLeft(625, 250); }
+		for (int i = 0; i < 10; i++) { max_score[4][i].SetTopLeft(595, 250); }
 	}
 
 	void CGameStateOver::OnLButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
@@ -508,6 +644,17 @@ namespace game_framework {
 	{
 		background.ShowBitmap();
 		btnAgain.ShowBitmap();
+		for (int i = 0; i <= log10(MyRead("record.txt")); i++) {
+			int index = MyRead("record.txt") / int(pow(10, i)) % 10;
+			map_score[i][index].ShowBitmap();
+		}
+		if (MyRead("record.txt") >= MyRead("champion.txt")) {
+			MyWrite("champion.txt", MyRead("record.txt"));
+		}
+		for (int i = 0; i <= log10(MyRead("champion.txt")); i++) {
+			int index = MyRead("champion.txt") / int(pow(10, i)) % 10;
+			max_score[i][index].ShowBitmap();
+		}
 		/*CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
 		CFont f, *fp;
 		f.CreatePointFont(160, "Times New Roman");	// 產生 font f; 160表示16 point的字
@@ -519,6 +666,28 @@ namespace game_framework {
 		pDC->TextOut(240, 210, str);
 		pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
 		CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC*/
+	}
+
+	void CGameStateOver::MyWrite(string file, int c) {
+		ofstream ofs;
+		ofs.open(file);
+		if (!ofs.is_open()) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+		ofs << c;
+		ofs.close();
+	}
+
+	int CGameStateOver::MyRead(string file) {
+		int temp;
+		ifstream ifs;
+		ifs.open(file);
+		if (!ifs.is_open()) {
+			GotoGameState(GAME_STATE_OVER);
+		}
+		ifs >> temp;
+		ifs.close();
+		return temp;
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -573,7 +742,7 @@ namespace game_framework {
 	{
 		translating = player[s].Width() + distance;
 		if (abs(ground.Left()) > 37800) {
-			GotoGameState(GAME_STATE_OVER);
+			GotoGameState(GAME_STATE_END);
 		}
 		if (MyRead("flag.txt")==1 && cheat==0) {
 			int temp = MyRead("record.txt");
@@ -1207,6 +1376,7 @@ namespace game_framework {
 		MyWrite("flag.txt", 1);
 		MyWrite("record.txt", 0);
 		MyWrite("money.txt", 0);
+		//MyWrite("champion.txt", 0);
 		cheat = 0;
 		s = 0;
 		total_star = 145;
@@ -1354,34 +1524,34 @@ namespace game_framework {
 			for (int j = 0; j < 10; j++) {
 				switch (j) {
 				case 0:
-					map_score[i][j].LoadBitmap(IDB_0, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP189, RGB(0, 255, 0));
 					break;
 				case 1:
-					map_score[i][j].LoadBitmap(IDB_1, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP190, RGB(0, 255, 0));
 					break;
 				case 2:
-					map_score[i][j].LoadBitmap(IDB_2, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP191, RGB(0, 255, 0));
 					break;
 				case 3:
-					map_score[i][j].LoadBitmap(IDB_3, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP192, RGB(0, 255, 0));
 					break;
 				case 4:
-					map_score[i][j].LoadBitmap(IDB_4, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP193, RGB(0, 255, 0));
 					break;
 				case 5:
-					map_score[i][j].LoadBitmap(IDB_5, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP194, RGB(0, 255, 0));
 					break;
 				case 6:
-					map_score[i][j].LoadBitmap(IDB_6, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP195, RGB(0, 255, 0));
 					break;
 				case 7:
-					map_score[i][j].LoadBitmap(IDB_7, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP196, RGB(0, 255, 0));
 					break;
 				case 8:
-					map_score[i][j].LoadBitmap(IDB_8, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP197, RGB(0, 255, 0));
 					break;
 				case 9:
-					map_score[i][j].LoadBitmap(IDB_9, RGB(0, 0, 0));
+					map_score[i][j].LoadBitmap(IDB_BITMAP198, RGB(0, 255, 0));
 					break;
 				default:
 					break;
@@ -1393,34 +1563,34 @@ namespace game_framework {
 			for (int j = 0; j < 10; j++) {
 				switch (j) {
 				case 0:
-					score_point[i][j].LoadBitmap(IDB_0, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP189, RGB(0, 255, 0));
 					break;
 				case 1:
-					score_point[i][j].LoadBitmap(IDB_1, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP190, RGB(0, 255, 0));
 					break;
 				case 2:
-					score_point[i][j].LoadBitmap(IDB_2, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP191, RGB(0, 255, 0));
 					break;
 				case 3:
-					score_point[i][j].LoadBitmap(IDB_3, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP192, RGB(0, 255, 0));
 					break;
 				case 4:
-					score_point[i][j].LoadBitmap(IDB_4, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP193, RGB(0, 255, 0));
 					break;
 				case 5:
-					score_point[i][j].LoadBitmap(IDB_5, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP194, RGB(0, 255, 0));
 					break;
 				case 6:
-					score_point[i][j].LoadBitmap(IDB_6, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP195, RGB(0, 255, 0));
 					break;
 				case 7:
-					score_point[i][j].LoadBitmap(IDB_7, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP196, RGB(0, 255, 0));
 					break;
 				case 8:
-					score_point[i][j].LoadBitmap(IDB_8, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP197, RGB(0, 255, 0));
 					break;
 				case 9:
-					score_point[i][j].LoadBitmap(IDB_9, RGB(0, 0, 0));
+					score_point[i][j].LoadBitmap(IDB_BITMAP198, RGB(0, 255, 0));
 					break;
 				default:
 					break;
@@ -1428,14 +1598,14 @@ namespace game_framework {
 			}
 		}
 		for (int i = 0; i < 10; i++) { map_score[0][i].SetTopLeft(430, 50); }
-		for (int i = 0; i < 10; i++) { map_score[1][i].SetTopLeft(410, 50); }
-		for (int i = 0; i < 10; i++) { map_score[2][i].SetTopLeft(390, 50); }
-		for (int i = 0; i < 10; i++) { map_score[3][i].SetTopLeft(370, 50); }
-		for (int i = 0; i < 10; i++) { map_score[4][i].SetTopLeft(350, 50); }
-		for (int i = 0; i < 10; i++) { score_point[0][i].SetTopLeft(100, 70); }
-		for (int i = 0; i < 10; i++) { score_point[1][i].SetTopLeft(80, 70); }
-		for (int i = 0; i < 10; i++) { score_point[2][i].SetTopLeft(60, 70); }
-		for (int i = 0; i < 10; i++) { score_point[3][i].SetTopLeft(40, 70); }
+		for (int i = 0; i < 10; i++) { map_score[1][i].SetTopLeft(400, 50); }
+		for (int i = 0; i < 10; i++) { map_score[2][i].SetTopLeft(370, 50); }
+		for (int i = 0; i < 10; i++) { map_score[3][i].SetTopLeft(340, 50); }
+		for (int i = 0; i < 10; i++) { map_score[4][i].SetTopLeft(310, 50); }
+		for (int i = 0; i < 10; i++) { score_point[0][i].SetTopLeft(120, 60); }
+		for (int i = 0; i < 10; i++) { score_point[1][i].SetTopLeft(90, 60); }
+		for (int i = 0; i < 10; i++) { score_point[2][i].SetTopLeft(60, 60); }
+		for (int i = 0; i < 10; i++) { score_point[3][i].SetTopLeft(30, 60); }
 		for (int i = 0; i < 6; i++) {
 			player[i].SetTopLeft(distance, SIZE_Y - player[i].Height() - 40);
 		}
@@ -1788,5 +1958,25 @@ namespace game_framework {
 			}
 		}
 		//===========顯示ENEMY===========
+	}
+
+	CGameStateEnd::CGameStateEnd(CGame *g) : CGameState(g)
+	{
+	}
+
+	void CGameStateEnd::OnInit() {
+		background.LoadBitmap(IDB_BITMAP188);
+	}
+
+	void CGameStateEnd::OnBeginState() {
+		CAudio::Instance()->Stop(AUDIO_RUN);
+	}
+
+	void CGameStateEnd::OnMove() {
+		background.SetTopLeft(0, 0);
+	}
+
+	void CGameStateEnd::OnShow() {
+		background.ShowBitmap();
 	}
 }

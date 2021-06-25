@@ -470,6 +470,48 @@ IDB_BITMAP186           BITMAP                  "..\\RES\\block.bmp"
 
 IDB_BITMAP187           BITMAP                  "..\\RES\\sprite179-sheet0.bmp"
 
+IDB_BITMAP188           BITMAP                  "..\\RES\\sprite179-sheet0.bmp"
+
+IDB_BITMAP189           BITMAP                  "..\\RES\\small0.bmp"
+
+IDB_BITMAP190           BITMAP                  "..\\RES\\small1.bmp"
+
+IDB_BITMAP191           BITMAP                  "..\\RES\\small2.bmp"
+
+IDB_BITMAP192           BITMAP                  "..\\RES\\small3.bmp"
+
+IDB_BITMAP193           BITMAP                  "..\\RES\\small4.bmp"
+
+IDB_BITMAP194           BITMAP                  "..\\RES\\small5.bmp"
+
+IDB_BITMAP195           BITMAP                  "..\\RES\\small6.bmp"
+
+IDB_BITMAP196           BITMAP                  "..\\RES\\small7.bmp"
+
+IDB_BITMAP197           BITMAP                  "..\\RES\\small8.bmp"
+
+IDB_BITMAP198           BITMAP                  "..\\RES\\small9.bmp"
+
+IDB_BITMAP199           BITMAP                  "..\\RES\\6.bmp"
+
+IDB_BITMAP200           BITMAP                  "..\\RES\\7.bmp"
+
+IDB_BITMAP201           BITMAP                  "..\\RES\\8.bmp"
+
+IDB_BITMAP202           BITMAP                  "..\\RES\\9.bmp"
+
+IDB_BITMAP203           BITMAP                  "..\\RES\\0.bmp"
+
+IDB_BITMAP204           BITMAP                  "..\\RES\\5.bmp"
+
+IDB_BITMAP205           BITMAP                  "..\\RES\\4.bmp"
+
+IDB_BITMAP206           BITMAP                  "..\\RES\\3.bmp"
+
+IDB_BITMAP207           BITMAP                  "..\\RES\\2.bmp"
+
+IDB_BITMAP208           BITMAP                  "..\\RES\\1.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -577,7 +619,7 @@ END
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 218, 79
+IDD_ABOUTBOX DIALOGEX 0, 0, 218, 90
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About game"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
@@ -588,8 +630,9 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,172,7,39,14,WS_GROUP
     LTEXT           "Liense: GPL",IDC_STATIC,39,35,119,8
     PUSHBUTTON      "ReadMe",IDC_README,172,24,39,13,WS_GROUP
-    LTEXT           "Author: Woei-Kae Chen, CSIE Department, NTUT",IDC_STATIC,39,47,159,8
-    LTEXT           "http://www.ntut.edu.tw/~wkchen/game",IDC_STATIC,39,60,159,8
+    LTEXT           "Author: Yu-Quan Wang,Cheng-Shiou Tsai,CSIE Department, NTUT",IDC_STATIC,39,47,159,8
+    LTEXT           "https://github.com/gogary00/STICKMAN_RUSHER",IDC_STATIC,39,60,159,8
+    LTEXT           "Teacher: Shuo-Han Chen",IDC_STATIC,39,73,159,8
 END
 
 
