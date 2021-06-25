@@ -950,7 +950,7 @@ namespace game_framework {
 			IS_FUNC = false;
 		}
 		if (JUMP_STATE == false) {
-			max_hight = bottom - player[s].Height() - 140;
+			max_hight = bottom - player[s].Height() - 135;
 			jump_speed = 25;
 			dump_speed = 6;
 		}
@@ -968,7 +968,7 @@ namespace game_framework {
 				player[s].SetTopLeft(distance, bottom - player[s].Height());
 				JUMP_STATE = false;
 				CONTINUE_JUMP = true;
-				max_hight = bottom - player[s].Height() - 140;
+				max_hight = bottom - player[s].Height() - 135;
 				IS_FUNC = true;
 				jump_speed = 25;
 				dump_speed = 6;
@@ -1934,7 +1934,7 @@ namespace game_framework {
 			}
 			if (CONTINUE_JUMP == true) {
 				if (JUMP_STATE == true) {
-					max_hight = player[s].Top() - 140;
+					max_hight = player[s].Top() - 135;
 					CONTINUE_JUMP = false;
 				}
 				JUMP_STATE = true;
