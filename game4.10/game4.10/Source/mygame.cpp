@@ -718,10 +718,12 @@ namespace game_framework {
 		JUMP_STATE = false;
 		UP_STATE = false;
 		ATTACH_STATE = false;
-		max_hight = 200;
+		max_hight = 300;
 		bottom = 0;
 		map_speed = 10;
-		dump_speed = 15;
+		jump_speed = 25;
+		dump_speed = 6;
+		acceleration = 1;
 	}
 
 	int CGameStateRun::MyRead(string file) {
@@ -872,22 +874,28 @@ namespace game_framework {
 			IS_FUNC = false;
 		}
 		if (JUMP_STATE == false) {
-			max_hight = bottom - player[s].Height() - 125;
+			max_hight = bottom - player[s].Height() - 140;
+			jump_speed = 25;
+			dump_speed = 6;
 		}
 		if (JUMP_STATE == true) {
 			if (player[s].Top() > max_hight && UP_STATE == true) {
-				player[s].SetTopLeft(distance, player[s].Top() - dump_speed);
+				player[s].SetTopLeft(distance, player[s].Top() - jump_speed);
+				jump_speed -= acceleration;
 			}
 			else if (player[s].Top() + player[s].Height() < bottom) {
 				UP_STATE = false;
 				player[s].SetTopLeft(distance, player[s].Top() + dump_speed);
+				dump_speed += acceleration;
 			}
 			else {
 				player[s].SetTopLeft(distance, bottom - player[s].Height());
 				JUMP_STATE = false;
 				CONTINUE_JUMP = true;
-				max_hight = bottom - player[s].Height() - 125;
+				max_hight = bottom - player[s].Height() - 140;
 				IS_FUNC = true;
+				jump_speed = 25;
+				dump_speed = 6;
 			}
 		}
 		if (abs(ground.Left()) > (632 - translating) && abs(ground.Left()) < (741 - translating) && player[s].Top() + player[s].Height() > 368) {
@@ -1161,14 +1169,16 @@ namespace game_framework {
 			BOUNCE_STATE = true;
 		}
 		if (BOUNCE_STATE == true) {
-			if (player[s].Top() > 0) {
-				IS_FUNC = false;
-				player[s].SetTopLeft(player[s].Left(), player[s].Top() - 2 * dump_speed);
-			}
-			else {
+			if (player[s].Top() + player[s].Height() >= (bottom-5)) {
 				IS_FUNC = true;
 				BOUNCE_STATE = false;
 			}
+			JUMP_STATE = true;
+			UP_STATE = false;
+			IS_FUNC = false;
+			player[s].SetTopLeft(player[s].Left(), player[s].Top() - 47);
+			
+			
 		}
 		if (abs(ground.Left()) + translating > 28292 && abs(ground.Left()) + translating < 28582 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
@@ -1384,10 +1394,12 @@ namespace game_framework {
 		JUMP_STATE = false;
 		UP_STATE = false;
 		ATTACH_STATE = false;
-		max_hight = 200;
+		max_hight = 300;
 		bottom = 0;
 		map_speed = 10;
-		dump_speed = 15;
+		jump_speed = 25;
+		dump_speed = 6;
+		acceleration = 1;
 		score_board.LoadBitmap(IDB_BITMAP63, RGB(0, 255, 0));
 		point_board.LoadBitmap(IDB_BITMAP53, RGB(0, 255, 0));
 		point_board.SetTopLeft(0, 50);
@@ -1836,7 +1848,7 @@ namespace game_framework {
 			CAudio::Instance()->Play(AUDIO_JUMP);
 			if (CONTINUE_JUMP == true) {
 				if (JUMP_STATE == true) {
-					max_hight = player[s].Top() - 125;
+					max_hight = player[s].Top() - 140;
 					CONTINUE_JUMP = false;
 				}
 				JUMP_STATE = true;
