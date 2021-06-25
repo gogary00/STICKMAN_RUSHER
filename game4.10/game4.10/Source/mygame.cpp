@@ -552,7 +552,7 @@ namespace game_framework {
 		max_hight = 300;
 		bottom = 0;
 		map_speed = 10;
-		jump_speed = 25;
+		jump_speed = 27;
 		dump_speed = 6;
 		acceleration = 1;
 	}
@@ -706,7 +706,7 @@ namespace game_framework {
 		}
 		if (JUMP_STATE == false) {
 			max_hight = bottom - player[s].Height() - 125;
-			jump_speed = 25;
+			jump_speed = 27;
 			dump_speed = 6;
 		}
 		if (JUMP_STATE == true) {
@@ -725,7 +725,7 @@ namespace game_framework {
 				CONTINUE_JUMP = true;
 				max_hight = bottom - player[s].Height() - 125;
 				IS_FUNC = true;
-				jump_speed = 25;
+				jump_speed = 27;
 				dump_speed = 6;
 			}
 		}
@@ -1000,15 +1000,16 @@ namespace game_framework {
 			BOUNCE_STATE = true;
 		}
 		if (BOUNCE_STATE == true) {
-			if (player[s].Top() > 0) {
-				//JUMP_STATE = false;
-				IS_FUNC = false;
-				player[s].SetTopLeft(player[s].Left(), player[s].Top() - 50);
-			}
-			else {
+			if (player[s].Top() + player[s].Height() >= (bottom-5)) {
 				IS_FUNC = true;
 				BOUNCE_STATE = false;
 			}
+			JUMP_STATE = true;
+			UP_STATE = false;
+			IS_FUNC = false;
+			player[s].SetTopLeft(player[s].Left(), player[s].Top() - 47);
+			
+			
 		}
 		if (abs(ground.Left()) + translating > 28292 && abs(ground.Left()) + translating < 28582 && player[s].Top() + player[s].Height() > 450) {
 			if (UP_STATE == false) {
@@ -1226,7 +1227,7 @@ namespace game_framework {
 		max_hight = 300;
 		bottom = 0;
 		map_speed = 10;
-		jump_speed = 25;
+		jump_speed = 27;
 		dump_speed = 6;
 		acceleration = 1;
 		score_board.LoadBitmap(IDB_BITMAP63, RGB(0, 255, 0));
