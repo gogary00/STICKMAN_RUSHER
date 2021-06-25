@@ -432,13 +432,15 @@ namespace game_framework {
 	}
 
 	void CGameStateSelect::OnLButtonDown(UINT nFlags, CPoint point) {
-		if (swAudio == 0) {
-			swAudio = 1;
-			CAudio::Instance()->Play(AUDIO_SELECT, true);
-		}
-		else {
-			swAudio = 0;
-			CAudio::Instance()->Stop(AUDIO_SELECT);
+		if (point.x > SIZE_X - btnAudio_open.Width() && point.y < btnAudio_open.Height()) {
+			if (swAudio == 0) {
+				swAudio = 1;
+				CAudio::Instance()->Play(AUDIO_SELECT, true);
+			}
+			else {
+				swAudio = 0;
+				CAudio::Instance()->Stop(AUDIO_SELECT);
+			}
 		}
 		if (point.x > SIZE_X - btnStartGame.Width() && point.y > 400 && point.y < 400 + btnStartGame.Height()) {
 			GotoGameState(GAME_STATE_RUN);		// ¤Á´«¦ÜGAME_STATE_RUN
