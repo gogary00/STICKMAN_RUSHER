@@ -104,313 +104,313 @@ IDB_HELP                BITMAP                  "..\\res\\help.bmp"
 
 IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
 
-IDB_BITMAP3             BITMAP                  "..\\..\\..\\bmpSrc\\angel-sheet0.bmp"
+IDB_BITMAP3             BITMAP                  "..\\res\\angel-sheet0.bmp"
 
-IDB_BITMAP4             BITMAP                  "..\\..\\..\\bmpSrc\\bk1.bmp"
+IDB_BITMAP4             BITMAP                  "..\\res\\bk1.bmp"
 
-IDB_BITMAP5             BITMAP                  "..\\..\\..\\bmpSrc\\bk2.bmp"
+IDB_BITMAP5             BITMAP                  "..\\res\\bk2.bmp"
 
-IDB_BITMAP6             BITMAP                  "..\\..\\..\\bmpSrc\\bk3.bmp"
+IDB_BITMAP6             BITMAP                  "..\\res\\bk3.bmp"
 
-IDB_BITMAP7             BITMAP                  "..\\..\\..\\bmpSrc\\bk4.bmp"
+IDB_BITMAP7             BITMAP                  "..\\res\\bk4.bmp"
 
-IDB_BITMAP8             BITMAP                  "..\\..\\..\\bmpSrc\\bridge-sheet0.bmp"
+IDB_BITMAP8             BITMAP                  "..\\res\\bridge-sheet0.bmp"
 
-IDB_BITMAP9             BITMAP                  "..\\..\\..\\bmpSrc\\coinsfont.bmp"
+IDB_BITMAP9             BITMAP                  "..\\res\\coinsfont.bmp"
 
-IDB_BITMAP10            BITMAP                  "..\\..\\..\\bmpSrc\\dummy2-sheet0.bmp"
+IDB_BITMAP10            BITMAP                  "..\\res\\dummy2-sheet0.bmp"
 
-IDB_BITMAP11            BITMAP                  "..\\..\\..\\bmpSrc\\dummy2-sheet1.bmp"
+IDB_BITMAP11            BITMAP                  "..\\res\\dummy2-sheet1.bmp"
 
-IDB_BITMAP12            BITMAP                  "..\\..\\..\\bmpSrc\\dummy-sheet0.bmp"
+IDB_BITMAP12            BITMAP                  "..\\res\\dummy-sheet0.bmp"
 
-IDB_BITMAP13            BITMAP                  "..\\..\\..\\bmpSrc\\dummy-sheet1.bmp"
+IDB_BITMAP13            BITMAP                  "..\\res\\dummy-sheet1.bmp"
 
-IDB_BITMAP14            BITMAP                  "..\\..\\..\\bmpSrc\\espada-sheet0.bmp"
+IDB_BITMAP14            BITMAP                  "..\\res\\espada-sheet0.bmp"
 
-IDB_BITMAP15            BITMAP                  "..\\..\\..\\bmpSrc\\loading-logo.bmp"
+IDB_BITMAP15            BITMAP                  "..\\res\\loading-logo.bmp"
 
-IDB_BITMAP16            BITMAP                  "..\\..\\..\\bmpSrc\\lstart-sheet0.bmp"
+IDB_BITMAP16            BITMAP                  "..\\res\\lstart-sheet0.bmp"
 
-IDB_BITMAP17            BITMAP                  "..\\..\\..\\bmpSrc\\menulightflare-sheet0.bmp"
+IDB_BITMAP17            BITMAP                  "..\\res\\menulightflare-sheet0.bmp"
 
-IDB_BITMAP18            BITMAP                  "..\\..\\..\\bmpSrc\\particles8.bmp"
+IDB_BITMAP18            BITMAP                  "..\\res\\particles8.bmp"
 
-IDB_BITMAP19            BITMAP                  "..\\..\\..\\bmpSrc\\particles9.bmp"
+IDB_BITMAP19            BITMAP                  "..\\res\\particles9.bmp"
 
-IDB_BITMAP20            BITMAP                  "..\\..\\..\\bmpSrc\\player-sheet0.bmp"
+IDB_BITMAP20            BITMAP                  "..\\res\\player-sheet0.bmp"
 
-IDB_BITMAP21            BITMAP                  "..\\..\\..\\bmpSrc\\player-sheet1.bmp"
+IDB_BITMAP21            BITMAP                  "..\\res\\player-sheet1.bmp"
 
-IDB_BITMAP23            BITMAP                  "..\\..\\..\\bmpSrc\\precio1-sheet0.bmp"
+IDB_BITMAP23            BITMAP                  "..\\res\\precio1-sheet0.bmp"
 
-IDB_BITMAP24            BITMAP                  "..\\..\\..\\bmpSrc\\precio2-sheet0.bmp"
+IDB_BITMAP24            BITMAP                  "..\\res\\precio2-sheet0.bmp"
 
-IDB_BITMAP25            BITMAP                  "..\\..\\..\\bmpSrc\\precio3-sheet0.bmp"
+IDB_BITMAP25            BITMAP                  "..\\res\\precio3-sheet0.bmp"
 
-IDB_BITMAP26            BITMAP                  "..\\..\\..\\bmpSrc\\precio4-sheet0.bmp"
+IDB_BITMAP26            BITMAP                  "..\\res\\precio4-sheet0.bmp"
 
-IDB_BITMAP27            BITMAP                  "..\\..\\..\\bmpSrc\\precio5-sheet0.bmp"
+IDB_BITMAP27            BITMAP                  "..\\res\\precio5-sheet0.bmp"
 
-IDB_BITMAP28            BITMAP                  "..\\..\\..\\bmpSrc\\projectile-sheet0.bmp"
+IDB_BITMAP28            BITMAP                  "..\\res\\projectile-sheet0.bmp"
 
-IDB_BITMAP29            BITMAP                  "..\\..\\..\\bmpSrc\\ring2-sheet0.bmp"
+IDB_BITMAP29            BITMAP                  "..\\res\\ring2-sheet0.bmp"
 
-IDB_BITMAP30            BITMAP                  "..\\..\\..\\bmpSrc\\ring-sheet0.bmp"
+IDB_BITMAP30            BITMAP                  "..\\res\\ring-sheet0.bmp"
 
-IDB_BITMAP31            BITMAP                  "..\\..\\..\\bmpSrc\\ship-sheet0.bmp"
+IDB_BITMAP31            BITMAP                  "..\\res\\ship-sheet0.bmp"
 
-IDB_BITMAP33            BITMAP                  "..\\..\\..\\bmpSrc\\shuri-sheet0.bmp"
+IDB_BITMAP33            BITMAP                  "..\\res\\shuri-sheet0.bmp"
 
-IDB_BITMAP34            BITMAP                  "..\\..\\..\\bmpSrc\\sprite9-sheet0.bmp"
+IDB_BITMAP34            BITMAP                  "..\\res\\sprite9-sheet0.bmp"
 
-IDB_BITMAP35            BITMAP                  "..\\..\\..\\bmpSrc\\sprite11-sheet0.bmp"
+IDB_BITMAP35            BITMAP                  "..\\res\\sprite11-sheet0.bmp"
 
-IDB_BITMAP36            BITMAP                  "..\\..\\..\\bmpSrc\\sprite15-sheet0.bmp"
+IDB_BITMAP36            BITMAP                  "..\\res\\sprite15-sheet0.bmp"
 
-IDB_BITMAP37            BITMAP                  "..\\..\\..\\bmpSrc\\sprite25-sheet0.bmp"
+IDB_BITMAP37            BITMAP                  "..\\res\\sprite25-sheet0.bmp"
 
-IDB_BITMAP38            BITMAP                  "..\\..\\..\\bmpSrc\\sprite28-sheet0.bmp"
+IDB_BITMAP38            BITMAP                  "..\\res\\sprite28-sheet0.bmp"
 
-IDB_BITMAP39            BITMAP                  "..\\..\\..\\bmpSrc\\sprite29-sheet0.bmp"
+IDB_BITMAP39            BITMAP                  "..\\res\\sprite29-sheet0.bmp"
 
-IDB_BITMAP40            BITMAP                  "..\\..\\..\\bmpSrc\\sprite33-sheet0.bmp"
+IDB_BITMAP40            BITMAP                  "..\\res\\sprite33-sheet0.bmp"
 
-IDB_BITMAP41            BITMAP                  "..\\..\\..\\bmpSrc\\sprite33-sheet1.bmp"
+IDB_BITMAP41            BITMAP                  "..\\res\\sprite33-sheet1.bmp"
 
-IDB_BITMAP42            BITMAP                  "..\\..\\..\\bmpSrc\\sprite42-sheet0.bmp"
+IDB_BITMAP42            BITMAP                  "..\\res\\sprite42-sheet0.bmp"
 
-IDB_BITMAP43            BITMAP                  "..\\..\\..\\bmpSrc\\sprite44-sheet0.bmp"
+IDB_BITMAP43            BITMAP                  "..\\res\\sprite44-sheet0.bmp"
 
-IDB_BITMAP44            BITMAP                  "..\\..\\..\\bmpSrc\\sprite48-sheet0.bmp"
+IDB_BITMAP44            BITMAP                  "..\\res\\sprite48-sheet0.bmp"
 
-IDB_BITMAP45            BITMAP                  "..\\..\\..\\bmpSrc\\sprite49-sheet0.bmp"
+IDB_BITMAP45            BITMAP                  "..\\res\\sprite49-sheet0.bmp"
 
-IDB_BITMAP46            BITMAP                  "..\\..\\..\\bmpSrc\\sprite50-sheet0.bmp"
+IDB_BITMAP46            BITMAP                  "..\\res\\sprite50-sheet0.bmp"
 
-IDB_BITMAP47            BITMAP                  "..\\..\\..\\bmpSrc\\sprite51-sheet0.bmp"
+IDB_BITMAP47            BITMAP                  "..\\res\\sprite51-sheet0.bmp"
 
-IDB_BITMAP48            BITMAP                  "..\\..\\..\\bmpSrc\\sprite60-sheet0.bmp"
+IDB_BITMAP48            BITMAP                  "..\\res\\sprite60-sheet0.bmp"
 
-IDB_BITMAP49            BITMAP                  "..\\..\\..\\bmpSrc\\sprite61-sheet0.bmp"
+IDB_BITMAP49            BITMAP                  "..\\res\\sprite61-sheet0.bmp"
 
-IDB_BITMAP50            BITMAP                  "..\\..\\..\\bmpSrc\\sprite62-sheet0.bmp"
+IDB_BITMAP50            BITMAP                  "..\\res\\sprite62-sheet0.bmp"
 
-IDB_BITMAP51            BITMAP                  "..\\..\\..\\bmpSrc\\sprite63-sheet0.bmp"
+IDB_BITMAP51            BITMAP                  "..\\res\\sprite63-sheet0.bmp"
 
-IDB_BITMAP52            BITMAP                  "..\\..\\..\\bmpSrc\\sprite67-sheet0.bmp"
+IDB_BITMAP52            BITMAP                  "..\\res\\sprite67-sheet0.bmp"
 
-IDB_BITMAP53            BITMAP                  "..\\..\\..\\bmpSrc\\sprite68-sheet0.bmp"
+IDB_BITMAP53            BITMAP                  "..\\res\\sprite68-sheet0.bmp"
 
-IDB_BITMAP54            BITMAP                  "..\\..\\..\\bmpSrc\\sprite85-sheet0.bmp"
+IDB_BITMAP54            BITMAP                  "..\\res\\sprite85-sheet0.bmp"
 
-IDB_BITMAP55            BITMAP                  "..\\..\\..\\bmpSrc\\sprite92-sheet0.bmp"
+IDB_BITMAP55            BITMAP                  "..\\res\\sprite92-sheet0.bmp"
 
-IDB_BITMAP56            BITMAP                  "..\\..\\..\\bmpSrc\\sprite92-sheet1.bmp"
+IDB_BITMAP56            BITMAP                  "..\\res\\sprite92-sheet1.bmp"
 
-IDB_BITMAP57            BITMAP                  "..\\..\\..\\bmpSrc\\sprite96-sheet0.bmp"
+IDB_BITMAP57            BITMAP                  "..\\res\\sprite96-sheet0.bmp"
 
-IDB_BITMAP58            BITMAP                  "..\\..\\..\\bmpSrc\\sprite97-sheet0.bmp"
+IDB_BITMAP58            BITMAP                  "..\\res\\sprite97-sheet0.bmp"
 
-IDB_BITMAP59            BITMAP                  "..\\..\\..\\bmpSrc\\sprite98-sheet0.bmp"
+IDB_BITMAP59            BITMAP                  "..\\res\\sprite98-sheet0.bmp"
 
-IDB_BITMAP60            BITMAP                  "..\\..\\..\\bmpSrc\\sprite109-sheet0.bmp"
+IDB_BITMAP60            BITMAP                  "..\\res\\sprite109-sheet0.bmp"
 
-IDB_BITMAP61            BITMAP                  "..\\..\\..\\bmpSrc\\sprite116-sheet0.bmp"
+IDB_BITMAP61            BITMAP                  "..\\res\\sprite116-sheet0.bmp"
 
-IDB_BITMAP62            BITMAP                  "..\\..\\..\\bmpSrc\\sprite126-sheet0.bmp"
+IDB_BITMAP62            BITMAP                  "..\\res\\sprite126-sheet0.bmp"
 
-IDB_BITMAP63            BITMAP                  "..\\..\\..\\bmpSrc\\sprite139-sheet0.bmp"
+IDB_BITMAP63            BITMAP                  "..\\res\\sprite139-sheet0.bmp"
 
-IDB_BITMAP64            BITMAP                  "..\\..\\..\\bmpSrc\\sprite144-sheet0.bmp"
+IDB_BITMAP64            BITMAP                  "..\\res\\sprite144-sheet0.bmp"
 
-IDB_BITMAP65            BITMAP                  "..\\..\\..\\bmpSrc\\sprite145-sheet0.bmp"
+IDB_BITMAP65            BITMAP                  "..\\res\\sprite145-sheet0.bmp"
 
-IDB_BITMAP66            BITMAP                  "..\\..\\..\\bmpSrc\\sprite149-sheet0.bmp"
+IDB_BITMAP66            BITMAP                  "..\\res\\sprite149-sheet0.bmp"
 
-IDB_BITMAP67            BITMAP                  "..\\..\\..\\bmpSrc\\sprite150-sheet0.bmp"
+IDB_BITMAP67            BITMAP                  "..\\res\\sprite150-sheet0.bmp"
 
-IDB_BITMAP68            BITMAP                  "..\\..\\..\\bmpSrc\\sprite153-sheet0.bmp"
+IDB_BITMAP68            BITMAP                  "..\\res\\sprite153-sheet0.bmp"
 
-IDB_BITMAP69            BITMAP                  "..\\..\\..\\bmpSrc\\sprite154-sheet0.bmp"
+IDB_BITMAP69            BITMAP                  "..\\res\\sprite154-sheet0.bmp"
 
-IDB_BITMAP70            BITMAP                  "..\\..\\..\\bmpSrc\\sprite155-sheet0.bmp"
+IDB_BITMAP70            BITMAP                  "..\\res\\sprite155-sheet0.bmp"
 
-IDB_BITMAP71            BITMAP                  "..\\..\\..\\bmpSrc\\sprite156-sheet0.bmp"
+IDB_BITMAP71            BITMAP                  "..\\res\\sprite156-sheet0.bmp"
 
-IDB_BITMAP72            BITMAP                  "..\\..\\..\\bmpSrc\\sprite157-sheet0.bmp"
+IDB_BITMAP72            BITMAP                  "..\\res\\sprite157-sheet0.bmp"
 
-IDB_BITMAP73            BITMAP                  "..\\..\\..\\bmpSrc\\sprite158-sheet0.bmp"
+IDB_BITMAP73            BITMAP                  "..\\res\\sprite158-sheet0.bmp"
 
-IDB_BITMAP74            BITMAP                  "..\\..\\..\\bmpSrc\\sprite159-sheet0.bmp"
+IDB_BITMAP74            BITMAP                  "..\\res\\sprite159-sheet0.bmp"
 
-IDB_BITMAP75            BITMAP                  "..\\..\\..\\bmpSrc\\sprite160-sheet0.bmp"
+IDB_BITMAP75            BITMAP                  "..\\res\\sprite160-sheet0.bmp"
 
-IDB_BITMAP76            BITMAP                  "..\\..\\..\\bmpSrc\\sprite161-sheet0.bmp"
+IDB_BITMAP76            BITMAP                  "..\\res\\sprite161-sheet0.bmp"
 
-IDB_BITMAP77            BITMAP                  "..\\..\\..\\bmpSrc\\sprite162-sheet0.bmp"
+IDB_BITMAP77            BITMAP                  "..\\res\\sprite162-sheet0.bmp"
 
-IDB_BITMAP78            BITMAP                  "..\\..\\..\\bmpSrc\\sprite163-sheet0.bmp"
+IDB_BITMAP78            BITMAP                  "..\\res\\sprite163-sheet0.bmp"
 
-IDB_BITMAP79            BITMAP                  "..\\..\\..\\bmpSrc\\sprite164-sheet0.bmp"
+IDB_BITMAP79            BITMAP                  "..\\res\\sprite164-sheet0.bmp"
 
-IDB_BITMAP80            BITMAP                  "..\\..\\..\\bmpSrc\\sprite170-sheet0.bmp"
+IDB_BITMAP80            BITMAP                  "..\\res\\sprite170-sheet0.bmp"
 
-IDB_BITMAP81            BITMAP                  "..\\..\\..\\bmpSrc\\sprite171-sheet0.bmp"
+IDB_BITMAP81            BITMAP                  "..\\res\\sprite171-sheet0.bmp"
 
-IDB_BITMAP82            BITMAP                  "..\\..\\..\\bmpSrc\\sprite172-sheet0.bmp"
+IDB_BITMAP82            BITMAP                  "..\\res\\sprite172-sheet0.bmp"
 
-IDB_BITMAP83            BITMAP                  "..\\..\\..\\bmpSrc\\sprite173-sheet0.bmp"
+IDB_BITMAP83            BITMAP                  "..\\res\\sprite173-sheet0.bmp"
 
-IDB_BITMAP84            BITMAP                  "..\\..\\..\\bmpSrc\\sprite176-sheet0.bmp"
+IDB_BITMAP84            BITMAP                  "..\\res\\sprite176-sheet0.bmp"
 
-IDB_BITMAP85            BITMAP                  "..\\..\\..\\bmpSrc\\sprite178-sheet0.bmp"
+IDB_BITMAP85            BITMAP                  "..\\res\\sprite178-sheet0.bmp"
 
-IDB_BITMAP86            BITMAP                  "..\\..\\..\\bmpSrc\\sprite179-sheet0.bmp"
+IDB_BITMAP86            BITMAP                  "..\\res\\sprite179-sheet0.bmp"
 
-IDB_BITMAP87            BITMAP                  "..\\..\\..\\bmpSrc\\sprite180-sheet0.bmp"
+IDB_BITMAP87            BITMAP                  "..\\res\\sprite180-sheet0.bmp"
 
-IDB_BITMAP88            BITMAP                  "..\\..\\..\\bmpSrc\\sprite181-sheet0.bmp"
+IDB_BITMAP88            BITMAP                  "..\\res\\sprite181-sheet0.bmp"
 
-IDB_BITMAP89            BITMAP                  "..\\..\\..\\bmpSrc\\tiledbackground17.bmp"
+IDB_BITMAP89            BITMAP                  "..\\res\\tiledbackground17.bmp"
 
-IDB_BITMAP90            BITMAP                  "..\\..\\..\\bmpSrc\\upgrade1-sheet0.bmp"
+IDB_BITMAP90            BITMAP                  "..\\res\\upgrade1-sheet0.bmp"
 
-IDB_BITMAP91            BITMAP                  "..\\..\\..\\bmpSrc\\upgrade2-sheet0.bmp"
+IDB_BITMAP91            BITMAP                  "..\\res\\upgrade2-sheet0.bmp"
 
-IDB_BITMAP92            BITMAP                  "..\\..\\..\\bmpSrc\\upgrade3-sheet0.bmp"
+IDB_BITMAP92            BITMAP                  "..\\res\\upgrade3-sheet0.bmp"
 
-IDB_BITMAP93            BITMAP                  "..\\..\\..\\bmpSrc\\upgrade4-sheet0.bmp"
+IDB_BITMAP93            BITMAP                  "..\\res\\upgrade4-sheet0.bmp"
 
-IDB_BITMAP94            BITMAP                  "..\\..\\..\\bmpSrc\\upgrade9-sheet0.bmp"
+IDB_BITMAP94            BITMAP                  "..\\res\\upgrade9-sheet0.bmp"
 
-IDB_BITMAP95            BITMAP                  "..\\..\\..\\bmpSrc\\upgrade10-sheet0.bmp"
+IDB_BITMAP95            BITMAP                  "..\\res\\upgrade10-sheet0.bmp"
 
-IDB_BITMAP96            BITMAP                  "..\\..\\..\\running\\1.bmp"
+IDB_BITMAP96            BITMAP                  "..\\res\\1.bmp"
 
-IDB_BITMAP97            BITMAP                  "..\\..\\..\\running\\2.bmp"
+IDB_BITMAP97            BITMAP                  "..\\res\\2.bmp"
 
-IDB_BITMAP98            BITMAP                  "..\\..\\..\\running\\3.bmp"
+IDB_BITMAP98            BITMAP                  "..\\res\\3.bmp"
 
-IDB_BITMAP99            BITMAP                  "..\\..\\..\\running\\4.bmp"
+IDB_BITMAP99            BITMAP                  "..\\res\\4.bmp"
 
-IDB_BITMAP100           BITMAP                  "..\\..\\..\\running\\5.bmp"
+IDB_BITMAP100           BITMAP                  "..\\res\\5.bmp"
 
-IDB_BITMAP101           BITMAP                  "..\\..\\..\\running\\6.bmp"
+IDB_BITMAP101           BITMAP                  "..\\res\\6.bmp"
 
-IDB_BITMAP102           BITMAP                  "..\\..\\..\\running\\7.bmp"
+IDB_BITMAP102           BITMAP                  "..\\res\\7.bmp"
 
-IDB_BITMAP103           BITMAP                  "..\\..\\..\\running\\8.bmp"
+IDB_BITMAP103           BITMAP                  "..\\res\\8.bmp"
 
-IDB_BITMAP104           BITMAP                  "..\\..\\..\\running\\9.bmp"
+IDB_BITMAP104           BITMAP                  "..\\res\\9.bmp"
 
-IDB_BITMAP105           BITMAP                  "..\\..\\..\\running\\10.bmp"
+IDB_BITMAP105           BITMAP                  "..\\res\\10.bmp"
 
-IDB_BITMAP106           BITMAP                  "..\\..\\..\\running\\11.bmp"
+IDB_BITMAP106           BITMAP                  "..\\res\\11.bmp"
 
-IDB_BITMAP107           BITMAP                  "..\\..\\..\\running\\12.bmp"
+IDB_BITMAP107           BITMAP                  "..\\res\\12.bmp"
 
-IDB_BITMAP108           BITMAP                  "..\\..\\..\\running\\13.bmp"
+IDB_BITMAP108           BITMAP                  "..\\res\\13.bmp"
 
-IDB_BITMAP109           BITMAP                  "..\\..\\..\\running\\14.bmp"
+IDB_BITMAP109           BITMAP                  "..\\res\\14.bmp"
 
-IDB_BITMAP110           BITMAP                  "..\\..\\..\\running\\15.bmp"
+IDB_BITMAP110           BITMAP                  "..\\res\\15.bmp"
 
-IDB_BITMAP111           BITMAP                  "..\\..\\..\\running\\16.bmp"
+IDB_BITMAP111           BITMAP                  "..\\res\\16.bmp"
 
-IDB_BITMAP112           BITMAP                  "..\\..\\..\\running\\17.bmp"
+IDB_BITMAP112           BITMAP                  "..\\res\\17.bmp"
 
-IDB_BITMAP113           BITMAP                  "..\\..\\..\\running\\18.bmp"
+IDB_BITMAP113           BITMAP                  "..\\res\\18.bmp"
 
-IDB_BITMAP114           BITMAP                  "..\\..\\..\\running\\19.bmp"
+IDB_BITMAP114           BITMAP                  "..\\res\\19.bmp"
 
-IDB_BITMAP115           BITMAP                  "..\\..\\..\\running\\20.bmp"
+IDB_BITMAP115           BITMAP                  "..\\res\\20.bmp"
 
-IDB_BITMAP116           BITMAP                  "..\\..\\..\\running\\21.bmp"
+IDB_BITMAP116           BITMAP                  "..\\res\\21.bmp"
 
-IDB_BITMAP117           BITMAP                  "..\\..\\..\\running\\22.bmp"
+IDB_BITMAP117           BITMAP                  "..\\res\\22.bmp"
 
-IDB_BITMAP118           BITMAP                  "..\\..\\..\\running\\23.bmp"
+IDB_BITMAP118           BITMAP                  "..\\res\\23.bmp"
 
-IDB_BITMAP119           BITMAP                  "..\\..\\..\\running\\24.bmp"
+IDB_BITMAP119           BITMAP                  "..\\res\\24.bmp"
 
-IDB_BITMAP120           BITMAP                  "..\\..\\..\\running\\25.bmp"
+IDB_BITMAP120           BITMAP                  "..\\res\\25.bmp"
 
-IDB_BITMAP121           BITMAP                  "..\\..\\..\\running\\26.bmp"
+IDB_BITMAP121           BITMAP                  "..\\res\\26.bmp"
 
-IDB_BITMAP122           BITMAP                  "..\\..\\..\\running\\27.bmp"
+IDB_BITMAP122           BITMAP                  "..\\res\\27.bmp"
 
-IDB_BITMAP123           BITMAP                  "..\\..\\..\\running\\28.bmp"
+IDB_BITMAP123           BITMAP                  "..\\res\\28.bmp"
 
-IDB_BITMAP124           BITMAP                  "..\\..\\..\\running\\29.bmp"
+IDB_BITMAP124           BITMAP                  "..\\res\\29.bmp"
 
-IDB_BITMAP125           BITMAP                  "..\\..\\..\\running\\30.bmp"
+IDB_BITMAP125           BITMAP                  "..\\res\\30.bmp"
 
-IDB_BITMAP126           BITMAP                  "..\\..\\..\\running\\31.bmp"
+IDB_BITMAP126           BITMAP                  "..\\res\\31.bmp"
 
-IDB_BITMAP127           BITMAP                  "..\\..\\..\\running\\32.bmp"
+IDB_BITMAP127           BITMAP                  "..\\res\\32.bmp"
 
-IDB_BITMAP128           BITMAP                  "..\\..\\..\\running\\33.bmp"
+IDB_BITMAP128           BITMAP                  "..\\res\\33.bmp"
 
-IDB_BITMAP129           BITMAP                  "..\\..\\..\\running\\34.bmp"
+IDB_BITMAP129           BITMAP                  "..\\res\\34.bmp"
 
-IDB_BITMAP130           BITMAP                  "..\\..\\..\\running\\35.bmp"
+IDB_BITMAP130           BITMAP                  "..\\res\\35.bmp"
 
-IDB_BITMAP131           BITMAP                  "..\\..\\..\\running\\36.bmp"
+IDB_BITMAP131           BITMAP                  "..\\res\\36.bmp"
 
-IDB_BITMAP132           BITMAP                  "..\\..\\..\\running\\37.bmp"
+IDB_BITMAP132           BITMAP                  "..\\res\\37.bmp"
 
-IDB_BITMAP133           BITMAP                  "..\\..\\..\\running\\38.bmp"
+IDB_BITMAP133           BITMAP                  "..\\res\\38.bmp"
 
-IDB_BITMAP134           BITMAP                  "..\\..\\..\\running\\39.bmp"
+IDB_BITMAP134           BITMAP                  "..\\res\\39.bmp"
 
-IDB_BITMAP135           BITMAP                  "..\\..\\..\\running\\40.bmp"
+IDB_BITMAP135           BITMAP                  "..\\res\\40.bmp"
 
-IDB_BITMAP136           BITMAP                  "..\\..\\..\\running\\41.bmp"
+IDB_BITMAP136           BITMAP                  "..\\res\\41.bmp"
 
-IDB_BITMAP137           BITMAP                  "..\\..\\..\\running\\42.bmp"
+IDB_BITMAP137           BITMAP                  "..\\res\\42.bmp"
 
-IDB_BITMAP138           BITMAP                  "..\\..\\..\\running\\43.bmp"
+IDB_BITMAP138           BITMAP                  "..\\res\\43.bmp"
 
-IDB_BITMAP139           BITMAP                  "..\\..\\..\\running\\44.bmp"
+IDB_BITMAP139           BITMAP                  "..\\res\\44.bmp"
 
-IDB_BITMAP140           BITMAP                  "..\\..\\..\\running\\45.bmp"
+IDB_BITMAP140           BITMAP                  "..\\res\\45.bmp"
 
-IDB_BITMAP141           BITMAP                  "..\\..\\..\\running\\46.bmp"
+IDB_BITMAP141           BITMAP                  "..\\res\\46.bmp"
 
-IDB_BITMAP142           BITMAP                  "..\\..\\..\\running\\47.bmp"
+IDB_BITMAP142           BITMAP                  "..\\res\\47.bmp"
 
-IDB_BITMAP143           BITMAP                  "..\\..\\..\\running\\48.bmp"
+IDB_BITMAP143           BITMAP                  "..\\res\\48.bmp"
 
-IDB_BITMAP144           BITMAP                  "..\\..\\..\\running\\49.bmp"
+IDB_BITMAP144           BITMAP                  "..\\res\\49.bmp"
 
-IDB_BITMAP145           BITMAP                  "..\\..\\..\\running\\50.bmp"
+IDB_BITMAP145           BITMAP                  "..\\res\\50.bmp"
 
-IDB_BITMAP146           BITMAP                  "..\\..\\..\\running\\51.bmp"
+IDB_BITMAP146           BITMAP                  "..\\res\\51.bmp"
 
-IDB_BITMAP147           BITMAP                  "..\\..\\..\\running\\52.bmp"
+IDB_BITMAP147           BITMAP                  "..\\res\\52.bmp"
 
-IDB_BITMAP148           BITMAP                  "..\\..\\..\\running\\53.bmp"
+IDB_BITMAP148           BITMAP                  "..\\res\\53.bmp"
 
-IDB_BITMAP149           BITMAP                  "..\\..\\..\\running\\j1.bmp"
+IDB_BITMAP149           BITMAP                  "..\\res\\j1.bmp"
 
-IDB_BITMAP150           BITMAP                  "..\\..\\..\\running\\j2.bmp"
+IDB_BITMAP150           BITMAP                  "..\\res\\j2.bmp"
 
-IDB_BITMAP151           BITMAP                  "..\\..\\..\\running\\j3.bmp"
+IDB_BITMAP151           BITMAP                  "..\\res\\j3.bmp"
 
-IDB_BITMAP152           BITMAP                  "..\\..\\..\\running\\j4.bmp"
+IDB_BITMAP152           BITMAP                  "..\\res\\j4.bmp"
 
-IDB_BITMAP153           BITMAP                  "..\\..\\..\\running\\j5.bmp"
+IDB_BITMAP153           BITMAP                  "..\\res\\j5.bmp"
 
-IDB_BITMAP154           BITMAP                  "..\\..\\..\\running\\j6.bmp"
+IDB_BITMAP154           BITMAP                  "..\\res\\j6.bmp"
 
-IDB_BITMAP155           BITMAP                  "..\\..\\..\\bmpsrc\\bitmap15.bmp"
+IDB_BITMAP155           BITMAP                  "..\\res\\bitmap15.bmp"
 
-IDB_BITMAP156           BITMAP                  "..\\..\\..\\bmpSrc\\revise2.bmp"
+IDB_BITMAP156           BITMAP                  "..\\res\\revise2.bmp"
 
-IDB_BITMAP157           BITMAP                  "..\\..\\..\\bmpsrc\\bmp00001.bmp"
+IDB_BITMAP157           BITMAP                  "..\\res\\bmp00001.bmp"
 
-IDB_BITMAP158           BITMAP                  "..\\..\\..\\bmpSrc\\frame.bmp"
+IDB_BITMAP158           BITMAP                  "..\\res\\frame.bmp"
 
 IDB_BITMAP159           BITMAP                  "..\\RES\\attack.bmp"
 
@@ -440,9 +440,9 @@ IDB_BITMAP171           BITMAP                  "..\\RES\\sprite48-sheet0.bmp"
 
 IDB_BITMAP172           BITMAP                  "..\\RES\\sprite49-sheet0.bmp"
 
-IDB_BITMAP173           BITMAP                  "..\\..\\..\\enemy\\enemy14.bmp"
+IDB_BITMAP173           BITMAP                  "..\\res\\enemy14.bmp"
 
-IDB_BITMAP174           BITMAP                  "..\\..\\..\\enemy\\enemy15.bmp"
+IDB_BITMAP174           BITMAP                  "..\\res\\enemy15.bmp"
 
 IDB_BITMAP175           BITMAP                  "..\\RES\\enemy_green_2.bmp"
 
@@ -452,19 +452,19 @@ IDB_BITMAP177           BITMAP                  "..\\RES\\enemy_green_1.bmp"
 
 IDB_BITMAP178           BITMAP                  "..\\RES\\enemy_green_4.bmp"
 
-IDB_BITMAP179           BITMAP                  "..\\..\\..\\enemy\\enemy0.bmp"
+IDB_BITMAP179           BITMAP                  "..\\res\\enemy0.bmp"
 
-IDB_BITMAP180           BITMAP                  "..\\..\\..\\enemy\\enemy1.bmp"
+IDB_BITMAP180           BITMAP                  "..\\res\\enemy1.bmp"
 
-IDB_BITMAP181           BITMAP                  "..\\..\\..\\enemy\\enemy2.bmp"
+IDB_BITMAP181           BITMAP                  "..\\res\\enemy2.bmp"
 
-IDB_BITMAP182           BITMAP                  "..\\..\\..\\enemy\\enemy3.bmp"
+IDB_BITMAP182           BITMAP                  "..\\res\\enemy3.bmp"
 
-IDB_BITMAP183           BITMAP                  "..\\..\\..\\enemy\\enemy4.bmp"
+IDB_BITMAP183           BITMAP                  "..\\res\\enemy4.bmp"
 
-IDB_BITMAP184           BITMAP                  "..\\..\\..\\enemy\\enemy5.bmp"
+IDB_BITMAP184           BITMAP                  "..\\res\\enemy5.bmp"
 
-IDB_BITMAP185           BITMAP                  "..\\..\\..\\enemy\\enemy6.bmp"
+IDB_BITMAP185           BITMAP                  "..\\res\\enemy6.bmp"
 
 IDB_BITMAP186           BITMAP                  "..\\RES\\block.bmp"
 
@@ -511,6 +511,8 @@ IDB_BITMAP206           BITMAP                  "..\\RES\\3.bmp"
 IDB_BITMAP207           BITMAP                  "..\\RES\\2.bmp"
 
 IDB_BITMAP208           BITMAP                  "..\\RES\\1.bmp"
+
+IDB_BITMAP209           BITMAP                  "C:\\Users\\twm20\\OneDrive\\¤å¥ó\\GitTutorial\\game4.10\\game4.10\\RES\\background_2.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
